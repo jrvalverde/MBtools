@@ -1,0 +1,118 @@
+\section{P\_\-bits.c File Reference}
+\label{P__bits_8c}\index{P_bits.c@{P\_\-bits.c}}
+Bit manipulation routines. 
+
+
+{\tt \#include $<$stdio.h$>$}\par
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf \_\-bv}
+\begin{CompactList}\small\item\em Bit vector structure.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf \_\-bv} $\ast$ {\bf bit\_\-vector}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf bit\_\-vector} {\bf bv\_\-new} (bits) unsigned bits
+\begin{CompactList}\small\item\em bit\_\-vector {\bf bv\_\-new}(bits) {\rm (p.\,\pageref{P__bits_8c_a6})} Create a new bit vector and set to zeros Reserve the memory space needed for the bit vector.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char {\bf value}
+\item 
+unsigned {\bf bitnum}
+\item 
+{\bf \_\-bv} $\ast$ {\bf bv2}
+\item 
+{\bf \_\-bv} $\ast$ {\bf bv3}
+\item 
+{\bf \_\-bv} $\ast$ {\bf bv}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Bit manipulation routines.
+
+ 
+
+ M\'{o}dulo con rutinas de manipulaci\'{o}n de vectores de bits extra\'{\i}do de una librer\'{\i}a de rutinas para CP/M
+
+CONTENIDO: bv\_\-new(bv, bits) bv\_\-fill(bv, value) bv\_\-set(bv, bitnum) bv\_\-test(bv, bitnum) bv\_\-nz(bv) bv\_\-and(bv3, bv1, bv2) bv\_\-or(bv3, bv1, bv2) bv\_\-xor(bv3, bv1, bv2) bv\_\-disp(title, bv)
+
+\begin{Desc}
+\item[Precondition: ]\par
+stdio.h \par
+alloc.h \par
+mem.h\end{Desc}
+ULTIMA MODIFICACION: LIBRARY.C, LIBRARY.H by A. J.-L. (1983) Traducci\'{o}n al castellano (1986) Extracci\'{o}n e implementaci\'{o}n en PC-AT (Jos\'{e} Ram\'{o}n Valverde Carrillo, 1989)
+
+\begin{Desc}
+\item[Author: ]\par
+Andy Johnson-Laird. The programmer's CP/M handbook. Ed. Osborne / Mc\-Graw-Hill. 1983\end{Desc}
+COPYRIGHT: Mc\-Graw-Hill (1983)
+
+
+
+\subsection{Typedef Documentation}
+\index{P_bits.c@{P\_\-bits.c}!bit_vector@{bit\_\-vector}}
+\index{bit_vector@{bit\_\-vector}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-bv}$\ast$ bit\_\-vector}\label{P__bits_8c_a0}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_bits.c@{P\_\-bits.c}!bv_new@{bv\_\-new}}
+\index{bv_new@{bv\_\-new}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bit\_\-vector} bv\_\-new (bits)}\label{P__bits_8c_a6}
+
+
+bit\_\-vector {\bf bv\_\-new}(bits) {\rm (p.\,\pageref{P__bits_8c_a6})} Create a new bit vector and set to zeros Reserve the memory space needed for the bit vector.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+bits}]size in bits of the vector \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+a new bit vector, or NULL if there is not enough memory \end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{P_bits.c@{P\_\-bits.c}!bitnum@{bitnum}}
+\index{bitnum@{bitnum}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned bitnum}\label{P__bits_8c_a2}
+
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+N}]\'{u}mero de bit a fijar \end{description}
+\end{Desc}
+\index{P_bits.c@{P\_\-bits.c}!bv@{bv}}
+\index{bv@{bv}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \_\-bv}$\ast$ bv}\label{P__bits_8c_a5}
+
+
+\index{P_bits.c@{P\_\-bits.c}!bv2@{bv2}}
+\index{bv2@{bv2}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \_\-bv} $\ast$ bv2}\label{P__bits_8c_a3}
+
+
+\index{P_bits.c@{P\_\-bits.c}!bv3@{bv3}}
+\index{bv3@{bv3}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \_\-bv} $\ast$ bv3}\label{P__bits_8c_a4}
+
+
+\index{P_bits.c@{P\_\-bits.c}!value@{value}}
+\index{value@{value}!P_bits.c@{P\_\-bits.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char value}\label{P__bits_8c_a1}
+
+

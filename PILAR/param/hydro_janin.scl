@@ -1,0 +1,25 @@
+; Janin, J. (1979) Surface and inside volumes in globular
+; proteins. Nature (London) 277, 491-492
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	0.3
+Cys	0.9
+Asp	-0.6
+Glu	-0.7
+Phe	0.5
+Gly	0.3
+His	-0.1
+Ile	0.7
+Lys	-1.8
+Leu	0.5
+Met	0.4
+Asn	-0.5
+Pro	-0.3
+Gln	-0.7
+Arg	-1.4
+Ser	-0.1
+Thr	-0.2
+Val	0.6
+Trp	0.3
+Tyr	-0.4

@@ -1,0 +1,120 @@
+\section{P\_\-list.h File Reference}
+\label{P__list_8h}\index{P_list.h@{P\_\-list.h}}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf list\_\-t} {\bf new\_\-list} ()
+\item 
+{\bf l\_\-node\_\-t} $\ast$ {\bf new\_\-node} (info\_\-t $\ast$, {\bf l\_\-node\_\-t} $\ast$)
+\item 
+{\bf boolean} {\bf list\_\-put} (info\_\-t $\ast$, {\bf list\_\-t})
+\item 
+{\bf boolean} {\bf list\_\-insert} (info\_\-t $\ast$, {\bf l\_\-node\_\-t} $\ast$, {\bf list\_\-t})
+\item 
+{\bf boolean} {\bf list\_\-append} (info\_\-t $\ast$, {\bf list\_\-t})
+\item 
+info\_\-t $\ast$ {\bf list\_\-del\_\-node} ({\bf list\_\-t})
+\item 
+info\_\-t $\ast$ {\bf list\_\-del\_\-next} ({\bf l\_\-node\_\-t} $\ast$, {\bf list\_\-t})
+\item 
+int {\bf list\_\-length} ({\bf list\_\-t})
+\item 
+info\_\-t $\ast$ {\bf list\_\-first} ({\bf list\_\-t})
+\item 
+info\_\-t $\ast$ {\bf list\_\-last} ({\bf list\_\-t})
+\item 
+info\_\-t $\ast$ {\bf list\_\-next} ({\bf list\_\-t})
+\item 
+void {\bf list\_\-reset} ({\bf list\_\-t})
+\item 
+{\bf bool} {\bf list\_\-find} ({\bf list\_\-t}, info\_\-t $\ast$, int($\ast$)())
+\item 
+void {\bf list\_\-traverse} ({\bf list\_\-t}, void($\ast$)())
+\item 
+info\_\-t $\ast$ {\bf list\_\-del\_\-first} ({\bf list\_\-t})
+\item 
+info\_\-t $\ast$ {\bf list\_\-delete} ({\bf list\_\-t}, info\_\-t $\ast$, int($\ast$)())
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{P_list.h@{P\_\-list.h}!list_append@{list\_\-append}}
+\index{list_append@{list\_\-append}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf boolean} list\_\-append (info\_\-t $\ast$, {\bf list\_\-t})}\label{P__list_8h_a4}
+
+
+\index{P_list.h@{P\_\-list.h}!list_del_first@{list\_\-del\_\-first}}
+\index{list_del_first@{list\_\-del\_\-first}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-del\_\-first ({\bf list\_\-t})}\label{P__list_8h_a14}
+
+
+\index{P_list.h@{P\_\-list.h}!list_del_next@{list\_\-del\_\-next}}
+\index{list_del_next@{list\_\-del\_\-next}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-del\_\-next ({\bf l\_\-node\_\-t} $\ast$, {\bf list\_\-t})}\label{P__list_8h_a6}
+
+
+\index{P_list.h@{P\_\-list.h}!list_del_node@{list\_\-del\_\-node}}
+\index{list_del_node@{list\_\-del\_\-node}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-del\_\-node ({\bf list\_\-t})}\label{P__list_8h_a5}
+
+
+\index{P_list.h@{P\_\-list.h}!list_delete@{list\_\-delete}}
+\index{list_delete@{list\_\-delete}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-delete ({\bf list\_\-t}, info\_\-t $\ast$, int($\ast$)())}\label{P__list_8h_a15}
+
+
+\index{P_list.h@{P\_\-list.h}!list_find@{list\_\-find}}
+\index{list_find@{list\_\-find}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} list\_\-find ({\bf list\_\-t}, info\_\-t $\ast$, int($\ast$)())}\label{P__list_8h_a12}
+
+
+\index{P_list.h@{P\_\-list.h}!list_first@{list\_\-first}}
+\index{list_first@{list\_\-first}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-first ({\bf list\_\-t})}\label{P__list_8h_a8}
+
+
+\index{P_list.h@{P\_\-list.h}!list_insert@{list\_\-insert}}
+\index{list_insert@{list\_\-insert}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf boolean} list\_\-insert (info\_\-t $\ast$, {\bf l\_\-node\_\-t} $\ast$, {\bf list\_\-t})}\label{P__list_8h_a3}
+
+
+\index{P_list.h@{P\_\-list.h}!list_last@{list\_\-last}}
+\index{list_last@{list\_\-last}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-last ({\bf list\_\-t})}\label{P__list_8h_a9}
+
+
+\index{P_list.h@{P\_\-list.h}!list_length@{list\_\-length}}
+\index{list_length@{list\_\-length}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int list\_\-length ({\bf list\_\-t})}\label{P__list_8h_a7}
+
+
+\index{P_list.h@{P\_\-list.h}!list_next@{list\_\-next}}
+\index{list_next@{list\_\-next}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ list\_\-next ({\bf list\_\-t})}\label{P__list_8h_a10}
+
+
+\index{P_list.h@{P\_\-list.h}!list_put@{list\_\-put}}
+\index{list_put@{list\_\-put}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf boolean} list\_\-put (info\_\-t $\ast$, {\bf list\_\-t})}\label{P__list_8h_a2}
+
+
+\index{P_list.h@{P\_\-list.h}!list_reset@{list\_\-reset}}
+\index{list_reset@{list\_\-reset}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void list\_\-reset ({\bf list\_\-t})}\label{P__list_8h_a11}
+
+
+\index{P_list.h@{P\_\-list.h}!list_traverse@{list\_\-traverse}}
+\index{list_traverse@{list\_\-traverse}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void list\_\-traverse ({\bf list\_\-t}, void($\ast$)())}\label{P__list_8h_a13}
+
+
+\index{P_list.h@{P\_\-list.h}!new_list@{new\_\-list}}
+\index{new_list@{new\_\-list}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf list\_\-t} new\_\-list ()}\label{P__list_8h_a0}
+
+
+\index{P_list.h@{P\_\-list.h}!new_node@{new\_\-node}}
+\index{new_node@{new\_\-node}!P_list.h@{P\_\-list.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf l\_\-node\_\-t}$\ast$ new\_\-node (info\_\-t $\ast$, {\bf l\_\-node\_\-t} $\ast$)}\label{P__list_8h_a1}
+
+

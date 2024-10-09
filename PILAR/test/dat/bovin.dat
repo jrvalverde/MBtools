@@ -1,0 +1,71 @@
+Protein: yb_Bovin  Length: 379  December 15, 1992  16:34  Type: P  Check: 6353  ..
+ is 379 aa long
+
+List of regions found:
+
+1:	Regions for parameter kyte are:
+	1.1:	- begin 33	- end 52	- length 19
+	1.2:	- begin 86	- end 98	- length 12
+	1.3:	- begin 112	- end 133	- length 21
+	1.4:	- begin 140	- end 161	- length 21
+	1.5:	- begin 177	- end 200	- length 23
+	1.6:	- begin 227	- end 248	- length 21
+	1.7:	- begin 287	- end 306	- length 19
+	1.8:	- begin 318	- end 338	- length 20
+	1.9:	- begin 350	- end 369	- length 19
+
+
+2:	Regions for parameter alpha are:
+	2.1:	- begin 41	- end 44	- length 3
+	2.2:	- begin 48	- end 53	- length 5
+	2.3:	- begin 88	- end 91	- length 3
+	2.4:	- begin 119	- end 128	- length 9
+	2.5:	- begin 160	- end 163	- length 3
+	2.6:	- begin 171	- end 183	- length 12
+	2.7:	- begin 186	- end 201	- length 15
+	2.8:	- begin 228	- end 247	- length 19
+	2.9:	- begin 275	- end 280	- length 5
+	2.10:	- begin 291	- end 305	- length 14
+	2.11:	- begin 312	- end 315	- length 3
+	2.12:	- begin 323	- end 333	- length 10
+	2.13:	- begin 354	- end 357	- length 3
+	2.14:	- begin 358	- end 364	- length 6
+	2.15:	- begin 373	- end 379	- length 6
+
+
+3:	Regions for parameter beta are:
+	3.1:	- begin 0	- end 3	- length 3
+	3.2:	- begin 10	- end 18	- length 8
+	3.3:	- begin 27	- end 34	- length 7
+	3.4:	- begin 35	- end 54	- length 19
+	3.5:	- begin 61	- end 82	- length 21
+	3.6:	- begin 88	- end 107	- length 19
+	3.7:	- begin 108	- end 126	- length 18
+	3.8:	- begin 127	- end 135	- length 8
+	3.9:	- begin 140	- end 150	- length 10
+	3.10:	- begin 151	- end 167	- length 16
+	3.11:	- begin 174	- end 200	- length 26
+	3.12:	- begin 220	- end 229	- length 9
+	3.13:	- begin 230	- end 246	- length 16
+	3.14:	- begin 272	- end 283	- length 11
+	3.15:	- begin 288	- end 307	- length 19
+	3.16:	- begin 321	- end 340	- length 19
+	3.17:	- begin 345	- end 367	- length 22
+	3.18:	- begin 376	- end 379	- length 3
+
+
+4:	Regions for parameter turn are:
+	4.1:	- begin 8	- end 20	- length 12
+	4.2:	- begin 34	- end 69	- length 35
+	4.3:	- begin 87	- end 98	- length 11
+	4.4:	- begin 107	- end 134	- length 27
+	4.5:	- begin 136	- end 155	- length 19
+	4.6:	- begin 179	- end 203	- length 24
+	4.7:	- begin 224	- end 246	- length 22
+	4.8:	- begin 270	- end 280	- length 10
+	4.9:	- begin 289	- end 311	- length 22
+	4.10:	- begin 321	- end 339	- length 18
+	4.11:	- begin 346	- end 368	- length 22
+	4.12:	- begin 369	- end 379	- length 10
+
+The protein fulfills all the rules.

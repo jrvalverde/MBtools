@@ -1,0 +1,130 @@
+\section{P\_\-AVL.c File Reference}
+\label{P__AVL_8c}\index{P_AVL.c@{P\_\-AVL.c}}
+Module to operate on AVL trees. 
+
+
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf avl\_\-node}
+\begin{CompactList}\small\item\em A node in an AVL tree.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MOD\_\-DEBUG}\ FALSE
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef void $\ast$ {\bf item\_\-t}
+\item 
+typedef {\bf avl\_\-node} $\ast$ {\bf avl\_\-tree\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf horror} (char $\ast$routine, char $\ast$message)
+\item 
+void {\bf avl\_\-insert} (p, {\bf x}, {\bf compare}, {\bf h}) {\bf avl\_\-tree\_\-t} $\ast$p
+\item 
+void {\bf del} (r, {\bf h}) {\bf avl\_\-tree\_\-t} $\ast$r
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf item\_\-t} {\bf x}
+\item 
+int($\ast$ {\bf compare} )()
+\item 
+{\bf bool} $\ast$ {\bf h}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Module to operate on AVL trees.
+
+ 
+
+ Subroutines to manipulate generic AVL-trees (Avelson, Velskii \& Landis) for PILAR (Protein Identification and Library Access Resource).
+
+Subroutines: {\bf avl\_\-insert}(p, x, compare, h) {\rm (p.\,\pageref{P__AVL_8c_a7})} -- Search \& insertion in an AVL tree avl\_\-tree\_\-t $\ast$p; item\_\-t x; int ($\ast$compare)(); bool $\ast$h;
+
+avl\_\-delete(p, x, compare, h) -- Delete a key in an AVL tree avl\_\-tree\_\-t $\ast$p; item\_\-t x; int ($\ast$compare)(); bool $\ast$h;
+
+Notes: AVL trees are balanced trees: a tree is balanced if for each node the depths of its two subtrees differ in at most 1. Use only if information recovery is considerably more frequent than insertion.
+
+Caveats:
+
+Designed by: Jos\'{e} Ram\'{o}n Valverde Carrillo.
+
+History: 6-jan-1990 First implementation 6-jul-1990 Frist debugging session 1-aug-1991 Bug in AVL\_\-delete removed 1-aug-1991 Ported to ULTRIX sometime in 94 Ported to OSF/1 and fixed again bug an avl\_\-delete  that slipped in the latest freeze (tape backup used an  old version). 19-apr-1997 Ported to Linux and fixed again same bug that had slipped through again in last freeze (CD-ROM master used old wrong tape backup). 24-may-1997 Ported to Free\-BSD
+
+Copyright: This is Public Domain software. DO NOT use it for commercial purposes without prior written permission from the author. J. R. Valverde {\tt jr@es.embnet.org} OK {\tt jose@ebi.ac.uk} OUTDATED {\tt JRValverde@biomed.iib.uam.es} OUTDATED {\tt JRamon@uamed.uam.es} OUTDATED {\tt JRAMON@EMDUAM51} (BITNET, EARN) OUTDATED
+
+\begin{Desc}
+\item[Log: ]\par
+ P\_\-AVL.c,v \end{Desc}
+ Revision 1.2 1997/05/24 17:08:54 jr Ported to Free\-BSD
+
+Revision 1.1 1997/05/15 15:31:33 jr Initial revision
+
+
+
+\subsection{Define Documentation}
+\index{P_AVL.c@{P\_\-AVL.c}!MOD_DEBUG@{MOD\_\-DEBUG}}
+\index{MOD_DEBUG@{MOD\_\-DEBUG}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MOD\_\-DEBUG\ FALSE}\label{P__AVL_8c_a0}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{P_AVL.c@{P\_\-AVL.c}!avl_tree_t@{avl\_\-tree\_\-t}}
+\index{avl_tree_t@{avl\_\-tree\_\-t}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf avl\_\-node}$\ast$ avl\_\-tree\_\-t}\label{P__AVL_8c_a2}
+
+
+\index{P_AVL.c@{P\_\-AVL.c}!item_t@{item\_\-t}}
+\index{item_t@{item\_\-t}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ item\_\-t}\label{P__AVL_8c_a1}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_AVL.c@{P\_\-AVL.c}!avl_insert@{avl\_\-insert}}
+\index{avl_insert@{avl\_\-insert}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void avl\_\-insert (p, {\bf x}, {\bf compare}, {\bf h})}\label{P__AVL_8c_a7}
+
+
+\index{P_AVL.c@{P\_\-AVL.c}!del@{del}}
+\index{del@{del}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void del (r, {\bf h})\hspace{0.3cm}{\tt  [static]}}\label{P__AVL_8c_a8}
+
+
+\index{P_AVL.c@{P\_\-AVL.c}!horror@{horror}}
+\index{horror@{horror}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void horror (char $\ast$ {\em routine}, char $\ast$ {\em message})}\label{P__AVL_8c_a6}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_AVL.c@{P\_\-AVL.c}!compare@{compare}}
+\index{compare@{compare}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ compare)(info\_\-t $\ast$, info\_\-t $\ast$)}\label{P__AVL_8c_a4}
+
+
+\index{P_AVL.c@{P\_\-AVL.c}!h@{h}}
+\index{h@{h}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} $\ast$ h}\label{P__AVL_8c_a5}
+
+
+\index{P_AVL.c@{P\_\-AVL.c}!x@{x}}
+\index{x@{x}!P_AVL.c@{P\_\-AVL.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf item\_\-t} x}\label{P__AVL_8c_a3}
+
+

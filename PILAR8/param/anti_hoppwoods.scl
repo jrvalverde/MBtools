@@ -1,0 +1,26 @@
+; Hopp, T. P., and Woods, K. R. (1981) Prediction of protein
+; antigenic determinants from amino acid sequences. Proc. Natl.
+; Acad. Sci. U.S.A. 78, 3824-3828
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 107
+Arg	3.0
+Asp	3.0
+Glu	3.0
+Lys	3.0
+Ser	0.3
+Asn	0.2
+Gln	0.2
+Gly	0.0
+Pro	0.0
+Thr	-0.4
+Ala	-0.5
+His	-0.5
+Cys	-1.0
+Met	-1.3
+Val	-1.5
+Ile	-1.8
+Leu	-1.8
+Tyr	-2.3
+Phe	-2.5
+Trp	-3.4

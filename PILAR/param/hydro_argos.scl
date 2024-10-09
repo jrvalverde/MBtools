@@ -1,0 +1,26 @@
+; Argos, P. and Palau, J. (1982) Aminoacid distribution in
+; protein secondary structures. Int. J. Pept. Protein Res. 19,
+; 380-393
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	1.6
+Cys	1.2
+Asp	0.1
+Glu	0.2
+Phe	2.0
+Gly	0.6
+His	0.3
+Ile	1.7
+Lys	0.2
+Leu	2.9
+Met	3.0
+Asn	0.3
+Pro	0.8
+Gln	0.5
+Arg	0.5
+Ser	0.8
+Thr	0.9
+Val	1.1
+Trp	1.1
+Tyr	0.7

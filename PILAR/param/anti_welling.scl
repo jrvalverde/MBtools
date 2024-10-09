@@ -1,0 +1,26 @@
+; Welling, G. W., Weijer, W. J., van der Zee, R., and 
+; Welling-Wester, S. (1985) Prediction of sequential antigenic
+; regions in proteins. FEBS Lett. 188, 68-107
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 108
+Arg	0.058
+Asp	0.065
+Glu	-0.071
+Lys	0.206
+Ser	-0.026
+Asn	-0.077
+Gln	-0.011
+Gly	-0.184
+Pro	-0.053
+Thr	-0.045
+Ala	0.115
+His	0.312
+Cys	-0.120
+Met	-0.385
+Val	-0.013
+Ile	-0.292
+Leu	0.075
+Tyr	0.013
+Phe	-0.141
+Trp	-0.114

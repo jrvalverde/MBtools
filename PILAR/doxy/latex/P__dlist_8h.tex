@@ -1,0 +1,527 @@
+\section{P\_\-dlist.h File Reference}
+\label{P__dlist_8h}\index{P_dlist.h@{P\_\-dlist.h}}
+Definitions for the module {\bf P\_\-dlist.c}. 
+
+
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf dlist\_\-t} {\bf new\_\-dlist} ()
+\begin{CompactList}\small\item\em dlist\_\-t {\bf new\_\-dlist}() {\rm (p.\,\pageref{P__dlist_8h_a0})} Create a doubly linked list.\item\end{CompactList}\item 
+{\bf dl\_\-node\_\-t} $\ast$ {\bf new\_\-dlist} (info\_\-t $\ast$, {\bf dl\_\-node\_\-t} $\ast$, {\bf dl\_\-node\_\-t} $\ast$)
+\begin{CompactList}\small\item\em dl\_\-node\_\-t $\ast${\bf new\_\-dlist}(info\_\-t $\ast$, dl\_\-node\_\-t $\ast$, dl\_\-node\_\-t $\ast$) {\rm (p.\,\pageref{P__dlist_8h_a1})} Initialize a node for a doubly linked list.\item\end{CompactList}\item 
+{\bf boolean} {\bf dlist\_\-put} (info\_\-t $\ast$, {\bf dlist\_\-t})
+\begin{CompactList}\small\item\em boolean {\bf dlist\_\-put}(info\_\-t $\ast$, dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a2})} Insert an item at the beginning of a doubly linked list.\item\end{CompactList}\item 
+{\bf boolean} {\bf dlist\_\-append} (info\_\-t $\ast$, {\bf dlist\_\-t})
+\begin{CompactList}\small\item\em boolean {\bf dlist\_\-append}(info\_\-t $\ast$, dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a3})} Append data to the end of a doubly linked list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-del\_\-first} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-del\_\-first}(dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a4})} Erase the first node from a doubly linked list.\item\end{CompactList}\item 
+{\bf bool} {\bf dlist\_\-insert} (info\_\-t $\ast$, {\bf dl\_\-node\_\-t} $\ast$, {\bf dlist\_\-t})
+\begin{CompactList}\small\item\em bool {\bf dlist\_\-insert}(info\_\-t $\ast$, dl\_\-node\_\-t $\ast$, dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a5})} Insert a node after a given one in a doubly linked list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-del\_\-last} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-del\_\-last}(dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a6})} Delete last node in a doubly linked list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-del\_\-next} (info\_\-t $\ast$, {\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-del\_\-next}(info\_\-t $\ast$, dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a7})} Delete next node in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-del\_\-node} ({\bf dl\_\-node\_\-t} $\ast$, {\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-del\_\-node}(dl\_\-node\_\-t $\ast$, dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a8})} Delete this node in a doubly linked list.\item\end{CompactList}\item 
+int {\bf dlist\_\-length} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em int {\bf dlist\_\-length}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a9})} Return number of items stored in a list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-first} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-first}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a10})} Return first node in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-last} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-last}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a11})} Return last node in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-current} (list)
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-current}(list) {\rm (p.\,\pageref{P__dlist_8h_a12})} Return current node in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-next} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-next}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a13})} Return next item in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-prev} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-prev}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a14})} Return previous item in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-begset} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-begset}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a15})} Restore pointer to current node to the beginning of the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-endset} ({\bf dlist\_\-t})
+\begin{CompactList}\small\item\em info\_\-t $\ast${\bf dlist\_\-endset}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a16})} Restore pointer to current node to the ending of the list.\item\end{CompactList}\item 
+{\bf bool} {\bf dlist\_\-ffind} ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())
+\begin{CompactList}\small\item\em bool dlist\_\-ffind(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Look for a given value in a list.\item\end{CompactList}\item 
+{\bf bool} {\bf dlist\_\-bkfind} ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())
+\begin{CompactList}\small\item\em bool dlist\_\-bkfind(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Look for a given value in a list.\item\end{CompactList}\item 
+void {\bf dlist\_\-ftraverse} ({\bf dlist\_\-t}, void($\ast$)())
+\begin{CompactList}\small\item\em void dlist\_\-ftraverse(dlist\_\-t, void ($\ast$)()) Traverse a list forwards.\item\end{CompactList}\item 
+void {\bf dlist\_\-bktraverse} ({\bf dlist\_\-t}, void($\ast$)())
+\begin{CompactList}\small\item\em void dlist\_\-bktraverse(dlist\_\-t, void ($\ast$)()) Traverse a list backwards.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-fdelete} ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())
+\begin{CompactList}\small\item\em info\_\-t $\ast$dlist\_\-fdelete(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Remove an item in the list.\item\end{CompactList}\item 
+info\_\-t $\ast$ {\bf dlist\_\-bkdelete} ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())
+\begin{CompactList}\small\item\em info\_\-t $\ast$dlist\_\-bkdelete(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Remove an item in the list.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions for the module {\bf P\_\-dlist.c}.
+
+ 
+
+ \begin{Desc}
+\item[Precondition: ]\par
+{\bf portable.h} \par
+{\bf P\_\-types.h}\end{Desc}
+\begin{Desc}
+\item[See also: ]\par
+{\bf portable.h} , p\_\-types.h\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\begin{Desc}
+\item[Date: ]\par
+8-apr-1990\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_append@{dlist\_\-append}}
+\index{dlist_append@{dlist\_\-append}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf boolean} dlist\_\-append (info\_\-t $\ast$, {\bf dlist\_\-t})}\label{P__dlist_8h_a3}
+
+
+boolean {\bf dlist\_\-append}(info\_\-t $\ast$, dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a3})} Append data to the end of a doubly linked list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+DATA}]-- Information to append to the list \item[{\em 
+LIST}]-- List that will receive the item \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if all goes OK, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_begset@{dlist\_\-begset}}
+\index{dlist_begset@{dlist\_\-begset}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-begset ({\bf dlist\_\-t})}\label{P__dlist_8h_a15}
+
+
+info\_\-t $\ast${\bf dlist\_\-begset}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a15})} Restore pointer to current node to the beginning of the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_bkdelete@{dlist\_\-bkdelete}}
+\index{dlist_bkdelete@{dlist\_\-bkdelete}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-bkdelete ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())}\label{P__dlist_8h_a22}
+
+
+info\_\-t $\ast$dlist\_\-bkdelete(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Remove an item in the list.
+
+You must provide a comparison function to know when the item has been found. This function scans the list in the backward direction.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \item[{\em 
+DATA}]-- The value to be deleted \item[{\em 
+COMP}]-- A comparison function to know wether we have found the item to delete. It must receive two pointers and return 0 if the two items are the same.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of the item removed from the list. The reason is that we don't know if the space occupied by it must be freed or not, only the caller can know.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_bkfind@{dlist\_\-bkfind}}
+\index{dlist_bkfind@{dlist\_\-bkfind}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} dlist\_\-bkfind ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())}\label{P__dlist_8h_a18}
+
+
+bool dlist\_\-bkfind(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Look for a given value in a list.
+
+Since you can store any kind of item in a list, you must also provide a comparison function to know the properties of each item. It sets the current node pointer to the node containing that item. Lookes for in the backward direction.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+DATA}]-- The value to be looked up. \item[{\em 
+COMP}]-- A comparison function between items; it must receive two pointer arguments and return \begin{CompactItemize}
+\item 
+ $>$ 0 if arg1 $>$ arg2 \item 
+ = 0 if arg1 = arg2 \item 
+ $<$ 0 if arg1 $<$ arg2 \end{CompactItemize}
+\item[{\em 
+LIST}]-- The list to be searched. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if the value searched was found, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_bktraverse@{dlist\_\-bktraverse}}
+\index{dlist_bktraverse@{dlist\_\-bktraverse}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dlist\_\-bktraverse ({\bf dlist\_\-t}, void($\ast$)())}\label{P__dlist_8h_a20}
+
+
+void dlist\_\-bktraverse(dlist\_\-t, void ($\ast$)()) Traverse a list backwards.
+
+Traverse a list and process all the items in the list going in backward direction. You must provide a function to process the items.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- The list to be traversed. \item[{\em 
+PROCESS}]-- What we want to do with each item in the list It must be a void function that receives a pointer to an item as argument.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_current@{dlist\_\-current}}
+\index{dlist_current@{dlist\_\-current}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-current (list)}\label{P__dlist_8h_a12}
+
+
+info\_\-t $\ast${\bf dlist\_\-current}(list) {\rm (p.\,\pageref{P__dlist_8h_a12})} Return current node in the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of current item in the list\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_del_first@{dlist\_\-del\_\-first}}
+\index{dlist_del_first@{dlist\_\-del\_\-first}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-del\_\-first ({\bf dlist\_\-t})}\label{P__dlist_8h_a4}
+
+
+info\_\-t $\ast${\bf dlist\_\-del\_\-first}(dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a4})} Erase the first node from a doubly linked list.
+
+\begin{Desc}
+\item[Warning: ]\par
+The value of list-$>$dl\_\-length should be verified before calling this routine. \end{Desc}
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- The list that will be deprived of a node \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+A pointer to the information stored in the deleted node\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_del_last@{dlist\_\-del\_\-last}}
+\index{dlist_del_last@{dlist\_\-del\_\-last}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-del\_\-last ({\bf dlist\_\-t})}\label{P__dlist_8h_a6}
+
+
+info\_\-t $\ast${\bf dlist\_\-del\_\-last}(dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a6})} Delete last node in a doubly linked list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- The list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of the item stored in the last node of the list\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_del_next@{dlist\_\-del\_\-next}}
+\index{dlist_del_next@{dlist\_\-del\_\-next}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-del\_\-next (info\_\-t $\ast$, {\bf dlist\_\-t})}\label{P__dlist_8h_a7}
+
+
+info\_\-t $\ast${\bf dlist\_\-del\_\-next}(info\_\-t $\ast$, dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a7})} Delete next node in the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+NODE}]-- The node to be deleted. \item[{\em 
+LIST}]-- The list to be decreased.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of the item stored in the deleted node.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_del_node@{dlist\_\-del\_\-node}}
+\index{dlist_del_node@{dlist\_\-del\_\-node}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-del\_\-node ({\bf dl\_\-node\_\-t} $\ast$, {\bf dlist\_\-t})}\label{P__dlist_8h_a8}
+
+
+info\_\-t $\ast${\bf dlist\_\-del\_\-node}(dl\_\-node\_\-t $\ast$, dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a8})} Delete this node in a doubly linked list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+VICTIM}]-- The node to be deleted \item[{\em 
+LIST}]-- The list. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+The address of the item stored in that node\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_endset@{dlist\_\-endset}}
+\index{dlist_endset@{dlist\_\-endset}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-endset ({\bf dlist\_\-t})}\label{P__dlist_8h_a16}
+
+
+info\_\-t $\ast${\bf dlist\_\-endset}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a16})} Restore pointer to current node to the ending of the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_fdelete@{dlist\_\-fdelete}}
+\index{dlist_fdelete@{dlist\_\-fdelete}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-fdelete ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())}\label{P__dlist_8h_a21}
+
+
+info\_\-t $\ast$dlist\_\-fdelete(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Remove an item in the list.
+
+You must provide a comparison function to know when the item has been found. This function scans the list in the forward direction.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \item[{\em 
+DATA}]-- The value to be deleted \item[{\em 
+COMP}]-- A comparison function to know wether we have found the item to delete. It must receive two pointers and return 0 if the two items are the same.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of the item removed from the list. The reason is that we don't know if the space occupied by it must be freed or not, only the caller can know.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_ffind@{dlist\_\-ffind}}
+\index{dlist_ffind@{dlist\_\-ffind}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} dlist\_\-ffind ({\bf dlist\_\-t}, info\_\-t $\ast$, int($\ast$)())}\label{P__dlist_8h_a17}
+
+
+bool dlist\_\-ffind(dlist\_\-t, info\_\-t $\ast$, int ($\ast$)()) Look for a given value in a list.
+
+Since you can store any kind of item in a list, you must also provide a comparison function to know the properties of each item. It sets the current node pointer to the node containing that item. Lookes for in the forward direction.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+DATA}]-- The value to be looked up. \item[{\em 
+COMP}]-- A comparison function between items, it must receive two pointer arguments and return \begin{CompactItemize}
+\item 
+ $>$ 0 if arg1 $>$ arg2 \item 
+ = 0 if arg1 = arg2 \item 
+ $<$ 0 if arg1 $<$ arg2 \end{CompactItemize}
+\item[{\em 
+LIST}]-- The list to be searched. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if the value searched was found, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_first@{dlist\_\-first}}
+\index{dlist_first@{dlist\_\-first}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-first ({\bf dlist\_\-t})}\label{P__dlist_8h_a10}
+
+
+info\_\-t $\ast${\bf dlist\_\-first}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a10})} Return first node in the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of the first node in the list\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_ftraverse@{dlist\_\-ftraverse}}
+\index{dlist_ftraverse@{dlist\_\-ftraverse}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void dlist\_\-ftraverse ({\bf dlist\_\-t}, void($\ast$)())}\label{P__dlist_8h_a19}
+
+
+void dlist\_\-ftraverse(dlist\_\-t, void ($\ast$)()) Traverse a list forwards.
+
+Traverse a list and process all the items in the list going in forward direction. You must provide a function to process the items.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- The list to be traversed. \item[{\em 
+PROCESS}]-- What we want to do with each item in the list; it must be a void function that receives a pointer to an item as argument.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_insert@{dlist\_\-insert}}
+\index{dlist_insert@{dlist\_\-insert}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} dlist\_\-insert (info\_\-t $\ast$, {\bf dl\_\-node\_\-t} $\ast$, {\bf dlist\_\-t})}\label{P__dlist_8h_a5}
+
+
+bool {\bf dlist\_\-insert}(info\_\-t $\ast$, dl\_\-node\_\-t $\ast$, dlist\_\-t) {\rm (p.\,\pageref{P__dlist_8h_a5})} Insert a node after a given one in a doubly linked list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+DATA}]-- The data to store. \item[{\em 
+NODE}]-- The node after which we are to insert the new one. \item[{\em 
+LIST}]-- The list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if the node could succesfully be inserted,  FALSE if an error occurred.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_last@{dlist\_\-last}}
+\index{dlist_last@{dlist\_\-last}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-last ({\bf dlist\_\-t})}\label{P__dlist_8h_a11}
+
+
+info\_\-t $\ast${\bf dlist\_\-last}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a11})} Return last node in the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of last item in the list\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_length@{dlist\_\-length}}
+\index{dlist_length@{dlist\_\-length}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dlist\_\-length ({\bf dlist\_\-t})}\label{P__dlist_8h_a9}
+
+
+int {\bf dlist\_\-length}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a9})} Return number of items stored in a list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Size of the list\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_next@{dlist\_\-next}}
+\index{dlist_next@{dlist\_\-next}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-next ({\bf dlist\_\-t})}\label{P__dlist_8h_a13}
+
+
+info\_\-t $\ast${\bf dlist\_\-next}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a13})} Return next item in the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- the list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of next item in the list\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_prev@{dlist\_\-prev}}
+\index{dlist_prev@{dlist\_\-prev}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ dlist\_\-prev ({\bf dlist\_\-t})}\label{P__dlist_8h_a14}
+
+
+info\_\-t $\ast${\bf dlist\_\-prev}( dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a14})} Return previous item in the list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+LIST}]-- The list \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Address of the item.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!dlist_put@{dlist\_\-put}}
+\index{dlist_put@{dlist\_\-put}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf boolean} dlist\_\-put (info\_\-t $\ast$, {\bf dlist\_\-t})}\label{P__dlist_8h_a2}
+
+
+boolean {\bf dlist\_\-put}(info\_\-t $\ast$, dlist\_\-t ) {\rm (p.\,\pageref{P__dlist_8h_a2})} Insert an item at the beginning of a doubly linked list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+DATA}]-- The information to add to the front of the list. \item[{\em 
+LIST}]-- The list that will receive the information. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if it is able to add the new item, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!new_dlist@{new\_\-dlist}}
+\index{new_dlist@{new\_\-dlist}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dl\_\-node\_\-t}$\ast$ new\_\-dlist (info\_\-t $\ast$, {\bf dl\_\-node\_\-t} $\ast$, {\bf dl\_\-node\_\-t} $\ast$)}\label{P__dlist_8h_a1}
+
+
+dl\_\-node\_\-t $\ast${\bf new\_\-dlist}(info\_\-t $\ast$, dl\_\-node\_\-t $\ast$, dl\_\-node\_\-t $\ast$) {\rm (p.\,\pageref{P__dlist_8h_a1})} Initialize a node for a doubly linked list.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+DATA}]-- information to store in this node. \item[{\em 
+PREV}]-- previous node in the list. \item[{\em 
+NEXT}]-- next node in the list. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+A pointer to the newly created node.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}
+\index{P_dlist.h@{P\_\-dlist.h}!new_dlist@{new\_\-dlist}}
+\index{new_dlist@{new\_\-dlist}!P_dlist.h@{P\_\-dlist.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dlist\_\-t} new\_\-dlist ()}\label{P__dlist_8h_a0}
+
+
+dlist\_\-t {\bf new\_\-dlist}() {\rm (p.\,\pageref{P__dlist_8h_a0})} Create a doubly linked list.
+
+\begin{Desc}
+\item[Returns: ]\par
+A pointer to the newly creted doubly linked list.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. VALVERDE \end{Desc}

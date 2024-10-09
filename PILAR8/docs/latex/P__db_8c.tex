@@ -1,0 +1,369 @@
+\section{P\_\-db.c File Reference}
+\label{P__db_8c}\index{P_db.c@{P\_\-db.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$ctype.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-utils.h\char`\"{}}\par
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf db\_\-st}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf \_\-P\_\-DBANK\_\-}
+\item 
+\#define {\bf DEBUG}\ -1
+\item 
+\#define {\bf SEEK\_\-SET}\ 0
+\item 
+\#define {\bf DB\_\-UNKNOWN}\ 0
+\item 
+\#define {\bf DB\_\-STANFORD}\ 1
+\item 
+\#define {\bf DB\_\-INTELLIGENETICS}\ 2
+\item 
+\#define {\bf DB\_\-STRIDER}\ 3
+\item 
+\#define {\bf DB\_\-GENBANK}\ 4
+\item 
+\#define {\bf DB\_\-NBRF}\ 5
+\item 
+\#define {\bf DB\_\-PIR}\ 6
+\item 
+\#define {\bf DB\_\-PEARSON}\ 7
+\item 
+\#define {\bf DB\_\-EMBL}\ 8
+\item 
+\#define {\bf DB\_\-SWISSPROT}\ 9
+\item 
+\#define {\bf DB\_\-UWGCG}\ 10
+\item 
+\#define {\bf DB\_\-ZUKER}\ 11
+\item 
+\#define {\bf DB\_\-FITCH}\ 12
+\item 
+\#define {\bf DB\_\-PREER}\ 13
+\item 
+\#define {\bf DB\_\-GCGSW}\ 14
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf db\_\-st} $\ast$ {\bf db\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+char $\ast$ {\bf getenv} (char $\ast${\bf name})
+\item 
+{\bf status} {\bf Unknown\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf IG\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf Strider\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf Gen\-Bank\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf PIR\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf Pearson\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf EMBL\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf UWGCG\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf Zuker\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf Fitch\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf Preer\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf status} {\bf GCGSW\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\item 
+{\bf db\_\-t} {\bf db\_\-open} ({\bf db\_\-filnam}, db\_\-type) char $\ast${\bf db\_\-filnam}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+const char {\bf DB\_\-OPEN} [$\,$] = \char`\"{}OPEN DATABASE\char`\"{}
+\item 
+const char {\bf CANT\_\-OPEN} [$\,$] = \char`\"{}CANNOT OPEN PROTEIN SEQUENCES FILE\char`\"{}
+\item 
+FILE $\ast$ {\bf idx\_\-fp} = NULL
+\item 
+int {\bf idx\_\-fd} = 0
+\item 
+char {\bf idx\_\-nam} [MAXPATH+1] = \char`\"{}\char`\"{}
+\item 
+long {\bf idx\_\-pos} = 0
+\item 
+int {\bf idx\_\-size}
+\item 
+int {\bf db\_\-type}
+\begin{CompactList}\small\item\em Return the format of the specified database.\item\end{CompactList}\item 
+{\bf protein\_\-t} $\ast$ {\bf prot}
+\item 
+{\bf index\_\-t} $\ast$ {\bf p\_\-index}
+\item 
+{\bf protein\_\-t} $\ast$ {\bf the\_\-prot}
+\item 
+char $\ast$ {\bf db\_\-filnam}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_db.c@{P\_\-db.c}!_P_DBANK_@{\_\-P\_\-DBANK\_\-}}
+\index{_P_DBANK_@{\_\-P\_\-DBANK\_\-}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-P\_\-DBANK\_\-}\label{P__db_8c_a0}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_EMBL@{DB\_\-EMBL}}
+\index{DB_EMBL@{DB\_\-EMBL}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-EMBL\ 8}\label{P__db_8c_a11}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_FITCH@{DB\_\-FITCH}}
+\index{DB_FITCH@{DB\_\-FITCH}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-FITCH\ 12}\label{P__db_8c_a15}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_GCGSW@{DB\_\-GCGSW}}
+\index{DB_GCGSW@{DB\_\-GCGSW}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-GCGSW\ 14}\label{P__db_8c_a17}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_GENBANK@{DB\_\-GENBANK}}
+\index{DB_GENBANK@{DB\_\-GENBANK}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-GENBANK\ 4}\label{P__db_8c_a7}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_INTELLIGENETICS@{DB\_\-INTELLIGENETICS}}
+\index{DB_INTELLIGENETICS@{DB\_\-INTELLIGENETICS}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-INTELLIGENETICS\ 2}\label{P__db_8c_a5}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_NBRF@{DB\_\-NBRF}}
+\index{DB_NBRF@{DB\_\-NBRF}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-NBRF\ 5}\label{P__db_8c_a8}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_PEARSON@{DB\_\-PEARSON}}
+\index{DB_PEARSON@{DB\_\-PEARSON}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-PEARSON\ 7}\label{P__db_8c_a10}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_PIR@{DB\_\-PIR}}
+\index{DB_PIR@{DB\_\-PIR}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-PIR\ 6}\label{P__db_8c_a9}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_PREER@{DB\_\-PREER}}
+\index{DB_PREER@{DB\_\-PREER}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-PREER\ 13}\label{P__db_8c_a16}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_STANFORD@{DB\_\-STANFORD}}
+\index{DB_STANFORD@{DB\_\-STANFORD}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-STANFORD\ 1}\label{P__db_8c_a4}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_STRIDER@{DB\_\-STRIDER}}
+\index{DB_STRIDER@{DB\_\-STRIDER}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-STRIDER\ 3}\label{P__db_8c_a6}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_SWISSPROT@{DB\_\-SWISSPROT}}
+\index{DB_SWISSPROT@{DB\_\-SWISSPROT}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-SWISSPROT\ 9}\label{P__db_8c_a12}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_UNKNOWN@{DB\_\-UNKNOWN}}
+\index{DB_UNKNOWN@{DB\_\-UNKNOWN}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-UNKNOWN\ 0}\label{P__db_8c_a3}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_UWGCG@{DB\_\-UWGCG}}
+\index{DB_UWGCG@{DB\_\-UWGCG}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-UWGCG\ 10}\label{P__db_8c_a13}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_ZUKER@{DB\_\-ZUKER}}
+\index{DB_ZUKER@{DB\_\-ZUKER}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-ZUKER\ 11}\label{P__db_8c_a14}
+
+
+\index{P_db.c@{P\_\-db.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\ -1}\label{P__db_8c_a1}
+
+
+\index{P_db.c@{P\_\-db.c}!SEEK_SET@{SEEK\_\-SET}}
+\index{SEEK_SET@{SEEK\_\-SET}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SEEK\_\-SET\ 0}\label{P__db_8c_a2}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{P_db.c@{P\_\-db.c}!db_t@{db\_\-t}}
+\index{db_t@{db\_\-t}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf db\_\-st}	$\ast$ db\_\-t}\label{P__db_8c_a18}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_db.c@{P\_\-db.c}!db_open@{db\_\-open}}
+\index{db_open@{db\_\-open}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf db\_\-t} db\_\-open ({\bf db\_\-filnam}, db\_\-type)}\label{P__db_8c_a44}
+
+
+\index{P_db.c@{P\_\-db.c}!EMBL_next_protein@{EMBL\_\-next\_\-protein}}
+\index{EMBL_next_protein@{EMBL\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} EMBL\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a38}
+
+
+\index{P_db.c@{P\_\-db.c}!Fitch_next_protein@{Fitch\_\-next\_\-protein}}
+\index{Fitch_next_protein@{Fitch\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Fitch\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a41}
+
+
+\index{P_db.c@{P\_\-db.c}!GCGSW_next_protein@{GCGSW\_\-next\_\-protein}}
+\index{GCGSW_next_protein@{GCGSW\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} GCGSW\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a43}
+
+
+\index{P_db.c@{P\_\-db.c}!GenBank_next_protein@{GenBank\_\-next\_\-protein}}
+\index{GenBank_next_protein@{GenBank\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Gen\-Bank\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a35}
+
+
+\index{P_db.c@{P\_\-db.c}!getenv@{getenv}}
+\index{getenv@{getenv}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ getenv (char $\ast$ {\em name})}\label{P__db_8c_a31}
+
+
+\index{P_db.c@{P\_\-db.c}!IG_next_protein@{IG\_\-next\_\-protein}}
+\index{IG_next_protein@{IG\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} IG\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a33}
+
+
+\index{P_db.c@{P\_\-db.c}!Pearson_next_protein@{Pearson\_\-next\_\-protein}}
+\index{Pearson_next_protein@{Pearson\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Pearson\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a37}
+
+
+\index{P_db.c@{P\_\-db.c}!PIR_next_protein@{PIR\_\-next\_\-protein}}
+\index{PIR_next_protein@{PIR\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} PIR\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a36}
+
+
+\index{P_db.c@{P\_\-db.c}!Preer_next_protein@{Preer\_\-next\_\-protein}}
+\index{Preer_next_protein@{Preer\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Preer\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a42}
+
+
+\index{P_db.c@{P\_\-db.c}!Strider_next_protein@{Strider\_\-next\_\-protein}}
+\index{Strider_next_protein@{Strider\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Strider\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a34}
+
+
+\index{P_db.c@{P\_\-db.c}!Unknown_next_protein@{Unknown\_\-next\_\-protein}}
+\index{Unknown_next_protein@{Unknown\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Unknown\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a32}
+
+
+\index{P_db.c@{P\_\-db.c}!UWGCG_next_protein@{UWGCG\_\-next\_\-protein}}
+\index{UWGCG_next_protein@{UWGCG\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} UWGCG\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a39}
+
+
+\index{P_db.c@{P\_\-db.c}!Zuker_next_protein@{Zuker\_\-next\_\-protein}}
+\index{Zuker_next_protein@{Zuker\_\-next\_\-protein}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} Zuker\_\-next\_\-protein ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)}\label{P__db_8c_a40}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_db.c@{P\_\-db.c}!CANT_OPEN@{CANT\_\-OPEN}}
+\index{CANT_OPEN@{CANT\_\-OPEN}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char CANT\_\-OPEN[$\,$] = \char`\"{}CANNOT OPEN PROTEIN SEQUENCES FILE\char`\"{}\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a20}
+
+
+\index{P_db.c@{P\_\-db.c}!db_filnam@{db\_\-filnam}}
+\index{db_filnam@{db\_\-filnam}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ db\_\-filnam}\label{P__db_8c_a30}
+
+
+\index{P_db.c@{P\_\-db.c}!DB_OPEN@{DB\_\-OPEN}}
+\index{DB_OPEN@{DB\_\-OPEN}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const char DB\_\-OPEN[$\,$] = \char`\"{}OPEN DATABASE\char`\"{}\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a19}
+
+
+\index{P_db.c@{P\_\-db.c}!db_type@{db\_\-type}}
+\index{db_type@{db\_\-type}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int db\_\-type}\label{P__db_8c_a26}
+
+
+Return the format of the specified database.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+db}]Database to check.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+The database format\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.c@{P\_\-db.c}!idx_fd@{idx\_\-fd}}
+\index{idx_fd@{idx\_\-fd}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int idx\_\-fd = 0\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a22}
+
+
+\index{P_db.c@{P\_\-db.c}!idx_fp@{idx\_\-fp}}
+\index{idx_fp@{idx\_\-fp}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ idx\_\-fp = NULL\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a21}
+
+
+\index{P_db.c@{P\_\-db.c}!idx_nam@{idx\_\-nam}}
+\index{idx_nam@{idx\_\-nam}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char idx\_\-nam[MAXPATH + 1] = \char`\"{}\char`\"{}\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a23}
+
+
+\index{P_db.c@{P\_\-db.c}!idx_pos@{idx\_\-pos}}
+\index{idx_pos@{idx\_\-pos}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long idx\_\-pos = 0\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a24}
+
+
+\index{P_db.c@{P\_\-db.c}!idx_size@{idx\_\-size}}
+\index{idx_size@{idx\_\-size}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int idx\_\-size\hspace{0.3cm}{\tt  [static]}}\label{P__db_8c_a25}
+
+
+\index{P_db.c@{P\_\-db.c}!p_index@{p\_\-index}}
+\index{p_index@{p\_\-index}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf index\_\-t}$\ast$ p\_\-index}\label{P__db_8c_a28}
+
+
+\index{P_db.c@{P\_\-db.c}!prot@{prot}}
+\index{prot@{prot}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf protein\_\-t}$\ast$ prot}\label{P__db_8c_a27}
+
+
+\index{P_db.c@{P\_\-db.c}!the_prot@{the\_\-prot}}
+\index{the_prot@{the\_\-prot}!P_db.c@{P\_\-db.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf protein\_\-t}$\ast$ the\_\-prot}\label{P__db_8c_a29}
+
+

@@ -1,0 +1,26 @@
+; Protrusion index
+; Thornton, J. M., Edwards, M. S., and Barlow, D. J. (1985)
+; Antigenic recognition. Proc. Eur. 'Oyez' Semin., 2nd
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 107
+Arg	4.67
+Asp	5.77
+Glu	5.43
+Lys	5.57
+Ser	5.65
+Asn	4.82
+Gln	4.95
+Gly	5.31
+Pro	5.37
+Thr	4.75
+Ala	4.55
+His	3.17
+Cys	2.75
+Met	2.83
+Val	3.17
+Ile	2.71
+Leu	2.93
+Tyr	3.22
+Phe	2.61
+Trp	2.70

@@ -1,0 +1,25 @@
+; Eisenberg, D., and McLachlan, A. D. (1986). Solvation energy in
+; protein folding and binding. Nature (London) 319, 199-203
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	0.25
+Cys	0.04
+Asp	-0.72
+Glu	-0.62
+Phe	0.61
+Gly	0.16
+His	-0.40
+Ile	0.73
+Lys	-1.10
+Leu	0.53
+Met	0.26
+Asn	-0.64
+Pro	-0.07
+Gln	-0.69
+Arg	-1.80
+Ser	-0.26
+Thr	-0.18
+Val	0.54
+Trp	0.37
+Tyr	0.02

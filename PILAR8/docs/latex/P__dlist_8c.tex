@@ -1,0 +1,133 @@
+\section{P\_\-dlist.c File Reference}
+\label{P__dlist_8c}\index{P_dlist.c@{P\_\-dlist.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf dbly\_\-node}
+\item 
+struct {\bf dl\_\-head\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MOD\_\-DEBUG}\ 0
+\item 
+\#define {\bf NEW}(type)\ (type $\ast$) malloc(sizeof(type))
+\item 
+\#define {\bf info\_\-t}\ void
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf dbly\_\-node} {\bf dl\_\-node\_\-t}
+\item 
+typedef {\bf dl\_\-head\_\-t} $\ast$ {\bf dlist\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf dlist\_\-t} {\bf new\_\-dlist} ()
+\item 
+{\bf dl\_\-node\_\-t} $\ast$ {\bf new\_\-dnode} ({\bf data}, {\bf prev}, {\bf next}) info\_\-t $\ast${\bf data}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf dl\_\-node\_\-t} $\ast$ {\bf prev}
+\item 
+{\bf dl\_\-node\_\-t} $\ast$ {\bf next}
+\item 
+info\_\-t $\ast$ {\bf data}
+\item 
+{\bf dl\_\-node\_\-t} $\ast$ {\bf node}
+\item 
+{\bf dl\_\-node\_\-t} $\ast$ {\bf victim}
+\item 
+int($\ast$ {\bf comp} )(info\_\-t $\ast$, info\_\-t $\ast$)
+\item 
+void($\ast$ {\bf process} )(info\_\-t $\ast$)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_dlist.c@{P\_\-dlist.c}!info_t@{info\_\-t}}
+\index{info_t@{info\_\-t}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define info\_\-t\ void}\label{P__dlist_8c_a2}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!MOD_DEBUG@{MOD\_\-DEBUG}}
+\index{MOD_DEBUG@{MOD\_\-DEBUG}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MOD\_\-DEBUG\ 0}\label{P__dlist_8c_a0}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!NEW@{NEW}}
+\index{NEW@{NEW}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NEW(type)\ (type $\ast$) malloc(sizeof(type))}\label{P__dlist_8c_a1}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{P_dlist.c@{P\_\-dlist.c}!dl_node_t@{dl\_\-node\_\-t}}
+\index{dl_node_t@{dl\_\-node\_\-t}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf dbly\_\-node} dl\_\-node\_\-t}\label{P__dlist_8c_a3}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!dlist_t@{dlist\_\-t}}
+\index{dlist_t@{dlist\_\-t}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf dl\_\-head\_\-t}$\ast$ dlist\_\-t}\label{P__dlist_8c_a4}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_dlist.c@{P\_\-dlist.c}!new_dlist@{new\_\-dlist}}
+\index{new_dlist@{new\_\-dlist}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dlist\_\-t} new\_\-dlist ()}\label{P__dlist_8c_a12}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!new_dnode@{new\_\-dnode}}
+\index{new_dnode@{new\_\-dnode}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dl\_\-node\_\-t}$\ast$ new\_\-dnode ({\bf data}, {\bf prev}, {\bf next})\hspace{0.3cm}{\tt  [static]}}\label{P__dlist_8c_a13}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_dlist.c@{P\_\-dlist.c}!comp@{comp}}
+\index{comp@{comp}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ comp)()}\label{P__dlist_8c_a10}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!data@{data}}
+\index{data@{data}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t $\ast$ data}\label{P__dlist_8c_a7}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!next@{next}}
+\index{next@{next}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dl\_\-node\_\-t} $\ast$ next}\label{P__dlist_8c_a6}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!node@{node}}
+\index{node@{node}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf l\_\-node\_\-t} $\ast$ node}\label{P__dlist_8c_a8}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!prev@{prev}}
+\index{prev@{prev}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dl\_\-node\_\-t}$\ast$ prev}\label{P__dlist_8c_a5}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!process@{process}}
+\index{process@{process}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ process)(info\_\-t $\ast$)}\label{P__dlist_8c_a11}
+
+
+\index{P_dlist.c@{P\_\-dlist.c}!victim@{victim}}
+\index{victim@{victim}!P_dlist.c@{P\_\-dlist.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf dl\_\-node\_\-t}$\ast$ victim}\label{P__dlist_8c_a9}
+
+

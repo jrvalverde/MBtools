@@ -1,0 +1,27 @@
+; Fauchère, J. L. and Pliska, V. (1983) Hydrophobicity
+; parameters PI of amino acid side chains from the
+; partitioning of N-acetyl-amino-acid-amides. Eur. J. Med.
+; Chem.-Chim. Ther. 18, 369-375
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	1.52
+Cys	1.70
+Asp	2.60
+Glu	2.47
+Phe	0.04
+Gly	1.83
+His	1.70
+Ile	0.03
+Lys	2.82
+Leu	0.13
+Met	0.60
+Asn	2.41
+Pro	1.34
+Gln	2.05
+Arg	2.84
+Ser	1.87
+Thr	1.57
+Val	0.61
+Trp	-0.42
+Tyr	0.87

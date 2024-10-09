@@ -1,0 +1,26 @@
+; Sweet, R. M. and Eisenberg, D. (1983) Correlation of sequence
+; hydrophobicities measures similarity in three-dimensional
+; protein structure. J. Mol. Biol. 171, 479-488
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	-0.40
+Cys	0.17
+Asp	-1.31
+Glu	-1.22
+Phe	1.92
+Gly	-0.67
+His	-0.64
+Ile	1.25
+Lys	-0.67
+Leu	1.22
+Met	1.02
+Asn	-0.92
+Pro	-0.49
+Gln	-0.91
+Arg	-0.59
+Ser	-0.55
+Thr	-0.28
+Val	0.91
+Trp	0.50
+Tyr	1.67

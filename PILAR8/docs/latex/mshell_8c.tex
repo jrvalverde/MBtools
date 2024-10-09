@@ -1,0 +1,158 @@
+\section{mshell.c File Reference}
+\label{mshell_8c}\index{mshell.c@{mshell.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}mshell.h\char`\"{}}\par
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf memnod}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf \_\-\_\-MSHELL\_\-\_\-}
+\item 
+\#define {\bf MEMTAG}\ 0xa55a
+\item 
+\#define {\bf ALIGN\_\-SIZE}\ sizeof(double)
+\item 
+\#define {\bf HDR\_\-SIZE}\ sizeof({\bf MEMHDR})
+\item 
+\#define {\bf RESERVE\_\-SIZE}
+\item 
+\#define {\bf CLIENT\_\-2\_\-HDR}({\bf a})\ (({\bf MEMHDR} $\ast$)  (((char $\ast$) ({\bf a})) - RESERVE\_\-SIZE))
+\item 
+\#define {\bf HDR\_\-2\_\-CLIENT}({\bf a})\ ((void $\ast$)  (((char $\ast$) ({\bf a})) + RESERVE\_\-SIZE))
+\item 
+\#define {\bf Mem\_\-Tag\_\-Err}({\bf a})\ mem\_\-tag\_\-err({\bf a}, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf memnod} {\bf MEMHDR}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf mem\_\-tag\_\-err} (void $\ast$, char $\ast$, int)
+\item 
+void $\ast$ {\bf mem\_\-alloc} ({\bf size\_\-t} size)
+\item 
+void $\ast$ {\bf mem\_\-realloc} (void $\ast${\bf ptr}, {\bf size\_\-t} size)
+\item 
+char $\ast$ {\bf mem\_\-strdup} (char $\ast$str)
+\item 
+void {\bf mem\_\-free} (void $\ast${\bf ptr})
+\item 
+unsigned long {\bf Mem\_\-Used} (void)
+\item 
+void {\bf Mem\_\-Display} (FILE $\ast$fp)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+unsigned long {\bf mem\_\-size} = 0
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{mshell.c@{mshell.c}!__MSHELL__@{\_\-\_\-MSHELL\_\-\_\-}}
+\index{__MSHELL__@{\_\-\_\-MSHELL\_\-\_\-}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-\_\-MSHELL\_\-\_\-}\label{mshell_8c_a0}
+
+
+\index{mshell.c@{mshell.c}!ALIGN_SIZE@{ALIGN\_\-SIZE}}
+\index{ALIGN_SIZE@{ALIGN\_\-SIZE}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ALIGN\_\-SIZE\ sizeof(double)}\label{mshell_8c_a2}
+
+
+\index{mshell.c@{mshell.c}!CLIENT_2_HDR@{CLIENT\_\-2\_\-HDR}}
+\index{CLIENT_2_HDR@{CLIENT\_\-2\_\-HDR}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define CLIENT\_\-2\_\-HDR({\bf a})\ (({\bf MEMHDR} $\ast$)  (((char $\ast$) ({\bf a})) - RESERVE\_\-SIZE))}\label{mshell_8c_a5}
+
+
+\index{mshell.c@{mshell.c}!HDR_2_CLIENT@{HDR\_\-2\_\-CLIENT}}
+\index{HDR_2_CLIENT@{HDR\_\-2\_\-CLIENT}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HDR\_\-2\_\-CLIENT({\bf a})\ ((void $\ast$)  (((char $\ast$) ({\bf a})) + RESERVE\_\-SIZE))}\label{mshell_8c_a6}
+
+
+\index{mshell.c@{mshell.c}!HDR_SIZE@{HDR\_\-SIZE}}
+\index{HDR_SIZE@{HDR\_\-SIZE}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HDR\_\-SIZE\ sizeof({\bf MEMHDR})}\label{mshell_8c_a3}
+
+
+\index{mshell.c@{mshell.c}!Mem_Tag_Err@{Mem\_\-Tag\_\-Err}}
+\index{Mem_Tag_Err@{Mem\_\-Tag\_\-Err}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Mem\_\-Tag\_\-Err({\bf a})\ mem\_\-tag\_\-err({\bf a}, \_\-\_\-FILE\_\-\_\-, \_\-\_\-LINE\_\-\_\-)}\label{mshell_8c_a7}
+
+
+\index{mshell.c@{mshell.c}!MEMTAG@{MEMTAG}}
+\index{MEMTAG@{MEMTAG}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MEMTAG\ 0xa55a}\label{mshell_8c_a1}
+
+
+\index{mshell.c@{mshell.c}!RESERVE_SIZE@{RESERVE\_\-SIZE}}
+\index{RESERVE_SIZE@{RESERVE\_\-SIZE}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define RESERVE\_\-SIZE}\label{mshell_8c_a4}
+
+
+{\bf Value:}
+
+\footnotesize\begin{verbatim}(((HDR_SIZE + (ALIGN_SIZE-1)) / ALIGN_SIZE) \
+* ALIGN_SIZE)\end{verbatim}\normalsize 
+
+
+\subsection{Typedef Documentation}
+\index{mshell.c@{mshell.c}!MEMHDR@{MEMHDR}}
+\index{MEMHDR@{MEMHDR}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf memnod}  MEMHDR}\label{mshell_8c_a8}
+
+
+
+
+\subsection{Function Documentation}
+\index{mshell.c@{mshell.c}!mem_alloc@{mem\_\-alloc}}
+\index{mem_alloc@{mem\_\-alloc}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ mem\_\-alloc ({\bf size\_\-t} {\em size})}\label{mshell_8c_a11}
+
+
+\index{mshell.c@{mshell.c}!Mem_Display@{Mem\_\-Display}}
+\index{Mem_Display@{Mem\_\-Display}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Mem\_\-Display (FILE $\ast$ {\em fp})}\label{mshell_8c_a16}
+
+
+\index{mshell.c@{mshell.c}!mem_free@{mem\_\-free}}
+\index{mem_free@{mem\_\-free}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mem\_\-free (void $\ast$ {\em ptr})}\label{mshell_8c_a14}
+
+
+\index{mshell.c@{mshell.c}!mem_realloc@{mem\_\-realloc}}
+\index{mem_realloc@{mem\_\-realloc}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ mem\_\-realloc (void $\ast$ {\em ptr}, {\bf size\_\-t} {\em size})}\label{mshell_8c_a12}
+
+
+\index{mshell.c@{mshell.c}!mem_strdup@{mem\_\-strdup}}
+\index{mem_strdup@{mem\_\-strdup}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mem\_\-strdup (char $\ast$ {\em str})}\label{mshell_8c_a13}
+
+
+\index{mshell.c@{mshell.c}!mem_tag_err@{mem\_\-tag\_\-err}}
+\index{mem_tag_err@{mem\_\-tag\_\-err}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mem\_\-tag\_\-err (void $\ast$, char $\ast$, int)\hspace{0.3cm}{\tt  [static]}}\label{mshell_8c_a10}
+
+
+\index{mshell.c@{mshell.c}!Mem_Used@{Mem\_\-Used}}
+\index{Mem_Used@{Mem\_\-Used}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long Mem\_\-Used (void)}\label{mshell_8c_a15}
+
+
+
+
+\subsection{Variable Documentation}
+\index{mshell.c@{mshell.c}!mem_size@{mem\_\-size}}
+\index{mem_size@{mem\_\-size}!mshell.c@{mshell.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}unsigned long mem\_\-size = 0\hspace{0.3cm}{\tt  [static]}}\label{mshell_8c_a9}
+
+

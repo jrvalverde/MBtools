@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+exec java -Xmx20g -cp /usr/share/java/igv.jar:/usr/share/java/batik-awt-util.jar:/usr/share/java/batik-css.jar:/usr/share/java/batik-dom.jar:/usr/share/java/batik-ext.jar:/usr/share/java/batik-gui-util.jar:/usr/share/java/batik-gvt.jar:/usr/share/java/batik-parser.jar:/usr/share/java/batik-svg-dom.jar:/usr/share/java/batik-svggen.jar:/usr/share/java/batik-transcoder.jar:/usr/share/java/batik-util.jar:/usr/share/java/batik-xml.jar:/usr/share/java/commons-logging.jar:/usr/share/java/commons-math.jar:/usr/share/java/commons-net.jar:/usr/share/java/concurrent.jar:/usr/share/java/guava.jar:/usr/share/java/httpclient.jar:/usr/share/java/httpcore.jar:/usr/share/java/jama.jar:/usr/share/java/jargs.jar:/usr/share/java/jcommon.jar:/usr/share/java/jfreechart.jar:/usr/share/java/jhdf5.jar:/usr/share/java/net.sourceforge.jlibdeps.jar:/usr/share/java/junit4.jar:/usr/share/java/log4j-1.2.jar:/usr/share/java/sam.jar:/usr/share/java/swing-layout.jar:/usr/share/java/xml-apis.jar:/usr/share/java/xml-apis-ext.jar:/usr/share/java/AbsoluteLayout.jar:/usr/share/java/bcprov.jar:/usr/share/java/jgrapht0.8.jar:/usr/share/java/jide-oss.jar org.broad.igv.ui.Main "$@"
+

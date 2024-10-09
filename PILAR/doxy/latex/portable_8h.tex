@@ -1,0 +1,581 @@
+\section{portable.h File Reference}
+\label{portable_8h}\index{portable.h@{portable.h}}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MAXPATHLEN}\ 64
+\item 
+\#define {\bf BYTE}({\bf x})\ ({\bf byte}) (({\bf x}) \& 0xff)
+\item 
+\#define {\bf HIBYTE}({\bf x})\ ((({\bf x}) $>$$>$ 8) \& 0xff)
+\item 
+\#define {\bf LOBYTE}({\bf x})\ (({\bf x}) \& 0xff)
+\item 
+\#define {\bf HIWORD}({\bf x})\ ((({\bf x}) $>$$>$ 16) \& 0xffff\-L)
+\item 
+\#define {\bf LOWORD}({\bf x})\ (({\bf x}) \& 0xffff\-L)
+\item 
+\#define {\bf CHAR}({\bf x})\ (({\bf x}) \& 0x7F)
+\item 
+\#define {\bf ASCII}({\bf x})\ (({\bf x}) \& 0x7F)
+\item 
+\#define {\bf WORD}({\bf x})\ (({\bf x}) \& 0xffff\-L)
+\item 
+\#define {\bf DECODE}({\bf x})\ ((int) (({\bf x}) - '0'))
+\item 
+\#define {\bf LURSHIFT}({\bf n}, b)\ (((long) ({\bf n}) $>$$>$ (b)) \& (0x7fffffff\-L $>$$>$ ((b) - 1)))
+\item 
+\#define {\bf DIM}({\bf a})\ (sizeof({\bf a})/sizeof($\ast$({\bf a})))
+\item 
+\#define {\bf BIT\_\-0}\ 0x01
+\item 
+\#define {\bf BIT\_\-1}\ 0x02
+\item 
+\#define {\bf BIT\_\-2}\ 0x04
+\item 
+\#define {\bf BIT\_\-3}\ 0x08
+\item 
+\#define {\bf BIT\_\-4}\ 0x10
+\item 
+\#define {\bf BIT\_\-5}\ 0x20
+\item 
+\#define {\bf BIT\_\-6}\ 0x40
+\item 
+\#define {\bf BIT\_\-7}\ 0x80
+\item 
+\#define {\bf BIT\_\-8}\ 0x100
+\item 
+\#define {\bf BIT\_\-9}\ 0x200
+\item 
+\#define {\bf BIT\_\-10}\ 0x400
+\item 
+\#define {\bf BIT\_\-11}\ 0x800
+\item 
+\#define {\bf BIT\_\-12}\ 0x1000
+\item 
+\#define {\bf BIT\_\-13}\ 0x2000
+\item 
+\#define {\bf BIT\_\-14}\ 0x4000
+\item 
+\#define {\bf BIT\_\-15}\ 0x8000
+\item 
+\#define {\bf BIT\_\-16}\ 0x10000
+\item 
+\#define {\bf BIT\_\-17}\ 0x20000
+\item 
+\#define {\bf BIT\_\-18}\ 0x40000
+\item 
+\#define {\bf BIT\_\-19}\ 0x80000
+\item 
+\#define {\bf BIT\_\-20}\ 0x100000
+\item 
+\#define {\bf BIT\_\-21}\ 0x200000
+\item 
+\#define {\bf BIT\_\-22}\ 0x400000
+\item 
+\#define {\bf BIT\_\-23}\ 0x800000
+\item 
+\#define {\bf BIT\_\-24}\ 0x1000000
+\item 
+\#define {\bf BIT\_\-25}\ 0x2000000
+\item 
+\#define {\bf BIT\_\-26}\ 0x4000000
+\item 
+\#define {\bf BIT\_\-27}\ 0x8000000
+\item 
+\#define {\bf BIT\_\-28}\ 0x10000000
+\item 
+\#define {\bf BIT\_\-29}\ 0x20000000
+\item 
+\#define {\bf BIT\_\-30}\ 0x40000000
+\item 
+\#define {\bf BIT\_\-31}\ 0x80000000
+\item 
+\#define {\bf Bit\-Test}({\bf x}, bit)\ (({\bf x}) \& (bit))
+\item 
+\#define {\bf Bit\-Set}({\bf x}, bit)\ (({\bf x}) $|$= (bit))
+\item 
+\#define {\bf Bit\-Clr}({\bf x}, bit)\ (({\bf x}) \&= $\sim$(bit))
+\item 
+\#define {\bf Bit\-And}({\bf x}, {\bf y})\ (({\bf x}) \& ({\bf y}))
+\item 
+\#define {\bf Bit\-Or}({\bf x}, {\bf y})\ (({\bf x}) $|$ ({\bf y}))
+\item 
+\#define {\bf Bit\-Xor}({\bf x}, {\bf y})\ (({\bf x}) $^\wedge$ ({\bf y}))
+\item 
+\#define {\bf Bit\-Not}({\bf x})\ ($\sim$({\bf x}))
+\item 
+\#define {\bf Bit\-Shift}({\bf x}, count)\ ( ((count) $>$ 0)? ({\bf x}) $<$$<$ (count) : ({\bf x}) $>$$>$ (count) )
+\item 
+\#define {\bf public}
+\item 
+\#define {\bf private}\ static
+\item 
+\#define {\bf LOCAL}\ auto
+\item 
+\#define {\bf EXTERN}\ extern
+\item 
+\#define {\bf MLOCAL}\ static
+\item 
+\#define {\bf GLOBAL}
+\item 
+\#define {\bf TRUE}\ (1)
+\item 
+\#define {\bf FALSE}\ (0)
+\item 
+\#define {\bf YES}\ (1)
+\item 
+\#define {\bf NO}\ (0)
+\item 
+\#define {\bf SUCCEED}\ ( 0)
+\item 
+\#define {\bf FAILURE}\ (-1)
+\item 
+\#define {\bf FAIL}\ (-1)
+\item 
+\#define {\bf SUCCESS}\ ( 0)
+\item 
+\#define {\bf EOL}\ '$\backslash${\bf n}'
+\item 
+\#define {\bf EOS}\ '$\backslash$0'
+\item 
+\#define {\bf EOP}\ '$\backslash$14'
+\item 
+\#define {\bf EOF}\ (-1)
+\item 
+\#define {\bf FOREVER}\ for(;;)
+\item 
+\#define {\bf NULLPTR}\ (char $\ast$) 0
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef int {\bf bool}
+\item 
+typedef int {\bf boolean}
+\item 
+typedef char {\bf flag}
+\item 
+typedef unsigned short {\bf word}
+\item 
+typedef int {\bf rchar}
+\item 
+typedef char $\ast$ {\bf string}
+\item 
+typedef int {\bf status}
+\item 
+typedef char {\bf path} [MAXPATHLEN]
+\item 
+typedef unsigned char {\bf byte}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{portable.h@{portable.h}!ASCII@{ASCII}}
+\index{ASCII@{ASCII}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ASCII({\bf x})\ (({\bf x}) \& 0x7F)}\label{portable_8h_a7}
+
+
+\index{portable.h@{portable.h}!BIT_0@{BIT\_\-0}}
+\index{BIT_0@{BIT\_\-0}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-0\ 0x01}\label{portable_8h_a12}
+
+
+\index{portable.h@{portable.h}!BIT_1@{BIT\_\-1}}
+\index{BIT_1@{BIT\_\-1}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-1\ 0x02}\label{portable_8h_a13}
+
+
+\index{portable.h@{portable.h}!BIT_10@{BIT\_\-10}}
+\index{BIT_10@{BIT\_\-10}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-10\ 0x400}\label{portable_8h_a22}
+
+
+\index{portable.h@{portable.h}!BIT_11@{BIT\_\-11}}
+\index{BIT_11@{BIT\_\-11}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-11\ 0x800}\label{portable_8h_a23}
+
+
+\index{portable.h@{portable.h}!BIT_12@{BIT\_\-12}}
+\index{BIT_12@{BIT\_\-12}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-12\ 0x1000}\label{portable_8h_a24}
+
+
+\index{portable.h@{portable.h}!BIT_13@{BIT\_\-13}}
+\index{BIT_13@{BIT\_\-13}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-13\ 0x2000}\label{portable_8h_a25}
+
+
+\index{portable.h@{portable.h}!BIT_14@{BIT\_\-14}}
+\index{BIT_14@{BIT\_\-14}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-14\ 0x4000}\label{portable_8h_a26}
+
+
+\index{portable.h@{portable.h}!BIT_15@{BIT\_\-15}}
+\index{BIT_15@{BIT\_\-15}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-15\ 0x8000}\label{portable_8h_a27}
+
+
+\index{portable.h@{portable.h}!BIT_16@{BIT\_\-16}}
+\index{BIT_16@{BIT\_\-16}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-16\ 0x10000}\label{portable_8h_a28}
+
+
+\index{portable.h@{portable.h}!BIT_17@{BIT\_\-17}}
+\index{BIT_17@{BIT\_\-17}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-17\ 0x20000}\label{portable_8h_a29}
+
+
+\index{portable.h@{portable.h}!BIT_18@{BIT\_\-18}}
+\index{BIT_18@{BIT\_\-18}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-18\ 0x40000}\label{portable_8h_a30}
+
+
+\index{portable.h@{portable.h}!BIT_19@{BIT\_\-19}}
+\index{BIT_19@{BIT\_\-19}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-19\ 0x80000}\label{portable_8h_a31}
+
+
+\index{portable.h@{portable.h}!BIT_2@{BIT\_\-2}}
+\index{BIT_2@{BIT\_\-2}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-2\ 0x04}\label{portable_8h_a14}
+
+
+\index{portable.h@{portable.h}!BIT_20@{BIT\_\-20}}
+\index{BIT_20@{BIT\_\-20}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-20\ 0x100000}\label{portable_8h_a32}
+
+
+\index{portable.h@{portable.h}!BIT_21@{BIT\_\-21}}
+\index{BIT_21@{BIT\_\-21}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-21\ 0x200000}\label{portable_8h_a33}
+
+
+\index{portable.h@{portable.h}!BIT_22@{BIT\_\-22}}
+\index{BIT_22@{BIT\_\-22}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-22\ 0x400000}\label{portable_8h_a34}
+
+
+\index{portable.h@{portable.h}!BIT_23@{BIT\_\-23}}
+\index{BIT_23@{BIT\_\-23}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-23\ 0x800000}\label{portable_8h_a35}
+
+
+\index{portable.h@{portable.h}!BIT_24@{BIT\_\-24}}
+\index{BIT_24@{BIT\_\-24}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-24\ 0x1000000}\label{portable_8h_a36}
+
+
+\index{portable.h@{portable.h}!BIT_25@{BIT\_\-25}}
+\index{BIT_25@{BIT\_\-25}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-25\ 0x2000000}\label{portable_8h_a37}
+
+
+\index{portable.h@{portable.h}!BIT_26@{BIT\_\-26}}
+\index{BIT_26@{BIT\_\-26}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-26\ 0x4000000}\label{portable_8h_a38}
+
+
+\index{portable.h@{portable.h}!BIT_27@{BIT\_\-27}}
+\index{BIT_27@{BIT\_\-27}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-27\ 0x8000000}\label{portable_8h_a39}
+
+
+\index{portable.h@{portable.h}!BIT_28@{BIT\_\-28}}
+\index{BIT_28@{BIT\_\-28}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-28\ 0x10000000}\label{portable_8h_a40}
+
+
+\index{portable.h@{portable.h}!BIT_29@{BIT\_\-29}}
+\index{BIT_29@{BIT\_\-29}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-29\ 0x20000000}\label{portable_8h_a41}
+
+
+\index{portable.h@{portable.h}!BIT_3@{BIT\_\-3}}
+\index{BIT_3@{BIT\_\-3}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-3\ 0x08}\label{portable_8h_a15}
+
+
+\index{portable.h@{portable.h}!BIT_30@{BIT\_\-30}}
+\index{BIT_30@{BIT\_\-30}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-30\ 0x40000000}\label{portable_8h_a42}
+
+
+\index{portable.h@{portable.h}!BIT_31@{BIT\_\-31}}
+\index{BIT_31@{BIT\_\-31}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-31\ 0x80000000}\label{portable_8h_a43}
+
+
+\index{portable.h@{portable.h}!BIT_4@{BIT\_\-4}}
+\index{BIT_4@{BIT\_\-4}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-4\ 0x10}\label{portable_8h_a16}
+
+
+\index{portable.h@{portable.h}!BIT_5@{BIT\_\-5}}
+\index{BIT_5@{BIT\_\-5}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-5\ 0x20}\label{portable_8h_a17}
+
+
+\index{portable.h@{portable.h}!BIT_6@{BIT\_\-6}}
+\index{BIT_6@{BIT\_\-6}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-6\ 0x40}\label{portable_8h_a18}
+
+
+\index{portable.h@{portable.h}!BIT_7@{BIT\_\-7}}
+\index{BIT_7@{BIT\_\-7}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-7\ 0x80}\label{portable_8h_a19}
+
+
+\index{portable.h@{portable.h}!BIT_8@{BIT\_\-8}}
+\index{BIT_8@{BIT\_\-8}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-8\ 0x100}\label{portable_8h_a20}
+
+
+\index{portable.h@{portable.h}!BIT_9@{BIT\_\-9}}
+\index{BIT_9@{BIT\_\-9}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BIT\_\-9\ 0x200}\label{portable_8h_a21}
+
+
+\index{portable.h@{portable.h}!BitAnd@{BitAnd}}
+\index{BitAnd@{BitAnd}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-And({\bf x}, {\bf y})\ (({\bf x}) \& ({\bf y}))}\label{portable_8h_a47}
+
+
+\index{portable.h@{portable.h}!BitClr@{BitClr}}
+\index{BitClr@{BitClr}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Clr({\bf x}, bit)\ (({\bf x}) \&= $\sim$(bit))}\label{portable_8h_a46}
+
+
+\index{portable.h@{portable.h}!BitNot@{BitNot}}
+\index{BitNot@{BitNot}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Not({\bf x})\ ($\sim$({\bf x}))}\label{portable_8h_a50}
+
+
+\index{portable.h@{portable.h}!BitOr@{BitOr}}
+\index{BitOr@{BitOr}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Or({\bf x}, {\bf y})\ (({\bf x}) $|$ ({\bf y}))}\label{portable_8h_a48}
+
+
+\index{portable.h@{portable.h}!BitSet@{BitSet}}
+\index{BitSet@{BitSet}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Set({\bf x}, bit)\ (({\bf x}) $|$= (bit))}\label{portable_8h_a45}
+
+
+\index{portable.h@{portable.h}!BitShift@{BitShift}}
+\index{BitShift@{BitShift}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Shift({\bf x}, count)\ ( ((count) $>$ 0)? ({\bf x}) $<$$<$ (count) : ({\bf x}) $>$$>$ (count) )}\label{portable_8h_a51}
+
+
+\index{portable.h@{portable.h}!BitTest@{BitTest}}
+\index{BitTest@{BitTest}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Test({\bf x}, bit)\ (({\bf x}) \& (bit))}\label{portable_8h_a44}
+
+
+\index{portable.h@{portable.h}!BitXor@{BitXor}}
+\index{BitXor@{BitXor}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Bit\-Xor({\bf x}, {\bf y})\ (({\bf x}) $^\wedge$ ({\bf y}))}\label{portable_8h_a49}
+
+
+\index{portable.h@{portable.h}!BYTE@{BYTE}}
+\index{BYTE@{BYTE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BYTE({\bf x})\ ({\bf byte}) (({\bf x}) \& 0xff)}\label{portable_8h_a1}
+
+
+\index{portable.h@{portable.h}!CHAR@{CHAR}}
+\index{CHAR@{CHAR}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define CHAR({\bf x})\ (({\bf x}) \& 0x7F)}\label{portable_8h_a6}
+
+
+\index{portable.h@{portable.h}!DECODE@{DECODE}}
+\index{DECODE@{DECODE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DECODE({\bf x})\ ((int) (({\bf x}) - '0'))}\label{portable_8h_a9}
+
+
+\index{portable.h@{portable.h}!DIM@{DIM}}
+\index{DIM@{DIM}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DIM({\bf a})\ (sizeof({\bf a})/sizeof($\ast$({\bf a})))}\label{portable_8h_a11}
+
+
+\index{portable.h@{portable.h}!EOF@{EOF}}
+\index{EOF@{EOF}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EOF\ (-1)}\label{portable_8h_a69}
+
+
+\index{portable.h@{portable.h}!EOL@{EOL}}
+\index{EOL@{EOL}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EOL\ '$\backslash${\bf n}'}\label{portable_8h_a66}
+
+
+\index{portable.h@{portable.h}!EOP@{EOP}}
+\index{EOP@{EOP}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EOP\ '$\backslash$14'}\label{portable_8h_a68}
+
+
+\index{portable.h@{portable.h}!EOS@{EOS}}
+\index{EOS@{EOS}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EOS\ '$\backslash$0'}\label{portable_8h_a67}
+
+
+\index{portable.h@{portable.h}!EXTERN@{EXTERN}}
+\index{EXTERN@{EXTERN}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EXTERN\ extern}\label{portable_8h_a55}
+
+
+\index{portable.h@{portable.h}!FAIL@{FAIL}}
+\index{FAIL@{FAIL}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FAIL\ (-1)}\label{portable_8h_a64}
+
+
+\index{portable.h@{portable.h}!FAILURE@{FAILURE}}
+\index{FAILURE@{FAILURE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FAILURE\ (-1)}\label{portable_8h_a63}
+
+
+\index{portable.h@{portable.h}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FALSE\ (0)}\label{portable_8h_a59}
+
+
+\index{portable.h@{portable.h}!FOREVER@{FOREVER}}
+\index{FOREVER@{FOREVER}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FOREVER\ for(;;)}\label{portable_8h_a70}
+
+
+\index{portable.h@{portable.h}!GLOBAL@{GLOBAL}}
+\index{GLOBAL@{GLOBAL}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define GLOBAL}\label{portable_8h_a57}
+
+
+\index{portable.h@{portable.h}!HIBYTE@{HIBYTE}}
+\index{HIBYTE@{HIBYTE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HIBYTE({\bf x})\ ((({\bf x}) $>$$>$ 8) \& 0xff)}\label{portable_8h_a2}
+
+
+\index{portable.h@{portable.h}!HIWORD@{HIWORD}}
+\index{HIWORD@{HIWORD}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define HIWORD({\bf x})\ ((({\bf x}) $>$$>$ 16) \& 0xffff\-L)}\label{portable_8h_a4}
+
+
+\index{portable.h@{portable.h}!LOBYTE@{LOBYTE}}
+\index{LOBYTE@{LOBYTE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LOBYTE({\bf x})\ (({\bf x}) \& 0xff)}\label{portable_8h_a3}
+
+
+\index{portable.h@{portable.h}!LOCAL@{LOCAL}}
+\index{LOCAL@{LOCAL}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LOCAL\ auto}\label{portable_8h_a54}
+
+
+\index{portable.h@{portable.h}!LOWORD@{LOWORD}}
+\index{LOWORD@{LOWORD}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LOWORD({\bf x})\ (({\bf x}) \& 0xffff\-L)}\label{portable_8h_a5}
+
+
+\index{portable.h@{portable.h}!LURSHIFT@{LURSHIFT}}
+\index{LURSHIFT@{LURSHIFT}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define LURSHIFT({\bf n}, b)\ (((long) ({\bf n}) $>$$>$ (b)) \& (0x7fffffff\-L $>$$>$ ((b) - 1)))}\label{portable_8h_a10}
+
+
+\index{portable.h@{portable.h}!MAXPATHLEN@{MAXPATHLEN}}
+\index{MAXPATHLEN@{MAXPATHLEN}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXPATHLEN\ 64}\label{portable_8h_a0}
+
+
+\index{portable.h@{portable.h}!MLOCAL@{MLOCAL}}
+\index{MLOCAL@{MLOCAL}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MLOCAL\ static}\label{portable_8h_a56}
+
+
+\index{portable.h@{portable.h}!NO@{NO}}
+\index{NO@{NO}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NO\ (0)}\label{portable_8h_a61}
+
+
+\index{portable.h@{portable.h}!NULLPTR@{NULLPTR}}
+\index{NULLPTR@{NULLPTR}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NULLPTR\ (char $\ast$) 0}\label{portable_8h_a71}
+
+
+\index{portable.h@{portable.h}!private@{private}}
+\index{private@{private}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define private\ static}\label{portable_8h_a53}
+
+
+\index{portable.h@{portable.h}!public@{public}}
+\index{public@{public}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define public}\label{portable_8h_a52}
+
+
+\index{portable.h@{portable.h}!SUCCEED@{SUCCEED}}
+\index{SUCCEED@{SUCCEED}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SUCCEED\ ( 0)}\label{portable_8h_a62}
+
+
+\index{portable.h@{portable.h}!SUCCESS@{SUCCESS}}
+\index{SUCCESS@{SUCCESS}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SUCCESS\ ( 0)}\label{portable_8h_a65}
+
+
+\index{portable.h@{portable.h}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TRUE\ (1)}\label{portable_8h_a58}
+
+
+\index{portable.h@{portable.h}!WORD@{WORD}}
+\index{WORD@{WORD}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define WORD({\bf x})\ (({\bf x}) \& 0xffff\-L)}\label{portable_8h_a8}
+
+
+\index{portable.h@{portable.h}!YES@{YES}}
+\index{YES@{YES}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define YES\ (1)}\label{portable_8h_a60}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{portable.h@{portable.h}!bool@{bool}}
+\index{bool@{bool}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef int bool}\label{portable_8h_a72}
+
+
+\index{portable.h@{portable.h}!boolean@{boolean}}
+\index{boolean@{boolean}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef int boolean}\label{portable_8h_a73}
+
+
+\index{portable.h@{portable.h}!byte@{byte}}
+\index{byte@{byte}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char byte}\label{portable_8h_a80}
+
+
+\index{portable.h@{portable.h}!flag@{flag}}
+\index{flag@{flag}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef char flag}\label{portable_8h_a74}
+
+
+\index{portable.h@{portable.h}!path@{path}}
+\index{path@{path}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef char path[MAXPATHLEN]}\label{portable_8h_a79}
+
+
+\index{portable.h@{portable.h}!rchar@{rchar}}
+\index{rchar@{rchar}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef int rchar}\label{portable_8h_a76}
+
+
+\index{portable.h@{portable.h}!status@{status}}
+\index{status@{status}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef int status}\label{portable_8h_a78}
+
+
+\index{portable.h@{portable.h}!string@{string}}
+\index{string@{string}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef char$\ast$ string}\label{portable_8h_a77}
+
+
+\index{portable.h@{portable.h}!word@{word}}
+\index{word@{word}!portable.h@{portable.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short word}\label{portable_8h_a75}
+
+

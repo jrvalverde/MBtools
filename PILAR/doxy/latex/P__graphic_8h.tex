@@ -1,0 +1,150 @@
+\section{P\_\-graphic.h File Reference}
+\label{P__graphic_8h}\index{P_graphic.h@{P\_\-graphic.h}}
+Auxiliary definitions for graphics. 
+
+
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf Point\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf \_\-P\_\-GRAPHIC\_\-H\_\-}
+\item 
+\#define {\bf ESC}\ '$\backslash$033'
+\begin{CompactList}\small\item\em escape sequences --$>$ ESC seq ASCII only uses 7 bit characters can be used in 7 or 8 bit environments.\item\end{CompactList}\item 
+\#define {\bf \_\-ESC}\ 0x1B
+\item 
+\#define {\bf CSI}\ '$\backslash$233'
+\begin{CompactList}\small\item\em Control sequences --$>$ CSI graphic ASCII seq It can be also represented in 7 bits with code extension: ESC [ It can only be used in an 8 bit environment, but is preferable whenever possible.\item\end{CompactList}\item 
+\#define {\bf \_\-CSI}\ 0x9B
+\item 
+\#define {\bf DCS}\ '$\backslash$220'
+\item 
+\#define {\bf \_\-DCS}\ 0x90
+\item 
+\#define {\bf ST}\ '$\backslash$234'
+\item 
+\#define {\bf \_\-ST}\ 0x9C
+\item 
+\#define {\bf NP\_\-ALLOW}\ 1
+\item 
+\#define {\bf NP\_\-DISABLE}\ 0
+\item 
+\#define {\bf MAX\_\-X}\ 799
+\item 
+\#define {\bf MAX\_\-Y}\ 479
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum {\bf Re\-Gis\-Mode\_\-t} \{ {\bf RG\_\-PREV\_\-COMMAND}, 
+{\bf RG\_\-HIGH\_\-COMMAND}, 
+{\bf RG\_\-PREV\_\-DISPLAY}, 
+{\bf RG\_\-HIGH\_\-DISPLAY}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Auxiliary definitions for graphics.
+
+ \begin{Desc}
+\item[Author: ]\par
+J. R. Valverde\end{Desc}
+
+
+\subsection{Define Documentation}
+\index{P_graphic.h@{P\_\-graphic.h}!_CSI@{\_\-CSI}}
+\index{_CSI@{\_\-CSI}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-CSI\ 0x9B}\label{P__graphic_8h_a4}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!_DCS@{\_\-DCS}}
+\index{_DCS@{\_\-DCS}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-DCS\ 0x90}\label{P__graphic_8h_a6}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!_ESC@{\_\-ESC}}
+\index{_ESC@{\_\-ESC}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-ESC\ 0x1B}\label{P__graphic_8h_a2}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!_P_GRAPHIC_H_@{\_\-P\_\-GRAPHIC\_\-H\_\-}}
+\index{_P_GRAPHIC_H_@{\_\-P\_\-GRAPHIC\_\-H\_\-}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-P\_\-GRAPHIC\_\-H\_\-}\label{P__graphic_8h_a0}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!_ST@{\_\-ST}}
+\index{_ST@{\_\-ST}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-ST\ 0x9C}\label{P__graphic_8h_a8}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!CSI@{CSI}}
+\index{CSI@{CSI}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define CSI\ '$\backslash$233'}\label{P__graphic_8h_a3}
+
+
+Control sequences --$>$ CSI graphic ASCII seq It can be also represented in 7 bits with code extension: ESC [ It can only be used in an 8 bit environment, but is preferable whenever possible.
+
+\index{P_graphic.h@{P\_\-graphic.h}!DCS@{DCS}}
+\index{DCS@{DCS}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DCS\ '$\backslash$220'}\label{P__graphic_8h_a5}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!ESC@{ESC}}
+\index{ESC@{ESC}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ESC\ '$\backslash$033'}\label{P__graphic_8h_a1}
+
+
+escape sequences --$>$ ESC seq ASCII only uses 7 bit characters can be used in 7 or 8 bit environments.
+
+\index{P_graphic.h@{P\_\-graphic.h}!MAX_X@{MAX\_\-X}}
+\index{MAX_X@{MAX\_\-X}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-X\ 799}\label{P__graphic_8h_a11}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!MAX_Y@{MAX\_\-Y}}
+\index{MAX_Y@{MAX\_\-Y}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-Y\ 479}\label{P__graphic_8h_a12}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!NP_ALLOW@{NP\_\-ALLOW}}
+\index{NP_ALLOW@{NP\_\-ALLOW}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-ALLOW\ 1}\label{P__graphic_8h_a9}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!NP_DISABLE@{NP\_\-DISABLE}}
+\index{NP_DISABLE@{NP\_\-DISABLE}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-DISABLE\ 0}\label{P__graphic_8h_a10}
+
+
+\index{P_graphic.h@{P\_\-graphic.h}!ST@{ST}}
+\index{ST@{ST}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ST\ '$\backslash$234'}\label{P__graphic_8h_a7}
+
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{P_graphic.h@{P\_\-graphic.h}!ReGisMode_t@{ReGisMode\_\-t}}
+\index{ReGisMode_t@{ReGisMode\_\-t}!P_graphic.h@{P\_\-graphic.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum Re\-Gis\-Mode\_\-t}\label{P__graphic_8h_a17}
+
+
+\begin{Desc}
+\item[Enumeration values:]\par
+\begin{description}
+\index{RG_PREV_COMMAND@{RG\_\-PREV\_\-COMMAND}!P_graphic.h@{P\_\-graphic.h}}\index{P_graphic.h@{P\_\-graphic.h}!RG_PREV_COMMAND@{RG\_\-PREV\_\-COMMAND}}\item[{\em 
+{\em RG\_\-PREV\_\-COMMAND}\label{P__graphic_8h_a17a13}
+}]\index{RG_HIGH_COMMAND@{RG\_\-HIGH\_\-COMMAND}!P_graphic.h@{P\_\-graphic.h}}\index{P_graphic.h@{P\_\-graphic.h}!RG_HIGH_COMMAND@{RG\_\-HIGH\_\-COMMAND}}\item[{\em 
+{\em RG\_\-HIGH\_\-COMMAND}\label{P__graphic_8h_a17a14}
+}]\index{RG_PREV_DISPLAY@{RG\_\-PREV\_\-DISPLAY}!P_graphic.h@{P\_\-graphic.h}}\index{P_graphic.h@{P\_\-graphic.h}!RG_PREV_DISPLAY@{RG\_\-PREV\_\-DISPLAY}}\item[{\em 
+{\em RG\_\-PREV\_\-DISPLAY}\label{P__graphic_8h_a17a15}
+}]\index{RG_HIGH_DISPLAY@{RG\_\-HIGH\_\-DISPLAY}!P_graphic.h@{P\_\-graphic.h}}\index{P_graphic.h@{P\_\-graphic.h}!RG_HIGH_DISPLAY@{RG\_\-HIGH\_\-DISPLAY}}\item[{\em 
+{\em RG\_\-HIGH\_\-DISPLAY}\label{P__graphic_8h_a17a16}
+}]\end{description}
+\end{Desc}
+

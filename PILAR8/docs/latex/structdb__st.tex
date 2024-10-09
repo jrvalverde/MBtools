@@ -1,0 +1,102 @@
+\section{db\_\-st  Struct Reference}
+\label{structdb__st}\index{db_st@{db\_\-st}}
+{\tt \#include $<$P\_\-dblow.h$>$}
+
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+FILE $\ast$ {\bf db\_\-fp}
+\begin{CompactList}\small\item\em Pointer to database file.\item\end{CompactList}\item 
+int {\bf db\_\-fd}
+\begin{CompactList}\small\item\em Database fie descriptor.\item\end{CompactList}\item 
+char {\bf db\_\-name} [MAXPATH]
+\begin{CompactList}\small\item\em Database file name.\item\end{CompactList}\item 
+char {\bf db\_\-buffer} [MAXLINE]
+\begin{CompactList}\small\item\em Internal read buffer.\item\end{CompactList}\item 
+int {\bf db\_\-linelen}
+\begin{CompactList}\small\item\em Length of last line read.\item\end{CompactList}\item 
+long {\bf db\_\-pos}
+\begin{CompactList}\small\item\em Current position in file.\item\end{CompactList}\item 
+int {\bf db\_\-type}
+\begin{CompactList}\small\item\em Type of database.\item\end{CompactList}\item 
+{\bf status}($\ast$ {\bf db\_\-next\_\-protein} )()
+\begin{CompactList}\small\item\em Database-specific fecth routine.\item\end{CompactList}\item 
+FILE $\ast$ {\bf db\_\-fp}
+\item 
+char {\bf db\_\-nam} [MAXPATH]
+\end{CompactItemize}
+
+
+\subsection{Member Data Documentation}
+\index{db_st@{db\_\-st}!db_buffer@{db\_\-buffer}}
+\index{db_buffer@{db\_\-buffer}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char db\_\-st::db\_\-buffer}\label{structdb__st_m3}
+
+
+Internal read buffer.
+
+\index{db_st@{db\_\-st}!db_fd@{db\_\-fd}}
+\index{db_fd@{db\_\-fd}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int db\_\-st::db\_\-fd}\label{structdb__st_m1}
+
+
+Database fie descriptor.
+
+\index{db_st@{db\_\-st}!db_fp@{db\_\-fp}}
+\index{db_fp@{db\_\-fp}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ db\_\-st::db\_\-fp}\label{structdb__st_m8}
+
+
+\index{db_st@{db\_\-st}!db_fp@{db\_\-fp}}
+\index{db_fp@{db\_\-fp}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ db\_\-st::db\_\-fp}\label{structdb__st_m0}
+
+
+Pointer to database file.
+
+\index{db_st@{db\_\-st}!db_linelen@{db\_\-linelen}}
+\index{db_linelen@{db\_\-linelen}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int db\_\-st::db\_\-linelen}\label{structdb__st_m4}
+
+
+Length of last line read.
+
+\index{db_st@{db\_\-st}!db_nam@{db\_\-nam}}
+\index{db_nam@{db\_\-nam}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char db\_\-st::db\_\-nam[MAXPATH]}\label{structdb__st_m9}
+
+
+\index{db_st@{db\_\-st}!db_name@{db\_\-name}}
+\index{db_name@{db\_\-name}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char db\_\-st::db\_\-name[MAXPATH]}\label{structdb__st_m2}
+
+
+Database file name.
+
+\index{db_st@{db\_\-st}!db_next_protein@{db\_\-next\_\-protein}}
+\index{db_next_protein@{db\_\-next\_\-protein}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status}($\ast$ db\_\-st::db\_\-next\_\-protein)()}\label{structdb__st_m7}
+
+
+Database-specific fecth routine.
+
+\index{db_st@{db\_\-st}!db_pos@{db\_\-pos}}
+\index{db_pos@{db\_\-pos}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long db\_\-st::db\_\-pos}\label{structdb__st_m5}
+
+
+Current position in file.
+
+\index{db_st@{db\_\-st}!db_type@{db\_\-type}}
+\index{db_type@{db\_\-type}!db_st@{db\_\-st}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int db\_\-st::db\_\-type}\label{structdb__st_m6}
+
+
+Type of database.
+
+
+
+The documentation for this struct was generated from the following files:\begin{CompactItemize}
+\item 
+{\bf P\_\-dblow.h}\item 
+{\bf P\_\-db.c}\end{CompactItemize}

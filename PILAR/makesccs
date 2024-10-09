@@ -1,0 +1,6 @@
+mkdir SCCS save
+chown sccs SCCS
+foreach i (*.[ch])
+	sccs admin -i$i $i
+	mv $i save/$i
+end

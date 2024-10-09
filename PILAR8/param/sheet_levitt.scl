@@ -1,0 +1,26 @@
+; Levitt (1978) Conformational preferences of aminoacids in
+; globular proteins. Biochemistry 17, 4277-4285
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology,
+; pg. 85
+;
+Val	1.49
+Ile	1.45
+Tyr	1.25
+Phe	1.32
+Trp	1.14
+Leu	1.02
+Cys	0.74
+Thr	1.21
+Gln	0.80
+Met	0.97
+Arg	0.99
+Asn	0.76
+His	1.08
+Ala	0.90
+Ser	0.95
+Gly	0.92
+Lys	0.77
+Pro	0.64
+Asp	0.72
+Glu	0.75

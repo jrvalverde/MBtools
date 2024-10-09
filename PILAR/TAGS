@@ -1,0 +1,1438 @@
+
+mshell.c,796
+#define __MSHELL__32,1496
+#define MEMTAG	41,1613
+typedef struct memnod	44,1677
+    unsigned int	mh_tag;46,1773
+    size_t		mh_size;47,1824
+    struct memnod	*mh_next;mh_next49,1898
+    struct memnod	*mh_prev;mh_prev50,1951
+    char		*mh_file;mh_file53,2037
+    unsigned int	mh_line;54,2088
+} MEMHDR;56,2152
+#define ALIGN_SIZE	64,2485
+#define HDR_SIZE	66,2520
+#define RESERVE_SIZE	67,2552
+#define CLIENT_2_HDR(73,2779
+#define HDR_2_CLIENT(74,2849
+static unsigned long	mem_size 77,2940
+static MEMHDR	*memlist memlist79,3025
+#define Mem_Tag_Err(88,3328
+#define Mem_Tag_Err(90,3382
+mem_alloc(112,3988
+mem_realloc(167,5011
+mem_strdup(241,6376
+mem_free(286,7091
+Mem_Used(341,8173
+Mem_Display(364,8602
+mem_list_add(408,9473
+mem_list_delete(433,9883
+mem_tag_err(463,10408
+
+P_AVL.c,671
+char *version=version74,2132
+#define MOD_DEBUG 83,2333
+typedef void *item_t;item_t88,2410
+struct avl_node 90,2433
+    item_t	    key;91,2451
+    struct avl_node *left;left92,2471
+    struct avl_node *right;right93,2498
+    flag	    equi;94,2526
+typedef struct avl_node *avl_tree_t;avl_tree_t97,2593
+void avl_insert(106,2698
+static void equileft(238,5804
+static void equiright(332,8084
+static avl_tree_t q 389,9133
+static void del(391,9162
+void avl_delete(414,9705
+#define MINOR	476,11035
+#define EQUAL	477,11056
+#define GREATER	478,11076
+int data[data488,11444
+int icmp(492,11560
+void show(498,11663
+void horror(504,11723
+void main(510,11804
+
+P_bits.c,360
+struct _bv 45,877
+	unsigned bv_nobits;46,890
+	char *bv_bits;bv_bits47,950
+	char *bv_end;bv_end48,1005
+typedef struct _bv *bit_vector;bit_vector50,1063
+bit_vector bv_new(59,1345
+void bv_fill(88,2151
+void bv_set(99,2439
+bool bv_test(132,3247
+int bv_nz(166,4237
+void bv_and(189,4843
+void bv_or(221,5933
+void bv_xor(252,7017
+void bv_disp(284,8117
+
+P_db.c,1455
+#define _P_DBANK_55,1406
+#define DEBUG	63,1673
+#define SEEK_SET	92,2241
+typedef struct db_st{db_st101,2497
+    FILE    *db_fp;db_fp102,2519
+    int	    db_fd;103,2539
+    char    db_nam[db_nam104,2558
+    char    db_buffer[db_buffer105,2587
+    int	    db_linelen;106,2619
+    long    db_pos;107,2643
+    int	    db_type;108,2663
+    status  (*db_next_protein)db_next_protein109,2684
+    }	*db_t;db_t110,2754
+#define DB_UNKNOWN	129,3567
+#define DB_STANFORD	130,3592
+#define DB_INTELLIGENETICS 131,3618
+#define DB_STRIDER	132,3648
+#define DB_GENBANK	133,3673
+#define DB_NBRF	134,3698
+#define DB_PIR	135,3721
+#define DB_PEARSON	136,3743
+#define DB_EMBL	137,3768
+#define DB_SWISSPROT	138,3791
+#define DB_UWGCG	139,3818
+#define DB_ZUKER	140,3842
+#define DB_FITCH	141,3866
+#define DB_PREER	142,3890
+#define DB_GCGSW	143,3914
+static const char DB_OPEN[DB_OPEN150,4117
+static const char CANT_OPEN[CANT_OPEN151,4164
+static FILE *idx_fp idx_fp157,4411
+static int  idx_fd 158,4439
+static char idx_nam[idx_nam159,4464
+static long idx_pos 160,4503
+static int  idx_size;161,4528
+db_t db_open(179,5154
+status db_next_protein(411,11925
+status db_seek_protein(433,12636
+void db_name(454,13327
+void db_close(470,13670
+int db_type(487,14034
+status idx_open(515,14778
+status idx_close(538,15258
+status idx_name(555,15645
+status get_index(572,16048
+protein_t   prot;614,17067
+int histo[histo616,17086
+main(618,17111
+
+P_descr.c,936
+#define DEBUG	30,767
+static char d_filnam[d_filnam128,2788
+static int max_reg 129,2832
+status read_descriptor(131,2857
+static bool get_dfeatures(185,4185
+static char f_filnam[f_filnam283,7233
+status read_feature(285,7278
+status get_feature(379,9691
+status feature_name(410,10555
+static bool get_drules(431,10894
+static bool get_new_rule(463,11631
+static bool get_distance_rule(509,12803
+static bool get_sequence_rule(570,14311
+static bool get_profile_rule(618,15557
+char infile[infile680,17296
+char outfile[outfile681,17313
+FILE *fp1;fp1682,17331
+FILE *fp2;fp2683,17342
+int no_aa,684,17353
+int no_aa, count;684,17353
+feature_table_t feat1,685,17394
+feature_table_t feat1, feat2;685,17394
+descriptor_t d;686,17424
+l_head_t *the_rules;the_rules687,17440
+rule_t *my_rule;my_rule688,17461
+distance_rule_t *dr;dr689,17478
+sequence_rule_t *sr;sr690,17499
+profile_rule_t  *pr;pr691,17520
+main(693,17542
+
+P_dlist.c,1471
+#define MOD_DEBUG 57,1121
+#define NEW(59,1144
+#define info_t	61,1195
+struct dbly_node 63,1216
+    info_t     		*item;item64,1235
+    struct dbly_node	*prev;prev65,1259
+    struct dbly_node	*next;next66,1287
+typedef struct dbly_node dl_node_t;69,1323
+    int		dl_length;72,1377
+    dl_node_t	*dl_first;dl_first73,1397
+    dl_node_t	*dl_last;dl_last74,1422
+    dl_node_t	*dl_cur;dl_cur75,1446
+    } dl_head_t;76,1469
+typedef dl_head_t *dlist_t;dlist_t78,1487
+dlist_t new_dlist(90,1803
+static dl_node_t *new_dnode(new_dnode116,2491
+boolean dlist_put(145,3233
+boolean dlist_append(181,4309
+info_t *dlist_del_first(dlist_del_first217,5430
+bool dlist_insert(262,6764
+info_t *dlist_del_last(dlist_del_last300,7755
+info_t *dlist_del_next(dlist_del_next337,8867
+info_t *dlist_del_node(dlist_del_node378,9891
+int dlist_length(412,10828
+info_t *dlist_first(dlist_first428,11180
+info_t *dlist_last(dlist_last445,11569
+info_t *dlist_current(dlist_current463,11995
+info_t *dlist_next(dlist_next479,12379
+info_t *dlist_prev(dlist_prev500,12876
+info_t *dlist_begset(dlist_begset522,13381
+info_t *dlist_endset(dlist_endset539,13752
+bool dlist_fwfind(567,14617
+bool dlist_bkfind(607,15702
+void dlist_fwtraverse(640,16531
+void dlist_bktraverse(667,17234
+info_t *dlist_fwdelete(dlist_fwdelete699,18160
+info_t *dlist_bkdelete(dlist_bkdelete745,19413
+int iary[iary780,20142
+int icmp(782,20194
+int putpint(788,20280
+main(797,20430
+
+P_gtree.c,2232
+#define MOD_DEBUG 87,2271
+#define info_t	94,2383
+#define MAX	95,2403
+struct l_node 99,2472
+    info_t	    *item;item100,2488
+    struct l_node   *next;next101,2510
+typedef struct l_node l_node_t;104,2545
+struct l_head 106,2578
+    int		l_length;107,2594
+    l_node_t	*l_first;l_first108,2613
+    l_node_t	*l_last;l_last109,2636
+    l_node_t	*l_cur;l_cur110,2658
+typedef struct l_head l_head_t;113,2687
+typedef l_head_t    *list_t;list_t115,2720
+struct binary_node 121,2860
+    info_t		*element;element122,2881
+    struct binary_node	*left;left123,2921
+    struct binary_node	*right;right124,2974
+    struct binary_node	*parent;parent125,3029
+typedef struct binary_node *b_tree_t;b_tree_t128,3083
+struct triple_node 134,3251
+    info_t		*element;element135,3272
+    struct triple_node	*left;left136,3294
+    struct triple_node	*middle;middle137,3324
+    struct triple_node	*right;right138,3356
+    struct triple_node	*parent;parent139,3387
+typedef struct triple_node *t_tree_t;t_tree_t142,3423
+struct n_ary_node 153,3752
+    info_t	    *element;element154,3772
+    struct n_ary_node *child[child155,3819
+    struct n_ary_node *parent;parent156,3885
+typedef struct n_ary_node *n_tree_t;n_tree_t159,3942
+struct dynamic_node 165,4107
+    info_t		*element;element166,4129
+    list_t   		children;167,4169
+    struct dynamic_node	*parent;parent168,4229
+typedef struct dynamic_node *g_tree_t;g_tree_t171,4284
+struct forest_node 177,4478
+    g_tree_t		*fst_item;fst_item178,4499
+    struct forest_node	*fst_next;fst_next179,4524
+typedef struct forest_node forest_n_t;182,4562
+struct forest_head 186,4652
+    int	  	fst_len;187,4673
+    forest_n_t	*fst_first,fst_first188,4693
+    forest_n_t	*fst_first, *fst_last;fst_last188,4693
+typedef struct forest_head *forest_t;forest_t191,4735
+g_tree_t gt_init(215,5290
+g_tree_t gt_new(245,5879
+bool gt_add_child(262,6209
+bool gt_add_sibling(289,6835
+l_node_t *gt_leftmost(gt_leftmost317,7456
+g_tree_t gt_root(333,7776
+bool gt_is_leaf(354,8193
+void gt_pre_order(376,8725
+void gt_in_order(409,9440
+void gt_post_order(442,10126
+int data[data467,10726
+void show(471,10858
+void show_leaf(480,10948
+main(490,11063
+
+Pilar_10.c,1212
+#define MIN_ARG_COUNT	90,2789
+#define DEBUG	92,2814
+char prot1_file[prot1_file99,3026
+char prot2_file[prot2_file100,3087
+char out_file[out_file101,3148
+FILE *out_fp;out_fp103,3208
+flag self_flag 104,3222
+flag trunc_flag 105,3243
+flag out_flag 106,3265
+flag grf_flag 107,3285
+flag silent_flag 108,3305
+protein_t *prot1,prot1109,3328
+protein_t *prot1, *prot2;prot2109,3328
+int *values,values110,3354
+int *values, maxval,110,3354
+int *values, maxval, minval,110,3354
+int *values, maxval, minval, val_no;110,3354
+static char program[program112,3392
+main(132,4035
+static void parse_arguments(212,6264
+static void save_name(281,7532
+static void show_usage(297,7905
+void assign_charges(319,8631
+count_interactions(370,9904
+static void save_values(466,12364
+#define BLACK	486,12870
+#define BLUE	487,12886
+#define RED	488,12901
+#define GREEN	489,12915
+static int  x_min,491,12932
+	    x_max,492,12951
+	    x_len,493,12963
+	    y_min,494,12975
+	    y_max,495,12987
+	    y_len;496,12999
+static float x_step;498,13012
+static void draw_data(500,13034
+static void init_map(527,13523
+static float itof(548,14110
+static void draw_axis(550,14155
+static void draw_values(580,14849
+
+Pilar_2.c,116
+#define DEBUG	41,1095
+#define MAX_INFILES 59,1554
+#define MAXPATH	60,1576
+#define EXIT_OK	61,1600
+main(63,1623
+
+Pilar_4.c,492
+#define MIN_ARG_COUNT	77,2366
+#define DEBUG	79,2391
+char lib_file[lib_file86,2603
+char ind_file[ind_file87,2662
+char out_file[out_file88,2716
+char pat_file[pat_file89,2771
+FILE *out_fp;out_fp91,2831
+flag ind_flag 93,2846
+flag out_flag 94,2897
+flag ver_flag 95,2948
+static char program[program97,2993
+static db_t db;99,3028
+main(116,3527
+void parse_arguments(180,5266
+void save_name(242,6412
+void show_usage(258,6777
+int new_protein(277,7377
+void save_protein(321,8416
+
+Pilar_5.c,474
+#define MIN_ARG_COUNT	66,1916
+#define DEBUG	68,1941
+char lib_file[lib_file75,2153
+char ind_file[ind_file76,2212
+char out_file[out_file77,2266
+char dsc_file[dsc_file78,2321
+FILE *out_fp;out_fp80,2381
+flag ind_flag 82,2396
+static char program[program84,2448
+static db_t db;86,2483
+main(103,3029
+void parse_arguments(170,4927
+void save_name(236,6175
+void show_usage(252,6540
+int new_protein(271,7139
+void save_protein(312,8068
+int check_protein(342,8814
+
+Pilar_6.c,484
+#define MIN_ARG_COUNT	66,1801
+#define DEBUG	67,1825
+char lib_file[lib_file74,2039
+char ind_file[ind_file75,2098
+char out_file[out_file76,2152
+char dsc_file[dsc_file77,2207
+FILE *out_fp;out_fp79,2267
+flag ind_flag 81,2282
+static char program[program83,2334
+static db_t database;85,2402
+main(102,2983
+void parse_arguments(174,5010
+void save_name(240,6260
+void show_usage(256,6625
+int new_protein(278,7356
+void save_protein(319,8287
+boolean check_protein(351,9271
+
+Pilar_7.c,504
+#define MIN_ARG_COUNT	74,2164
+#define DEBUG	76,2189
+char prot_file[prot_file83,2401
+char out_file[out_file84,2461
+char pat_file[pat_file85,2520
+FILE *out_fp;out_fp87,2580
+flag out_flag 88,2594
+flag short_flag 89,2617
+protein_t prot;90,2642
+descriptor_t desc;91,2658
+static char program[program93,2678
+main(110,3241
+static void parse_arguments(189,5435
+static void save_name(251,6624
+static void show_usage(267,6996
+static void save_values(282,7429
+static void save_regions(324,8788
+
+Pilar_8.c,1029
+#define MIN_ARG_COUNT	90,2808
+#define DEBUG	92,2833
+char prot_file[prot_file99,3045
+char out_file[out_file100,3105
+char pat_file[pat_file101,3164
+FILE *out_fp;out_fp103,3224
+flag out_flag 104,3238
+flag grf_flag 105,3258
+flag short_flag 106,3278
+flag silent_flag 107,3300
+protein_t prot;108,3323
+descriptor_t desc;109,3339
+static char program[program111,3359
+main(140,4191
+static void parse_arguments(227,6483
+static void save_name(298,7823
+static void show_usage(314,8195
+static void save_values(334,8863
+static void save_regions(376,10222
+#define BLACK	429,11928
+#define BLUE	430,11944
+#define RED	431,11959
+#define GREEN	432,11973
+static int  x_min,434,11990
+	    x_max,435,12009
+	    x_len,436,12021
+	    y_min,437,12033
+	    y_max,438,12045
+	    y_len;439,12057
+static float x_step;441,12070
+static void draw_data(443,12092
+static void init_map(499,13546
+static float itof(520,14145
+static void draw_axis(522,14190
+static void draw_values(554,14933
+static void draw_regions(613,16383
+
+Pilar_9.c,1210
+#define MIN_ARG_COUNT	88,2693
+#define DEBUG	90,2718
+char prot1_file[prot1_file97,2930
+char prot2_file[prot2_file98,2991
+char out_file[out_file99,3052
+FILE *out_fp;out_fp101,3112
+flag self_flag 102,3126
+flag trunc_flag 103,3147
+flag out_flag 104,3169
+flag grf_flag 105,3189
+flag silent_flag 106,3209
+protein_t *prot1,prot1107,3232
+protein_t *prot1, *prot2;prot2107,3232
+int *values,values108,3258
+int *values, maxval,108,3258
+int *values, maxval, minval,108,3258
+int *values, maxval, minval, val_no;108,3258
+static char program[program110,3296
+main(130,3939
+static void parse_arguments(213,6212
+static void save_name(282,7480
+static void show_usage(298,7852
+void assign_charges(320,8578
+count_interactions(368,9680
+static void save_values(473,12325
+#define BLACK	493,12831
+#define BLUE	494,12847
+#define RED	495,12862
+#define GREEN	496,12876
+static int  x_min,498,12893
+	    x_max,499,12912
+	    x_len,500,12924
+	    y_min,501,12936
+	    y_max,502,12948
+	    y_len;503,12960
+static float x_step;505,12973
+static void draw_data(507,12995
+static void init_map(534,13483
+static float itof(554,14069
+static void draw_axis(556,14114
+static void draw_values(586,14808
+
+P_list.c,1194
+#define MOD_DEBUG 113,3440
+#define	info_t	114,3462
+struct l_node 116,3483
+    info_t	    *item;item117,3499
+    struct l_node   *next;next118,3521
+typedef struct l_node l_node_t;121,3552
+struct l_head 123,3585
+    int		l_length;124,3601
+    l_node_t	*l_first;l_first125,3620
+    l_node_t	*l_last;l_last126,3643
+    l_node_t	*l_cur;l_cur127,3665
+typedef struct l_head l_head_t;130,3690
+typedef l_head_t    *list_t;list_t132,3723
+#define NEW(142,3946
+list_t new_list(154,4313
+static l_node_t *new_node(new_node179,4887
+boolean list_put(207,5486
+boolean list_insert(243,6507
+boolean list_append(277,7457
+info_t *list_del_node(list_del_node312,8543
+info_t *list_del_next(list_del_next355,9870
+int list_length(394,10816
+info_t *list_first(list_first410,11164
+info_t *list_current(list_current427,11556
+info_t *list_last(list_last442,11905
+info_t *list_next(list_next459,12285
+void list_reset(482,12846
+bool list_find(508,13644
+void list_traverse(539,14406
+list_destroy(563,14961
+info_t *list_del_first(list_del_first589,15515
+info_t *list_delete(list_delete613,16276
+int iary[iary655,17191
+int icmp(657,17244
+void putpint(663,17344
+main(672,17483
+
+P_parser.c,981
+#define DEBUG	71,2314
+#define NO_RULES	109,2946
+#define MAX_PAT_SIZE	110,2965
+#define MAX_TOKEN	111,2994
+    DIS_TOKEN,154,4249
+    SEQ_TOKEN,155,4264
+    PRO_TOKEN156,4279
+} RULE_TOKENS;157,4293
+static char buff[buff163,4352
+static char *pat pat164,4388
+static char token[token165,4413
+static char *p_token p_token166,4447
+static FILE *pat_file;pat_file167,4477
+static descriptor_t *d;d168,4500
+static list_t token_list;169,4524
+static char *rules_table[rules_table170,4550
+void parse(200,5316
+void store_token(232,6151
+char *retrieve_token(retrieve_token270,7278
+static int new_line(303,7990
+static void skip_blanks(341,8819
+static int lookup(355,9045
+static bool is_token(383,9732
+static void init_token(402,10147
+static int get_next_token(411,10265
+static void get_delimiter(588,14038
+static void get_value(612,14511
+static void get_sequence(661,15504
+static void get_next_word(687,15965
+static void parser_error(707,16309
+main(743,17187
+
+P_protein.c,688
+#define DEBUG 62,1882
+#define _P_INIT_ 79,2195
+void init_protein(99,2679
+static char p_filnam[p_filnam179,4824
+status read_protein(181,4869
+status get_protein(217,5721
+status protein_fname(249,6563
+char *protein_name(protein_name283,7348
+int protein_seq_length(302,7802
+char *protein_sequence(protein_sequence323,8364
+float *protein_feat_values(protein_feat_values346,9038
+list_t protein_feat_regions(369,9632
+void init_protein(386,10071
+protein_t prot;487,12902
+char prfile[prfile488,12918
+char infile[infile489,12935
+char outfile[outfile490,12952
+FILE *fp1;fp1491,12970
+FILE *fp2;fp2492,12981
+int no_aa,493,12992
+int no_aa, count;493,12992
+main(495,13034
+
+P_queue.c,989
+#define MOD_DEBUG	78,1581
+#define info_t	80,1602
+#define NEW(82,1623
+typedef int counter;85,1736
+struct st_queue 87,1758
+    counter q_spos;88,1776
+    counter q_rpos;89,1796
+    counter q_size;90,1816
+    counter q_nelms;91,1836
+    info_t  **queue;queue92,1857
+typedef struct st_queue	*queue_t;queue_t95,1882
+queue_t	new_queue(107,2214
+void free_queue(139,3050
+boolean q_store(159,3549
+info_t *q_retrieve(q_retrieve190,4318
+typedef struct q_node 211,4653
+    info_t	    *item;item212,4677
+    struct q_node   *next;next213,4699
+} q_node_t;214,4726
+typedef struct st_fifo_header 216,4739
+    int		q_size;217,4771
+    q_node_t	*q_front;q_front218,4788
+    q_node_t	*q_rear;q_rear219,4811
+} *fifo_t;fifo_t220,4833
+fifo_t	new_fifo(231,5109
+static q_node_t *new_node(new_node257,5764
+boolean enqueue(271,5997
+info_t *dequeue(dequeue306,7024
+void free_fifo(340,8057
+#define QUEUESIZE	352,8237
+main(354,8259
+#define QUEUESIZE	433,10633
+main(435,10655
+
+P_region.c,416
+static counter	pos 106,3276
+static counter	length 107,3343
+static counter	beginning 108,3404
+static float	threshold 109,3473
+static char find[find111,3548
+static char annotate[annotate112,3585
+static char nem[nem113,3629
+status find_regions(117,3704
+static void skip_gap(189,5403
+static void calc_length(204,5751
+static void annotate_region(221,6159
+void align_region(287,7956
+float aa_dist(339,9414
+
+P_sort.c,750
+#define MOD_DEBUG 43,1065
+#define MINOR	45,1088
+#define EQUAL	46,1105
+#define GREATER	47,1122
+#define TRUE 49,1142
+#define FALSE	50,1158
+typedef char flag;52,1175
+typedef int bool;54,1195
+typedef void *pitem;pitem56,1214
+typedef int index_t;58,1236
+void DirSort(80,1770
+void BinSort(118,2670
+void SelSort(163,3670
+void BubSort(202,4463
+void ShkSort(242,5491
+void ShellSort(307,7105
+static void screen(360,8600
+void HeapSort(386,9051
+void RQkSort(425,9917
+void RQuickSort(458,10512
+void IQuickSort(485,11020
+#define MAX_STACK_DEPTH	495,11273
+        index_t iz;502,11413
+        index_t de;503,11433
+#define ARRAYSIZE 564,12881
+int icmp(566,12909
+long int iary[iary572,13014
+long int *pary[pary573,13040
+main(575,13068
+
+P_splay.c,558
+struct splay_node 1,0
+	void *key;key2,20
+	struct splay_node *left;left3,32
+	struct splay_node *right;right4,58
+	struct splay_node *parent;parent5,85
+typedef struct splay_node splay_node_t;8,117
+typedef struct splay_node *splay_tree;splay_tree9,157
+static void zig_left(11,197
+static void zig_right(25,442
+static void zig_zig_left(39,684
+static void zig_zig_right(71,1217
+static void zig_zag_left(100,1644
+static void zig_zag_right(126,2034
+static void Splay(163,2771
+info_t *Find(Find235,4230
+void Delete(247,4450
+void Insert(274,5124
+
+P_stack.c,491
+#define MOD_DEBUG 53,1116
+#define info_t	55,1139
+#define NEW(57,1160
+typedef struct s_node 59,1219
+    info_t	    *item;item60,1243
+    struct s_node   *next;next61,1265
+    }	s_node_t;62,1292
+typedef struct st_lifo_header 64,1309
+    int		s_length;65,1341
+    s_node_t	*s_top;s_top66,1360
+    }	*lifo_t;lifo_t67,1381
+lifo_t	new_lifo(78,1640
+static s_node_t *new_node(new_node111,2377
+boolean push(127,2630
+info_t *pop(pop168,3705
+int iary[iary196,4474
+main(198,4522
+
+P_stree.c,786
+#define MOD_DEBUG	84,2552
+#define info_t 102,3242
+struct stnode_t 104,3263
+    info_t	    *item;item105,3281
+    struct stnode_t *left;left107,3326
+    struct stnode_t *right;right108,3353
+typedef struct stnode_t *stree_t;stree_t111,3385
+void st_preorder(120,3542
+void st_inorder(138,3813
+void st_postorder(156,4083
+stree_t st_search(180,4567
+bool st_insert(208,5018
+stree_t st_delete(274,6936
+info_t *st_item(st_item341,8385
+#define	GREATER	352,8626
+#define	EQUAL	353,8649
+#define	MINOR	354,8670
+int data[data357,8693
+int icmp(361,8809
+void show(367,8912
+main(374,8965
+#define	GREATER	422,10086
+#define	EQUAL	423,10109
+#define	MINOR	424,10130
+char *data[data429,10174
+char *data2[data2433,10372
+void show(438,10571
+pstrcmp(445,10640
+main(451,10713
+
+P_think.c,570
+#define _V_5_75,2343
+#define DISTANCE 77,2358
+#define SEQUENCE 78,2380
+#define PROFILE	79,2402
+static protein_t *prot;prot81,2425
+static descriptor_t *dscr;dscr82,2449
+static l_head_t **regions;regions83,2476
+static float **values;values84,2503
+static region_t ***rmap;rmap85,2526
+boolean assert_rules(136,4511
+static int assert_rule(203,6369
+static int assert_distance(259,7856
+static int check_dist(335,9747
+static int assert_sequence(449,13012
+static int assert_profile(575,16380
+static void init_rule_status(700,19866
+void init_rules(706,19943
+
+P_utils.c,1530
+#define DEBUG 84,2540
+#define MAX(101,2778
+void iMaxMin(124,3503
+void fMaxMin(154,4283
+void dMaxMin(184,5029
+static void **_mmarr;_mmarr219,6058
+void rMaxMin(223,6196
+static _MaxMin(238,6552
+static void *_max(_max277,7387
+static void *_min(_min286,7531
+#define CUBE(311,8125
+#define SQUARE(313,8164
+void moment(315,8197
+#undef SQUARE372,9414
+#undef CUBE374,9429
+void KSone(384,9734
+public KStwo(421,10910
+static float probKS(465,12123
+#define	EPS1	468,12163
+#define	EPS2	469,12182
+void normalize(505,13130
+void antinormalize(534,13874
+void et_voila(565,14498
+void horror(597,15695
+void letal(613,16057
+static char letal_buffer[letal_buffer632,16561
+void letalf(634,16593
+bool is_empty(657,17208
+char *index(index680,17760
+char *rindex(rindex703,18248
+char *tmpname(tmpname731,18744
+int strindex(758,19407
+void *getmem(getmem786,20114
+#define BUFFERSIZE	807,20591
+static char buf[buf809,20632
+static int bufp 810,20690
+#undef getch813,20765
+int getch(816,20786
+int getche(831,21142
+int ungetch(852,21556
+int iarr[iarr871,21939
+float farr[farr872,21989
+double darr[darr873,22061
+int imax,875,22135
+int imax, imin;875,22135
+float fmax,876,22151
+float fmax, fmin;876,22151
+double dmax,877,22169
+double dmax, dmin;877,22169
+counter n;879,22189
+float ave,881,22201
+float ave, adev,881,22201
+float ave, adev, sdev,881,22201
+float ave, adev, sdev, var,881,22201
+float ave, adev, sdev, var, skew,881,22201
+float ave, adev, sdev, var, skew, kurt;881,22201
+main(883,22242
+
+P_values.c,506
+#define DEBUG	65,2027
+#define PI	81,2245
+#define SQR(82,2278
+static float *aa_values;aa_values103,2891
+void assign_values(105,2917
+void window_soften(190,5303
+void moment_soften(269,7848
+void window_soften(365,10999
+void moment_soften(426,12733
+char seqfile[seqfile503,14817
+char parfile[parfile504,14835
+char outfile[outfile505,14853
+protein_t prot;506,14871
+descriptor_t desc;507,14887
+int i,508,14906
+int i, j;508,14906
+FILE *outfp;outfp510,14917
+horror(512,14931
+main(521,15073
+
+db/P_EMBL.c,118
+#define _P_DBANK_41,1088
+#define _P_EMBL_42,1106
+status EMBL_next_protein(71,1915
+static bool next_entry(129,3615
+
+db/P_Fitch.c,120
+#define _P_DBANK_41,1081
+#define _P_FITCH_42,1099
+status Fitch_next_protein(69,1879
+static bool next_entry(116,3104
+
+db/P_GCGSw.c,119
+#define _P_DBANK_41,1096
+#define _P_EMBL_42,1114
+status GCGSW_next_protein(54,1298
+static bool next_entry(107,2753
+
+db/P_GenBank.c,124
+#define _P_DBANK_41,1082
+#define _P_GENBANK_42,1100
+status GenBank_next_protein(69,1884
+static bool next_entry(126,3535
+
+db/P_IG.c,114
+#define _P_DBANK_41,1081
+#define _P_IG_42,1099
+status IG_next_protein(69,1873
+static bool next_entry(128,3495
+
+db/P_Pearson.c,124
+#define _P_DBANK_41,1082
+#define _P_PEARSON_42,1100
+status Pearson_next_protein(69,1884
+static bool next_entry(120,3228
+
+db/P_PIR.c,116
+#define _P_DBANK_41,1070
+#define _P_PIR_42,1088
+status PIR_next_protein(69,1864
+static bool next_entry(122,3269
+
+db/P_Preer.c,87
+#define _P_DBANK_46,1237
+#define _P_PREER_47,1255
+status Preer_next_protein(75,2036
+
+db/P_Strider.c,124
+#define _P_DBANK_41,1086
+#define _P_STRIDER_42,1104
+status Strider_next_protein(69,1888
+static bool next_entry(127,3534
+
+db/P_unknown.c,91
+#define _P_DBANK_41,1083
+#define _P_UNKNOWN_42,1101
+status Unknown_next_protein(69,1885
+
+db/P_UWGCG.c,87
+#define _P_DBANK_49,1360
+#define _P_UWGCG_50,1378
+status UWGCG_next_protein(78,2159
+
+db/P_Zuker.c,120
+#define _P_DBANK_41,1082
+#define _P_ZUKER_42,1100
+status Zuker_next_protein(69,1880
+static bool next_entry(123,3364
+
+h/mshell.h,262
+#define MEM_LIST	13,236
+#define MEM_WHERE	14,279
+#define malloc(36,859
+#define realloc(37,914
+#define free(38,980
+#define strdup(39,1033
+#define calloc(40,1089
+#define malloc(42,1136
+#define realloc(43,1171
+#define free(44,1217
+#define strdup(45,1250
+
+h/P_AVL.h,250
+typedef void *item_t;item_t27,757
+struct avl_node 36,1003
+    item_t	    key;37,1021
+    struct avl_node *left;left38,1084
+    struct avl_node *right;right39,1144
+    flag	    equi;40,1205
+typedef struct avl_node *avl_tree;avl_tree46,1394
+
+h/P_db.h,32
+typedef void *db_t;db_t22,540
+
+h/P_dblow.h,306
+typedef struct db_st 25,652
+    FILE *db_fp;db_fp26,675
+    int  db_fd;27,734
+    char db_name[db_name28,792
+    char db_buffer[db_buffer29,848
+    int  db_linelen;30,906
+    long db_pos;31,965
+    int  db_type;32,1024
+    status (*db_next_protein)db_next_protein33,1075
+} *db_t;db_t34,1151
+
+h/P_defs.h,2145
+#define	MAXLINE	32,716
+#define	KEYS_NUMBER 35,776
+#define KEYLEN	38,828
+#define	PNAME_LEN 41,889
+#define	MAX_SEQ_LEN 44,947
+#define MAX_REGIONS 47,1010
+#define MAX_CLASSES 50,1079
+#define AA_NUMBER 53,1135
+#define ASSIGNED 56,1201
+#define EXPLORED 59,1268
+#define	OK	64,1342
+#define NOT_ALIGNED 68,1413
+#define F_INFINITY 71,1462
+#define NEW(74,1542
+#define P_EXT	77,1624
+#define D_EXT	80,1693
+#define F_EXT	83,1767
+#define DB_UNKNOWN	96,1920
+#define DB_STANFORD	97,1945
+#define DB_INTELLIGENETICS 98,1971
+#define DB_STRIDER	99,2001
+#define DB_GENBANK	100,2026
+#define DB_NBRF	101,2051
+#define DB_PIR	102,2074
+#define DB_PEARSON	103,2096
+#define DB_EMBL	104,2121
+#define DB_SWISSPROT	105,2144
+#define DB_UWGCG	106,2171
+#define DB_ZUKER	107,2195
+#define DB_FITCH	108,2219
+#define DB_PREER	109,2243
+#define QUEUE_SIZE 124,2448
+#define Q_FULL	127,2507
+#define Q_EMPTY	130,2564
+    NEW_RULE,149,2816
+    DISTANCE,150,2830
+    SEQUENCE,151,2844
+    PROFILE,152,2858
+    POSITION,153,2871
+    RANGE,154,2885
+    SEQ,155,2896
+    IN_TOKEN,156,2905
+    POS_RANGE,157,2919
+    REGION,158,2934
+    VALUES,159,2946
+    VALUE,160,2958
+    HYPHEN,161,2969
+    EQUAL,162,2981
+    LPAREN,163,2992
+    RPAREN,164,3004
+    COLON,165,3016
+    POINTS,166,3027
+    LESSTHAN167,3039
+}   TOKENS;168,3052
+#define NO_MORE_TOKENS	171,3110
+#define BYE 182,3220
+#define VMS_WARNING 235,4967
+#define VMS_SUCCESS 236,5016
+#define VMS_ERROR 237,5065
+#define VMS_INFO 238,5114
+#define VMS_FATAL 239,5163
+#define EXIT_OK	242,5243
+#define BAD_ARGS 245,5308
+#define LETAL_ERROR 248,5370
+#define	MAXPATH	251,5437
+#define OPTION_DELIMITER 254,5492
+#define DRIVECHAR	256,5530
+#define BEGDIRCHAR	259,5591
+#define DIRDELIMITER	261,5624
+#define ENDDIRCHAR	263,5654
+#define FILEXTCHAR	265,5682
+#define UNIX_SUCCESS	271,5730
+#define EXIT_OK	273,5754
+#define BAD_ARGS 274,5787
+#define LETAL_ERROR 275,5809
+#define MAXPATH	276,5831
+#define OPTION_DELIMITER 277,5855
+#define DRIVECHAR	278,5887
+#define BEGDIRCHAR	279,5913
+#define DIRDELIMITER	280,5940
+#define ENDDIRCHAR	281,5969
+#define FILEXTCHAR	282,5996
+
+h/P_global.h,103
+char aa_1[aa_136,1063
+int aa_number 38,1103
+char *aa_3[aa_340,1124
+int aa_table[aa_table44,1293
+
+h/P_graphic.h,494
+#define _P_GRAPHIC_H_7,104
+#define ESC	11,197
+#define _ESC	16,350
+#define CSI	18,369
+#define _CSI	25,618
+#define DCS	34,828
+#define _DCS	35,847
+#define ST	36,865
+#define _ST	37,883
+#define NP_ALLOW 41,1014
+#define NP_DISABLE 42,1036
+#define MAX_X	44,1059
+#define MAX_Y	45,1081
+    int x;48,1121
+    int y;49,1132
+    } Point_t;50,1143
+    RG_PREV_COMMAND,60,1366
+    RG_HIGH_COMMAND,61,1387
+    RG_PREV_DISPLAY,62,1408
+    RG_HIGH_DISPLAY,63,1429
+    } ReGisMode_t;64,1450
+
+h/P_gtree.h,1404
+#define info_t	16,317
+#define MAX	19,345
+struct binary_node 26,523
+    info_t		*element;element27,544
+    struct binary_node	*left;left28,584
+    struct binary_node	*right;right29,637
+    struct binary_node	*parent;parent30,692
+typedef struct binary_node *b_tree_t;b_tree_t33,746
+struct triple_node 39,914
+    info_t		*element;element40,935
+    struct triple_node	*left;left41,957
+    struct triple_node	*middle;middle42,987
+    struct triple_node	*right;right43,1019
+    struct triple_node	*parent;parent44,1050
+typedef struct triple_node *t_tree_t;t_tree_t47,1086
+struct n_ary_node 58,1415
+    info_t	    *element;element59,1435
+    struct n_ary_node *child[child60,1482
+    struct n_ary_node *parent;parent61,1548
+typedef struct n_ary_node *n_tree_t;n_tree_t64,1605
+struct dynamic_node 70,1770
+    info_t		*element;element71,1792
+    struct list_t    	*children;children72,1832
+    struct dynamic_node	*parent;parent73,1900
+typedef struct dynamic_node *g_tree_t;g_tree_t76,1955
+struct forest_node 82,2149
+    g_tree_t		*fst_item;fst_item83,2170
+    struct forest_node	*fst_next;fst_next84,2195
+typedef struct forest_node forest_n_t;87,2233
+struct forest_head 91,2323
+    int	  	fst_len;92,2344
+    forest_n_t	*fst_first,fst_first93,2364
+    forest_n_t	*fst_first, *fst_last;fst_last93,2364
+typedef struct forest_head *forest_t;forest_t96,2406
+
+h/portable.h,2039
+#undef bool20,684
+typedef int	bool;23,704
+typedef int	boolean;24,756
+typedef char	flag;25,777
+typedef unsigned short word;27,830
+typedef int	rchar;29,891
+typedef char   *string;string30,944
+typedef int	status;32,993
+#define MAXPATHLEN 45,1456
+typedef char	path[path48,1487
+typedef unsigned char byte;62,1992
+#define BYTE(63,2020
+#define HIBYTE(70,2212
+#define LOBYTE(71,2273
+#define HIWORD(72,2328
+#define LOWORD(73,2395
+#define CHAR(74,2455
+#define ASCII(75,2511
+#define WORD(76,2565
+#define DECODE(77,2625
+#define LURSHIFT(80,2723
+#define DIM(83,2834
+#define BIT_0	89,3042
+#define BIT_1	90,3061
+#define BIT_2	91,3080
+#define BIT_3	92,3099
+#define BIT_4	93,3118
+#define BIT_5	94,3137
+#define BIT_6	95,3156
+#define BIT_7	96,3175
+#define BIT_8	97,3194
+#define BIT_9	98,3214
+#define BIT_10	99,3234
+#define BIT_11	100,3255
+#define BIT_12	101,3276
+#define BIT_13	102,3298
+#define BIT_14	103,3320
+#define BIT_15	104,3342
+#define BIT_16	105,3364
+#define BIT_17	106,3387
+#define BIT_18	107,3410
+#define BIT_19	108,3433
+#define BIT_20	109,3456
+#define BIT_21	110,3480
+#define BIT_22	111,3504
+#define BIT_23	112,3528
+#define BIT_24	113,3552
+#define BIT_25	114,3577
+#define BIT_26	115,3602
+#define BIT_27	116,3627
+#define BIT_28	117,3652
+#define BIT_29	118,3678
+#define BIT_30	119,3704
+#define BIT_31	120,3730
+#define BitTest(122,3757
+#define BitSet(124,3796
+#define BitClr(126,3836
+#define BitAnd(128,3876
+#define BitOr(130,3910
+#define BitXor(132,3943
+#define BitNot(134,3977
+#define BitShift(136,4003
+#define public	143,4251
+#define private	144,4300
+#define	LOCAL	145,4358
+#define	EXTERN	146,4407
+#define	MLOCAL	147,4458
+#define	GLOBAL	148,4507
+#define TRUE	156,4722
+#define FALSE	160,4790
+#define	YES	163,4816
+#define	NO	164,4848
+#define SUCCEED	166,4881
+#define FAILURE	167,4928
+#define	FAIL	168,4983
+#define SUCCESS	169,5037
+#define	EOL	171,5095
+#define EOS	172,5137
+#define EOP	173,5181
+#define	EOF	176,5241
+#define	FOREVER	179,5285
+#define NULLPTR 181,5395
+
+h/P_stree.h,187
+struct stnode_t 18,411
+    info_t	    *item;item19,429
+    struct stnode_t *left;left20,451
+    struct stnode_t *right;right21,478
+typedef struct stnode_t *stree_t;stree_t24,514
+
+h/P_types.h,3551
+#define generic	40,906
+#define info_t	42,982
+typedef int counter;44,1056
+typedef float distance_t;46,1124
+typedef char key_t[key_t48,1189
+struct st_queue 55,1490
+    counter q_spos;56,1508
+    counter q_rpos;57,1554
+    counter q_size;58,1599
+    info_t  **queue;queue59,1641
+typedef struct st_queue	*queue_t;queue_t62,1698
+typedef struct q_node 64,1775
+    info_t	    *item;item65,1799
+    struct q_node   *next;next66,1868
+    } q_node_t;67,1942
+    int		q_size;70,2017
+    q_node_t	*q_front;q_front71,2066
+    q_node_t	*q_rear;q_rear72,2117
+    } *fifo_t;fifo_t73,2170
+struct l_node 80,2423
+    info_t	    *item;item81,2439
+    struct l_node   *next;next82,2505
+typedef struct l_node l_node_t;85,2581
+struct l_head 87,2650
+    int		l_length;88,2666
+    l_node_t	*l_first;l_first89,2726
+    l_node_t	*l_last;l_last90,2790
+typedef struct l_head l_head_t;93,2855
+typedef l_head_t *list_t;list_t94,2930
+struct dbly_node 100,3177
+    info_t	    *item;item101,3236
+    struct dbl_node *prev;prev102,3299
+    struct dbl_node *next;next103,3362
+typedef struct dbly_node dl_node_t;106,3433
+    int		dl_length;109,3526
+    dl_node_t	*dl_first;dl_first110,3584
+    dl_node_t	*dl_last;dl_last111,3652
+    } dl_head_t;112,3718
+typedef dl_head_t *dlist_t;dlist_t113,3779
+typedef struct s_node 119,4013
+    info_t	    *item;item120,4037
+    struct s_node   *next;next121,4101
+    }	s_node_t;122,4171
+    int		s_length;125,4246
+    s_node_t	*s_top;s_top126,4294
+    } *lifo_t;lifo_t127,4357
+    long    i_pos;135,4614
+    key_t   i_key;136,4665
+    } index_t;137,4713
+    counter	r_begin;140,4789
+    counter	r_length;141,4842
+    counter 	r_offset;142,4896
+    flag	r_status;143,4951
+    } region_t;144,5002
+    index_t	p_index;147,5075
+    char	p_name[p_name148,5128
+    char	p_seq[p_seq149,5191
+    int		p_seqlen;150,5253
+    int		p_nofeats;151,5299
+    float	**p_aaval;p_aaval152,5351
+    list_t 	*p_regions;p_regions153,5404
+    } protein_t;154,5467
+typedef float feature_table_t[feature_table_t162,5704
+    string	    f_name;165,5785
+    feature_table_t f_values;166,5836
+    float	    f_maxvalue;167,5900
+    float	    f_minvalue;168,5965
+    flag	    f_inverted;169,6030
+    int		    f_window;170,6085
+    float	    f_threshold;171,6143
+    int		    f_minrglen;172,6208
+    int		    f_maxrglen;173,6269
+    int		    f_no_regions;174,6330
+    float	    f_moment;175,6394
+    } feature_t;176,6456
+    string	d_name;179,6491
+    int		d_minplen;180,6544
+    l_head_t	*d_features;d_features181,6601
+    l_head_t	*d_rules;d_rules182,6655
+    region_t	***d_regions;d_regions183,6703
+    int		d_maxregno;184,6768
+    } descriptor_t;185,6828
+	int feat1;193,7093
+	int reg1;194,7105
+	int pos1;195,7116
+	int feat2;197,7164
+	int reg2;198,7176
+	int pos2;199,7187
+	int dmin;201,7229
+	int dmax;202,7240
+} distance_rule_t;203,7251
+	string	sr_seq;209,7432
+	int sr_feat;210,7448
+	int sr_reg;211,7462
+	int sr_minpos;212,7475
+	int sr_maxpos;213,7491
+} sequence_rule_t;214,7507
+	int	pr_feat;219,7653
+	int	pr_reg;220,7667
+	int	pr_len;221,7680
+	float	*pr_values;pr_values222,7693
+	float	pr_mindiff;223,7712
+} profile_rule_t;224,7731
+    int	    type;227,7767
+    flag    status;228,7810
+	distance_rule_t	    distance_rule;230,7878
+	sequence_rule_t	    sequence_rule;231,7914
+	profile_rule_t	    profile_rule;232,7950
+    } data;233,7984
+}   rule_t;234,8025
+	flag	tk_type;243,8278
+	char	*tk_data;tk_data244,8317
+    } token_t;245,8361
+
+MCon/MCmain.c,12
+main(9,124
+
+MCon/MCon.c,375
+static MCon controlCon 11,214
+int initMControl(17,487
+MCon newMCon(35,1270
+void *newInstanceOf(newInstanceOf52,1738
+void disposeInstance(71,2367
+void purgeMCon(85,2741
+counter disposeMCon(105,3399
+void purgeAllMCons(117,3861
+counter disposeAllMCons(134,4428
+static void linkIn(155,5049
+static void linkOut(164,5307
+void debugCon(174,5592
+void printCon(191,5909
+
+MCon/MCon.h,337
+#define __size_t6,160
+typedef long size_t;7,177
+typedef long counter;17,378
+typedef struct _mc 18,438
+    struct _mc *next;next19,459
+    struct _mc *prev;prev20,515
+    size_t itemSize;21,554
+    void *freeList;freeList22,623
+    counter nGiven;23,673
+    counter nOut;24,727
+    counter nFree;25,784
+} *MCon;MCon26,829
+
+MCon/Torture.c,485
+# define MAXTYPES	12,176
+# define MAXINSTANCES	13,197
+# define BASESIZE	14,223
+# define MAXEXTRA	15,244
+# define NPASSES	16,265
+    MCon mCon;26,453
+    long theID;27,468
+} regType[regType28,484
+    void *mObj;mObj30,514
+    long typeID;31,530
+} mBag[mBag32,547
+int nInstances 33,569
+int nTypes 34,589
+long serialID 35,605
+void torture(36,627
+void makeNewType(139,3340
+void makeNewObject(155,3651
+void freeSomeObject(171,4007
+void error(181,4193
+randle(187,4346
+
+MPQ/mpq.c,470
+#define FALSE 3,20
+#define TRUE 4,36
+#define MAXLINE 6,52
+#define ASCII(7,73
+int scores[scores9,104
+char sequence[sequence10,125
+char name 11,149
+char buff[buff13,175
+long index,14,199
+long index, idx;14,199
+char dbnam[dbnam16,217
+char outnam[outnam17,234
+FILE *db;db18,252
+FILE *ifil;ifil19,262
+FILE *out;out20,274
+int aa_table[aa_table22,286
+main(34,734
+static int next_entry(95,2068
+static get_next_protein(111,2436
+int strindex(153,3369
+
+PILAR/P_AVL.c,672
+char *version=version77,2220
+#define MOD_DEBUG 86,2421
+typedef void *item_t;item_t91,2498
+struct avl_node 93,2521
+    item_t	    key;94,2539
+    struct avl_node *left;left95,2559
+    struct avl_node *right;right96,2586
+    flag	    equi;97,2614
+typedef struct avl_node *avl_tree_t;avl_tree_t100,2681
+void avl_insert(109,2786
+static void equileft(241,5892
+static void equiright(335,8172
+static avl_tree_t q 392,9221
+static void del(394,9250
+void avl_delete(417,9793
+#define MINOR	479,11123
+#define EQUAL	480,11144
+#define GREATER	481,11164
+int data[data491,11532
+int icmp(495,11648
+void show(501,11751
+void horror(507,11811
+void main(513,11892
+
+rg/P_graph1.c,100
+#define InReGis(62,1602
+void enterReGis(64,1652
+#define OutReGis 79,2067
+void exitReGis(81,2101
+
+rg/P_graph2.c,415
+void SetPVFactor(66,1618
+void SelStdPattern(82,1987
+void SelBinPattern(101,2491
+void SelPatternFactor(124,3186
+void EnableRevPattern(142,3612
+void EnableBitMap(159,4039
+void SelFgIntensity(178,4512
+void SelFgHLS(197,4983
+SelMapHLS(213,5366
+void SelWriteMode(233,5853
+void EnableShading(250,6341
+void SelShadeYRef(270,6810
+void SelShadeXRef(287,7224
+void SelChShade(303,7588
+void EraseScreen(316,7853
+
+rg/P_graph3.c,147
+void MoveTo(49,1067
+void Point(63,1417
+void LineTo(80,1907
+void _begBoundSeq(94,2254
+void _begUnboundSeq(107,2580
+void _endSequence(124,3151
+
+rg/P_graph4.c,81
+void Circle(54,1241
+void RCircle(70,1718
+void Arc(87,2271
+void RArc(105,2889
+
+h/P_values.h,0
+
+h/P_utils.h,0
+
+h/P_think.h,0
+
+h/P_stack.h,0
+
+h/P_sort.h,0
+
+h/P_region.h,0
+
+h/P_queue.h,0
+
+h/P_protein.h,0
+
+h/P_parser.h,0
+
+h/P_list.h,0
+
+h/P_init.h,0
+
+h/P_extern.h,0
+
+h/P_dlist.h,0
+
+h/P_desc.h,0
+
+P_init.c,0

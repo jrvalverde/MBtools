@@ -1,0 +1,297 @@
+\section{Pilar\_\-8.c File Reference}
+\label{Pilar__8_8c}\index{Pilar_8.c@{Pilar\_\-8.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include $<$curses.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$float.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-extern.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-global.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-graph.x\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MIN\_\-ARG\_\-COUNT}\ 5
+\item 
+\#define {\bf DEBUG}\ 0
+\item 
+\#define {\bf BLACK}\ 0
+\item 
+\#define {\bf BLUE}\ 1
+\item 
+\#define {\bf RED}\ 2
+\item 
+\#define {\bf GREEN}\ 3
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf save\_\-name} (char $\ast$)
+\item 
+void {\bf show\_\-usage} ()
+\item 
+void {\bf parse\_\-arguments} (int, char $\ast$[$\,$])
+\item 
+void {\bf save\_\-values} ()
+\item 
+void {\bf save\_\-regions} ()
+\item 
+void {\bf draw\_\-data} ()
+\item 
+{\bf main} (argc, {\bf argv}) int argc
+\item 
+void {\bf init\_\-map} ()
+\item 
+void {\bf draw\_\-axis} ()
+\item 
+void {\bf draw\_\-values} ()
+\item 
+void {\bf draw\_\-regions} (int)
+\item 
+float {\bf itof} ({\bf x}) int {\bf x}
+\item 
+void {\bf draw\_\-regions} (fcount) {\bf counter} fcount
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char {\bf prot\_\-file} [MAXPATH+1]
+\item 
+char {\bf out\_\-file} [MAXPATH+1]
+\item 
+char {\bf pat\_\-file} [MAXPATH+1]
+\item 
+FILE $\ast$ {\bf out\_\-fp}
+\item 
+{\bf flag} {\bf out\_\-flag} = NO
+\item 
+{\bf flag} {\bf grf\_\-flag} = NO
+\item 
+{\bf flag} {\bf short\_\-flag} = NO
+\item 
+{\bf flag} {\bf silent\_\-flag} = NO
+\item 
+{\bf protein\_\-t} {\bf prot}
+\item 
+{\bf descriptor\_\-t} {\bf desc}
+\item 
+char {\bf program} [MAXPATH+1]
+\item 
+char $\ast$ {\bf argv} [$\,$]
+\item 
+{\bf x\_\-max}
+\item 
+{\bf x\_\-len}
+\item 
+{\bf y\_\-min}
+\item 
+{\bf y\_\-max}
+\item 
+{\bf y\_\-len}
+\item 
+float {\bf x\_\-step}
+\item 
+float {\bf threshold}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{Pilar_8.c@{Pilar\_\-8.c}!BLACK@{BLACK}}
+\index{BLACK@{BLACK}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BLACK\ 0}\label{Pilar__8_8c_a2}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!BLUE@{BLUE}}
+\index{BLUE@{BLUE}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BLUE\ 1}\label{Pilar__8_8c_a3}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\ 0}\label{Pilar__8_8c_a1}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!GREEN@{GREEN}}
+\index{GREEN@{GREEN}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define GREEN\ 3}\label{Pilar__8_8c_a5}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!MIN_ARG_COUNT@{MIN\_\-ARG\_\-COUNT}}
+\index{MIN_ARG_COUNT@{MIN\_\-ARG\_\-COUNT}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-ARG\_\-COUNT\ 5}\label{Pilar__8_8c_a0}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!RED@{RED}}
+\index{RED@{RED}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define RED\ 2}\label{Pilar__8_8c_a4}
+
+
+
+
+\subsection{Function Documentation}
+\index{Pilar_8.c@{Pilar\_\-8.c}!draw_axis@{draw\_\-axis}}
+\index{draw_axis@{draw\_\-axis}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void draw\_\-axis ()}\label{Pilar__8_8c_a33}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!draw_data@{draw\_\-data}}
+\index{draw_data@{draw\_\-data}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void draw\_\-data ()}\label{Pilar__8_8c_a30}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!draw_regions@{draw\_\-regions}}
+\index{draw_regions@{draw\_\-regions}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void draw\_\-regions (fcount)\hspace{0.3cm}{\tt  [static]}}\label{Pilar__8_8c_a37}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!draw_regions@{draw\_\-regions}}
+\index{draw_regions@{draw\_\-regions}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void draw\_\-regions (int)}\label{Pilar__8_8c_a35}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!draw_values@{draw\_\-values}}
+\index{draw_values@{draw\_\-values}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void draw\_\-values ()}\label{Pilar__8_8c_a34}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!init_map@{init\_\-map}}
+\index{init_map@{init\_\-map}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void init\_\-map ()}\label{Pilar__8_8c_a32}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!itof@{itof}}
+\index{itof@{itof}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float itof ({\bf x})\hspace{0.3cm}{\tt  [static]}}\label{Pilar__8_8c_a36}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!main@{main}}
+\index{main@{main}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}main (argc, {\bf argv})}\label{Pilar__8_8c_a31}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!parse_arguments@{parse\_\-arguments}}
+\index{parse_arguments@{parse\_\-arguments}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parse\_\-arguments (int, char $\ast$[$\,$])}\label{Pilar__8_8c_a27}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!save_name@{save\_\-name}}
+\index{save_name@{save\_\-name}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-name (char $\ast$)}\label{Pilar__8_8c_a25}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!save_regions@{save\_\-regions}}
+\index{save_regions@{save\_\-regions}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-regions ()}\label{Pilar__8_8c_a29}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!save_values@{save\_\-values}}
+\index{save_values@{save\_\-values}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-values ()}\label{Pilar__8_8c_a28}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!show_usage@{show\_\-usage}}
+\index{show_usage@{show\_\-usage}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void show\_\-usage ()}\label{Pilar__8_8c_a26}
+
+
+
+
+\subsection{Variable Documentation}
+\index{Pilar_8.c@{Pilar\_\-8.c}!argv@{argv}}
+\index{argv@{argv}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ argv[$\,$]}\label{Pilar__8_8c_a17}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!desc@{desc}}
+\index{desc@{desc}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf descriptor\_\-t} desc}\label{Pilar__8_8c_a15}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!grf_flag@{grf\_\-flag}}
+\index{grf_flag@{grf\_\-flag}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf flag} grf\_\-flag = NO}\label{Pilar__8_8c_a11}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!out_file@{out\_\-file}}
+\index{out_file@{out\_\-file}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char out\_\-file[MAXPATH + 1]}\label{Pilar__8_8c_a7}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!out_flag@{out\_\-flag}}
+\index{out_flag@{out\_\-flag}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf flag} out\_\-flag = NO}\label{Pilar__8_8c_a10}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!out_fp@{out\_\-fp}}
+\index{out_fp@{out\_\-fp}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ out\_\-fp}\label{Pilar__8_8c_a9}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!pat_file@{pat\_\-file}}
+\index{pat_file@{pat\_\-file}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char pat\_\-file[MAXPATH + 1]}\label{Pilar__8_8c_a8}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!program@{program}}
+\index{program@{program}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char program[MAXPATH + 1]\hspace{0.3cm}{\tt  [static]}}\label{Pilar__8_8c_a16}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!prot@{prot}}
+\index{prot@{prot}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf protein\_\-t} prot}\label{Pilar__8_8c_a14}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!prot_file@{prot\_\-file}}
+\index{prot_file@{prot\_\-file}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char prot\_\-file[MAXPATH + 1]}\label{Pilar__8_8c_a6}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!short_flag@{short\_\-flag}}
+\index{short_flag@{short\_\-flag}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf flag} short\_\-flag = NO}\label{Pilar__8_8c_a12}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!silent_flag@{silent\_\-flag}}
+\index{silent_flag@{silent\_\-flag}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf flag} silent\_\-flag = NO}\label{Pilar__8_8c_a13}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!threshold@{threshold}}
+\index{threshold@{threshold}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float threshold}\label{Pilar__8_8c_a24}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!x_len@{x\_\-len}}
+\index{x_len@{x\_\-len}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}x\_\-len}\label{Pilar__8_8c_a19}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!x_max@{x\_\-max}}
+\index{x_max@{x\_\-max}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}x\_\-max}\label{Pilar__8_8c_a18}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!x_step@{x\_\-step}}
+\index{x_step@{x\_\-step}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float x\_\-step\hspace{0.3cm}{\tt  [static]}}\label{Pilar__8_8c_a23}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!y_len@{y\_\-len}}
+\index{y_len@{y\_\-len}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}y\_\-len}\label{Pilar__8_8c_a22}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!y_max@{y\_\-max}}
+\index{y_max@{y\_\-max}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}y\_\-max}\label{Pilar__8_8c_a21}
+
+
+\index{Pilar_8.c@{Pilar\_\-8.c}!y_min@{y\_\-min}}
+\index{y_min@{y\_\-min}!Pilar_8.c@{Pilar\_\-8.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}y\_\-min}\label{Pilar__8_8c_a20}
+
+

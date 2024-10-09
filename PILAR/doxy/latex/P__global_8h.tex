@@ -1,0 +1,79 @@
+\section{P\_\-global.h File Reference}
+\label{P__global_8h}\index{P_global.h@{P\_\-global.h}}
+Global variables for PILAR. 
+
+
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char {\bf aa\_\-1} [$\,$] = \char`\"{}ACDEFGHIKLMNPQRSTVWXY\char`\"{}
+\item 
+int {\bf aa\_\-number} = 21
+\item 
+char $\ast$ {\bf aa\_\-3} [$\,$]
+\item 
+int {\bf aa\_\-table} [$\,$]
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Global variables for PILAR.
+
+ 
+
+ SYNOPSIS  Defines the following globals:  aa\_\-1[] Table of one letter code aminoacids  aa\_\-3[] Table of three letter code aminoacids  aa\_\-number Number of aminoacids.  aa\_\-table[] Table for finding index into aa\_\-?[]
+
+DESCRIPTION  Module containing global definitions for  PILAR (Protein Identification and Library Access  Resource). To include ONLY ONCE in the definitive  program.
+
+CAVEATS
+
+\begin{Desc}
+\item[Note: ]\par
+ Some compilers will allow to make a module out  of this file. Others will require to use it as an  include file to be used ONCE on the program (usually  at the main module). I choose the last approach as the  most portable, though the first is more elegant. Check  your particular system to decide which one to use.\end{Desc}
+SEE ALSO
+
+HISTORY  Creation 27 - jun - 1989 (J. R. Valverde)
+
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde\end{Desc}
+
+
+\subsection{Variable Documentation}
+\index{P_global.h@{P\_\-global.h}!aa_1@{aa\_\-1}}
+\index{aa_1@{aa\_\-1}!P_global.h@{P\_\-global.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char aa\_\-1[$\,$] = \char`\"{}ACDEFGHIKLMNPQRSTVWXY\char`\"{}}\label{P__global_8h_a0}
+
+
+\index{P_global.h@{P\_\-global.h}!aa_3@{aa\_\-3}}
+\index{aa_3@{aa\_\-3}!P_global.h@{P\_\-global.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ aa\_\-3[$\,$]}\label{P__global_8h_a2}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim} {"Ala", "Cys", "Asp", "Glu", "Phe", "Gly", "His",
+                "Ile", "Lys", "Leu", "Met", "Asn", "Pro", "Gln",
+                "Arg", "Ser", "Thr", "Val", "Trp", "***", "Tyr"}\end{verbatim}\normalsize 
+\index{P_global.h@{P\_\-global.h}!aa_number@{aa\_\-number}}
+\index{aa_number@{aa\_\-number}!P_global.h@{P\_\-global.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aa\_\-number = 21}\label{P__global_8h_a1}
+
+
+\index{P_global.h@{P\_\-global.h}!aa_table@{aa\_\-table}}
+\index{aa_table@{aa\_\-table}!P_global.h@{P\_\-global.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aa\_\-table[$\,$]}\label{P__global_8h_a3}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim} {
+        -1, 0, 0, 0, 0, 0, 0, 0, 0,-1, 0, 0,-1, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        -1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 0, 9,10,11,12, 0,
+        13,14,15,16,17, 0,18,19,20,21, 4, 0, 0, 0, 0, 0,
+         0, 1, 3, 2, 3, 4, 5, 6, 7, 8, 0, 9,10,11,12, 0,
+        13,14,15,16,17, 0,18,19,20,21, 4, 0, 0, 0, 0, 0,
+}\end{verbatim}\normalsize 

@@ -1,0 +1,2264 @@
+This is TeX, Version 3.14159 (Web2C 7.3.1) (format=latex 2002.4.12)  30 MAY 2003 14:18
+**refman.tex
+(refman.tex
+LaTeX2e <2000/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/book.cls
+Document Class: book 2000/05/19 v1.4b Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/bk10.clo
+File: bk10.clo 2000/05/19 v1.4b Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/misc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/share/texmf/tex/latex/ntgclass/a4.sty
+Package: a4 1999/03/03 v1.2f A4 based page layout
+))
+(/usr/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf/tex/latex/fancyhdr/fancyhdr.sty
+\headwidth=\dimen103
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1999/02/16 v1.0l Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texmf/tex/latex/misc/float.sty
+Package: float 1999/05/29 v1.2d Float enhancements (AL)
+\c@float@type=\count88
+\float@box=\box26
+\@floatcapt=\box27
+)
+(/usr/share/texmf/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) (doxygen.sty
+Package: doxygen 
+
+(/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count89
+\calc@Bcount=\count90
+\calc@Adimen=\dimen106
+\calc@Bdimen=\dimen107
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count91
+)
+(/usr/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen108
+\extrarowheight=\dimen109
+\NC@list=\toks15
+\extratabsurround=\skip45
+\backup@length=\skip46
+)
+\tmplength=\skip47
+)
+\@indexfile=\write3
+\openout3 = `refman.idx'.
+
+
+Writing index file refman.idx
+No file refman.aux.
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+[1
+
+
+] [2
+
+]
+No file refman.toc.
+\tf@toc=\write4
+\openout4 = `refman.toc'.
+
+[1
+
+] [2
+
+]
+Chapter 1.
+(annotated.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+
+
+LaTeX Warning: Reference `struct__bv' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Reference `struct__mc' on page 1 undefined on input line 4.
+
+
+LaTeX Warning: Reference `structavl__node' on page 1 undefined on input line 5.
+
+
+
+LaTeX Warning: Reference `structbinary__node' on page 1 undefined on input line
+ 6.
+
+
+LaTeX Warning: Reference `structdb__st' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `structdbly__node' on page 1 undefined on input line 8
+.
+
+
+LaTeX Warning: Reference `structdescriptor__t' on page 1 undefined on input lin
+e 9.
+
+
+LaTeX Warning: Reference `structdistance__rule__t' on page 1 undefined on input
+ line 10.
+
+
+LaTeX Warning: Reference `structdl__head__t' on page 1 undefined on input line 
+11.
+
+
+LaTeX Warning: Reference `structdynamic__node' on page 1 undefined on input lin
+e 12.
+
+
+LaTeX Warning: Reference `structfeature__t' on page 1 undefined on input line 1
+3.
+
+
+LaTeX Warning: Reference `structfifo__t' on page 1 undefined on input line 14.
+
+
+LaTeX Warning: Reference `structforest__head' on page 1 undefined on input line
+ 15.
+
+
+LaTeX Warning: Reference `structforest__node' on page 1 undefined on input line
+ 16.
+
+
+LaTeX Warning: Reference `structindex__t' on page 1 undefined on input line 17.
+
+
+
+LaTeX Warning: Reference `structl__head' on page 1 undefined on input line 18.
+
+
+LaTeX Warning: Reference `structl__node' on page 1 undefined on input line 19.
+
+
+LaTeX Warning: Reference `structlifo__t' on page 1 undefined on input line 20.
+
+
+LaTeX Warning: Reference `structmemnod' on page 1 undefined on input line 21.
+
+
+LaTeX Warning: Reference `structn__ary__node' on page 1 undefined on input line
+ 22.
+
+
+LaTeX Warning: Reference `structPoint__t' on page 1 undefined on input line 23.
+
+
+
+LaTeX Warning: Reference `structprofile__rule__t' on page 1 undefined on input 
+line 24.
+
+
+LaTeX Warning: Reference `structprotein__t' on page 1 undefined on input line 2
+5.
+
+
+LaTeX Warning: Reference `structq__node' on page 1 undefined on input line 26.
+
+
+LaTeX Warning: Reference `structregion__t' on page 1 undefined on input line 27
+.
+
+
+LaTeX Warning: Reference `structrule__t' on page 1 undefined on input line 28.
+
+
+LaTeX Warning: Reference `structs__node' on page 1 undefined on input line 29.
+
+
+LaTeX Warning: Reference `structsequence__rule__t' on page 1 undefined on input
+ line 30.
+
+
+LaTeX Warning: Reference `structsplay__node' on page 1 undefined on input line 
+31.
+
+
+LaTeX Warning: Reference `structst__fifo__header' on page 1 undefined on input 
+line 32.
+
+
+LaTeX Warning: Reference `structst__lifo__header' on page 1 undefined on input 
+line 33.
+
+
+LaTeX Warning: Reference `structst__queue' on page 1 undefined on input line 34
+.
+
+
+LaTeX Warning: Reference `structstnode__t' on page 1 undefined on input line 35
+.
+
+
+LaTeX Warning: Reference `structtoken__t' on page 1 undefined on input line 36.
+
+
+[1
+
+]
+
+LaTeX Warning: Reference `structtriple__node' on page 2 undefined on input line
+ 37.
+
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 30.
+ (/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 30.
+ [2]
+Chapter 2.
+(files.tex
+
+LaTeX Warning: Reference `MCmain_8c' on page 3 undefined on input line 3.
+
+
+LaTeX Warning: Reference `MCon_8c' on page 3 undefined on input line 4.
+
+
+LaTeX Warning: Reference `MCon_8h' on page 3 undefined on input line 5.
+
+
+LaTeX Warning: Reference `mpq_8c' on page 3 undefined on input line 6.
+
+
+LaTeX Warning: Reference `mshell_8c' on page 3 undefined on input line 7.
+
+
+LaTeX Warning: Reference `mshell_8h' on page 3 undefined on input line 8.
+
+
+LaTeX Warning: Reference `P__AVL_8c' on page 3 undefined on input line 9.
+
+
+LaTeX Warning: Reference `P__AVL_8h' on page 3 undefined on input line 10.
+
+
+LaTeX Warning: Reference `P__bits_8c' on page 3 undefined on input line 11.
+
+
+LaTeX Warning: Reference `P__db_8c' on page 3 undefined on input line 12.
+
+
+LaTeX Warning: Reference `P__db_8h' on page 3 undefined on input line 13.
+
+
+LaTeX Warning: Reference `P__dblow_8h' on page 3 undefined on input line 14.
+
+
+LaTeX Warning: Reference `P__defs_8h' on page 3 undefined on input line 15.
+
+
+LaTeX Warning: Reference `P__desc_8h' on page 3 undefined on input line 16.
+
+
+LaTeX Warning: Reference `P__descr_8c' on page 3 undefined on input line 17.
+
+
+LaTeX Warning: Reference `P__dlist_8c' on page 3 undefined on input line 18.
+
+
+LaTeX Warning: Reference `P__dlist_8h' on page 3 undefined on input line 19.
+
+
+LaTeX Warning: Reference `P__EMBL_8c' on page 3 undefined on input line 20.
+
+
+LaTeX Warning: Reference `P__extern_8h' on page 3 undefined on input line 21.
+
+
+LaTeX Warning: Reference `P__Fitch_8c' on page 3 undefined on input line 22.
+
+
+LaTeX Warning: Reference `P__GCGSw_8c' on page 3 undefined on input line 23.
+
+
+LaTeX Warning: Reference `P__GenBank_8c' on page 3 undefined on input line 24.
+
+
+LaTeX Warning: Reference `P__global_8h' on page 3 undefined on input line 25.
+
+
+LaTeX Warning: Reference `P__graph1_8c' on page 3 undefined on input line 26.
+
+
+LaTeX Warning: Reference `P__graph2_8c' on page 3 undefined on input line 27.
+
+
+LaTeX Warning: Reference `P__graph3_8c' on page 3 undefined on input line 28.
+
+
+LaTeX Warning: Reference `P__graph4_8c' on page 3 undefined on input line 29.
+
+
+LaTeX Warning: Reference `P__graphic_8h' on page 3 undefined on input line 30.
+
+
+LaTeX Warning: Reference `P__gtree_8c' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Reference `P__gtree_8h' on page 3 undefined on input line 32.
+
+
+LaTeX Warning: Reference `P__IG_8c' on page 3 undefined on input line 33.
+
+
+LaTeX Warning: Reference `P__init_8c' on page 3 undefined on input line 34.
+
+
+LaTeX Warning: Reference `P__init_8h' on page 3 undefined on input line 35.
+
+
+LaTeX Warning: Reference `P__list_8c' on page 3 undefined on input line 36.
+
+[3
+
+]
+
+LaTeX Warning: Reference `P__list_8h' on page 4 undefined on input line 37.
+
+
+LaTeX Warning: Reference `P__parser_8c' on page 4 undefined on input line 38.
+
+
+LaTeX Warning: Reference `P__parser_8h' on page 4 undefined on input line 39.
+
+
+LaTeX Warning: Reference `P__Pearson_8c' on page 4 undefined on input line 40.
+
+
+LaTeX Warning: Reference `P__PIR_8c' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Reference `P__Preer_8c' on page 4 undefined on input line 42.
+
+
+LaTeX Warning: Reference `P__protein_8c' on page 4 undefined on input line 43.
+
+
+LaTeX Warning: Reference `P__protein_8h' on page 4 undefined on input line 44.
+
+
+LaTeX Warning: Reference `P__queue_8c' on page 4 undefined on input line 45.
+
+
+LaTeX Warning: Reference `P__queue_8h' on page 4 undefined on input line 46.
+
+
+LaTeX Warning: Reference `P__region_8c' on page 4 undefined on input line 47.
+
+
+LaTeX Warning: Reference `P__region_8h' on page 4 undefined on input line 48.
+
+
+LaTeX Warning: Reference `P__sort_8c' on page 4 undefined on input line 49.
+
+
+LaTeX Warning: Reference `P__sort_8h' on page 4 undefined on input line 50.
+
+
+LaTeX Warning: Reference `P__splay_8c' on page 4 undefined on input line 51.
+
+
+LaTeX Warning: Reference `P__stack_8c' on page 4 undefined on input line 52.
+
+
+LaTeX Warning: Reference `P__stack_8h' on page 4 undefined on input line 53.
+
+
+LaTeX Warning: Reference `P__stree_8c' on page 4 undefined on input line 54.
+
+
+LaTeX Warning: Reference `P__stree_8h' on page 4 undefined on input line 55.
+
+
+LaTeX Warning: Reference `P__Strider_8c' on page 4 undefined on input line 56.
+
+
+LaTeX Warning: Reference `P__think_8c' on page 4 undefined on input line 57.
+
+
+LaTeX Warning: Reference `P__think_8h' on page 4 undefined on input line 58.
+
+
+LaTeX Warning: Reference `P__types_8h' on page 4 undefined on input line 59.
+
+
+LaTeX Warning: Reference `P__unknown_8c' on page 4 undefined on input line 60.
+
+
+LaTeX Warning: Reference `P__utils_8c' on page 4 undefined on input line 61.
+
+
+LaTeX Warning: Reference `P__utils_8h' on page 4 undefined on input line 62.
+
+
+LaTeX Warning: Reference `P__UWGCG_8c' on page 4 undefined on input line 63.
+
+
+LaTeX Warning: Reference `P__values_8c' on page 4 undefined on input line 64.
+
+
+LaTeX Warning: Reference `P__values_8h' on page 4 undefined on input line 65.
+
+
+LaTeX Warning: Reference `P__Zuker_8c' on page 4 undefined on input line 66.
+
+
+LaTeX Warning: Reference `Pilar__10_8c' on page 4 undefined on input line 67.
+
+
+LaTeX Warning: Reference `Pilar__2_8c' on page 4 undefined on input line 68.
+
+
+LaTeX Warning: Reference `Pilar__4_8c' on page 4 undefined on input line 69.
+
+
+LaTeX Warning: Reference `Pilar__5_8c' on page 4 undefined on input line 70.
+
+
+LaTeX Warning: Reference `Pilar__6_8c' on page 4 undefined on input line 71.
+
+
+LaTeX Warning: Reference `Pilar__7_8c' on page 4 undefined on input line 72.
+
+
+LaTeX Warning: Reference `Pilar__8_8c' on page 4 undefined on input line 73.
+
+
+LaTeX Warning: Reference `Pilar__9_8c' on page 4 undefined on input line 74.
+
+
+LaTeX Warning: Reference `portable_8h' on page 4 undefined on input line 75.
+
+
+LaTeX Warning: Reference `Torture_8c' on page 4 undefined on input line 76.
+
+) [4]
+Chapter 3.
+(struct__bv.tex
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
+) [5
+
+]
+\openout2 = `struct__mc.aux'.
+
+ (struct__mc.tex) [6
+
+]
+\openout2 = `structavl__node.aux'.
+
+ (structavl__node.tex [7
+
+
+]) [8]
+\openout2 = `structbinary__node.aux'.
+
+
+(structbinary__node.tex) [9
+
+
+]
+\openout2 = `structdb__st.aux'.
+
+ (structdb__st.tex [10
+
+
+]) [11]
+\openout2 = `structdbly__node.aux'.
+
+ (structdbly__node.tex) [12
+
+
+]
+\openout2 = `structdescriptor__t.aux'.
+
+ (structdescriptor__t.tex) [13
+
+
+]
+\openout2 = `structdistance__rule__t.aux'.
+
+ (structdistance__rule__t.tex) [14
+
+
+]
+\openout2 = `structdl__head__t.aux'.
+
+
+(structdl__head__t.tex) [15
+
+
+]
+\openout2 = `structdynamic__node.aux'.
+
+ (structdynamic__node.tex) [16
+
+
+]
+\openout2 = `structfeature__t.aux'.
+
+
+(structfeature__t.tex) [17
+
+
+]
+\openout2 = `structfifo__t.aux'.
+
+ (structfifo__t.tex) [18
+
+
+]
+\openout2 = `structforest__head.aux'.
+
+ (structforest__head.tex)
+[19
+
+
+]
+\openout2 = `structforest__node.aux'.
+
+ (structforest__node.tex) [20
+
+
+]
+\openout2 = `structindex__t.aux'.
+
+ (structindex__t.tex) [21
+
+
+]
+\openout2 = `structl__head.aux'.
+
+ (structl__head.tex) [22
+
+
+]
+\openout2 = `structl__node.aux'.
+
+ (structl__node.tex) [23
+
+
+]
+\openout2 = `structlifo__t.aux'.
+
+ (structlifo__t.tex) [24
+
+
+]
+\openout2 = `structmemnod.aux'.
+
+ (structmemnod.tex)
+[25
+
+
+]
+\openout2 = `structn__ary__node.aux'.
+
+ (structn__ary__node.tex) [26
+
+
+]
+\openout2 = `structPoint__t.aux'.
+
+ (structPoint__t.tex) [27
+
+
+]
+\openout2 = `structprofile__rule__t.aux'.
+
+
+(structprofile__rule__t.tex) [28
+
+
+]
+\openout2 = `structprotein__t.aux'.
+
+ (structprotein__t.tex) [29
+
+
+]
+\openout2 = `structq__node.aux'.
+
+
+(structq__node.tex) [30
+
+
+]
+\openout2 = `structregion__t.aux'.
+
+ (structregion__t.tex) [31
+
+
+]
+\openout2 = `structrule__t.aux'.
+
+ (structrule__t.tex
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 26.
+)
+[32
+
+
+]
+\openout2 = `structs__node.aux'.
+
+ (structs__node.tex) [33
+
+
+]
+\openout2 = `structsequence__rule__t.aux'.
+
+ (structsequence__rule__t.tex) [34
+
+
+]
+\openout2 = `structsplay__node.aux'.
+
+
+(structsplay__node.tex) [35
+
+
+]
+\openout2 = `structst__fifo__header.aux'.
+
+ (structst__fifo__header.tex) [36
+
+
+]
+\openout2 = `structst__lifo__header.aux'.
+
+
+(structst__lifo__header.tex) [37
+
+
+]
+\openout2 = `structst__queue.aux'.
+
+ (structst__queue.tex) [38
+
+
+]
+\openout2 = `structstnode__t.aux'.
+
+
+(structstnode__t.tex) [39
+
+
+]
+\openout2 = `structtoken__t.aux'.
+
+ (structtoken__t.tex) [40
+
+
+]
+\openout2 = `structtriple__node.aux'.
+
+ (structtriple__node.tex)
+[41
+
+
+] [42
+
+
+]
+Chapter 4.
+(MCmain_8c.tex) [43]
+\openout2 = `MCon_8c.aux'.
+
+ (MCon_8c.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44
+
+]
+[45]
+\openout2 = `MCon_8h.aux'.
+
+ (MCon_8h.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [46
+
+
+]
+[47]
+\openout2 = `mpq_8c.aux'.
+
+ (mpq_8c.tex
+Underfull \vbox (badness 7759) has occurred while \output is active []
+
+ [48
+
+
+])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49]
+[50]
+\openout2 = `mshell_8c.aux'.
+
+ (mshell_8c.tex [51
+
+
+]) [52]
+\openout2 = `mshell_8h.aux'.
+
+ (mshell_8h.tex) [53
+
+
+]
+\openout2 = `P__AVL_8c.aux'.
+
+ (P__AVL_8c.tex
+
+LaTeX Warning: Reference `P__AVL_8c_a7' on page 54 undefined on input line 53.
+
+[54
+
+
+]
+Underfull \hbox (badness 3735) in paragraph at lines 65--66
+\OT1/cmr/m/n/10 OUT-DATED \OT1/cmtt/m/n/10 JRValverde@biomed.iib.uam.es \OT1/cm
+r/m/n/10 OUT-DATED \OT1/cmtt/m/n/10 JRamon@uamed.uam.es \OT1/cmr/m/n/10 OUT-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
+  
+ []
+
+) [55]
+\openout2 = `P__AVL_8h.aux'.
+
+ (P__AVL_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+  
+ []
+
+[56
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--102
+  
+ []
+
+) [57]
+\openout2 = `P__bits_8c.aux'.
+
+ (P__bits_8c.tex
+
+LaTeX Warning: Reference `P__bits_8c_a6' on page 58 undefined on input line 21.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--47
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+  
+ []
+
+[58
+
+
+]
+
+LaTeX Warning: Reference `P__bits_8c_a6' on page 59 undefined on input line 74.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--77
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+  
+ []
+
+) [59]
+\openout2 = `P__db_8c.aux'.
+
+ (P__db_8c.tex [60
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [61]
+Overfull \vbox (372.0997pt too high) has occurred while \output is active []
+
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 319--319
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 325--325
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--328
+  
+ []
+
+) [63]
+\openout2 = `P__db_8h.aux'.
+
+ (P__db_8h.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 10.
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
+  
+ []
+
+[64
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--119
+  
+ []
+
+[65]
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 148--148
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--191
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
+  
+ []
+
+[66]
+Underfull \hbox (badness 10000) in paragraph at lines 200--200
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--212
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--233
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 245--245
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--257
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--263
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+  
+ []
+
+[67]) [68]
+\openout2 = `P__dblow_8h.aux'.
+
+ (P__dblow_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 24--24
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+  
+ []
+
+) [69
+
+
+]
+\openout2 = `P__defs_8h.aux'.
+
+ (P__defs_8h.tex [70
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 47--47
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--83
+  
+ []
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+  
+ []
+
+
+! LaTeX Error: Undefined tab position.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.105 enum \{ {\bf NEW\_\-
+                          RULE},
+? 
+
+! LaTeX Error: Undefined tab position.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112 {\bf IN\_\-
+                 TOKEN},
+? 
+
+! LaTeX Error: Undefined tab position.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113 {\bf POS\_\-
+                  RANGE},
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+  
+ []
+
+[72] [73] [74]
+Underfull \hbox (badness 10000) in paragraph at lines 378--378
+  
+ []
+
+) [75]
+\openout2 = `P__desc_8h.aux'.
+
+ (P__desc_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--36
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--60
+  
+ []
+
+[76
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--78
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--97
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--109
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--116
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--119
+  
+ []
+
+) [77]
+\openout2 = `P__descr_8c.aux'.
+
+ (P__descr_8c.tex) [78
+
+
+] [79]
+\openout2 = `P__dlist_8c.aux'.
+
+ (P__dlist_8c.tex)
+Underfull \vbox (badness 2197) has occurred while \output is active []
+
+ [80
+
+
+]
+[81]
+\openout2 = `P__dlist_8h.aux'.
+
+ (P__dlist_8h.tex
+
+LaTeX Warning: Reference `P__dlist_8h_a0' on page 82 undefined on input line 10
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a1' on page 82 undefined on input line 12
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a2' on page 82 undefined on input line 14
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a3' on page 82 undefined on input line 16
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a4' on page 82 undefined on input line 18
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a5' on page 82 undefined on input line 20
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a6' on page 82 undefined on input line 22
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a7' on page 82 undefined on input line 24
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a8' on page 82 undefined on input line 26
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a9' on page 82 undefined on input line 28
+.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a10' on page 82 undefined on input line 3
+0.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a11' on page 82 undefined on input line 3
+2.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a12' on page 82 undefined on input line 3
+4.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a13' on page 82 undefined on input line 3
+6.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a14' on page 82 undefined on input line 3
+8.
+
+[82
+
+
+]
+
+LaTeX Warning: Reference `P__dlist_8h_a15' on page 83 undefined on input line 4
+0.
+
+
+LaTeX Warning: Reference `P__dlist_8h_a16' on page 83 undefined on input line 4
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--67
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--70
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--73
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a3' on page 83 undefined on input line 83
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+  
+ []
+
+[83]
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a15' on page 84 undefined on input line 1
+03.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 133--133
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
+  
+ []
+
+[84]
+Underfull \hbox (badness 10000) in paragraph at lines 156--156
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--159
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 176--176
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a12' on page 85 undefined on input line 1
+83.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--186
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a4' on page 85 undefined on input line 20
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+  
+ []
+
+[85]
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 214--214
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a6' on page 86 undefined on input line 22
+4.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 227--227
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--233
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a7' on page 86 undefined on input line 24
+3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--253
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a8' on page 86 undefined on input line 26
+3.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--273
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--276
+  
+ []
+
+[86]
+
+LaTeX Warning: Reference `P__dlist_8h_a16' on page 87 undefined on input line 2
+83.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 310--310
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--313
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
+  
+ []
+
+[87]
+Underfull \hbox (badness 10000) in paragraph at lines 339--339
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a10' on page 88 undefined on input line 3
+46.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--349
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--358
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 368--368
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--375
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a5' on page 88 undefined on input line 38
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 385--385
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 393--393
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--396
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a11' on page 88 undefined on input line 4
+03.
+
+[88]
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--415
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a9' on page 89 undefined on input line 42
+2.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 425--425
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--431
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 434--434
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a13' on page 89 undefined on input line 4
+41.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 444--444
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a14' on page 89 undefined on input line 4
+60.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 463--463
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 472--472
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a2' on page 89 undefined on input line 47
+9.
+
+[89]
+Underfull \hbox (badness 10000) in paragraph at lines 482--482
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a1' on page 90 undefined on input line 49
+9.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--502
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 513--513
+  
+ []
+
+
+LaTeX Warning: Reference `P__dlist_8h_a0' on page 90 undefined on input line 52
+0.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--523
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--526
+  
+ []
+
+) [90]
+\openout2 = `P__EMBL_8c.aux'.
+
+ (P__EMBL_8c.tex) [91
+
+
+]
+\openout2 = `P__extern_8h.aux'.
+
+ (P__extern_8h.tex
+Underfull \hbox (badness 2005) in paragraph at lines 47--48
+\OT1/cmr/m/n/10 DBANK.C P[]-INIT.C P[]-REGION.C P[]-VALUES.C P[]-UTILS.C P[]-LI
+ST.C P[]-DLIST.C P[]-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+  
+ []
+
+
+LaTeX Warning: Reference `P__sort_8c_a14' on page 92 undefined on input line 54
+.
+
+[92
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
+  
+ []
+
+) [93]
+\openout2 = `P__Fitch_8c.aux'.
+
+ (P__Fitch_8c.tex) [94
+
+
+]
+\openout2 = `P__GCGSw_8c.aux'.
+
+ (P__GCGSw_8c.tex) [95
+
+
+]
+\openout2 = `P__GenBank_8c.aux'.
+
+ (P__GenBank_8c.tex)
+[96
+
+
+]
+\openout2 = `P__global_8h.aux'.
+
+ (P__global_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+  
+ []
+
+[97
+
+
+]) [98]
+\openout2 = `P__graph1_8c.aux'.
+
+ (P__graph1_8c.tex) [99
+
+
+]
+\openout2 = `P__graph2_8c.aux'.
+
+ (P__graph2_8c.tex) [100
+
+
+]
+\openout2 = `P__graph3_8c.aux'.
+
+ (P__graph3_8c.tex)
+[101
+
+
+]
+\openout2 = `P__graph4_8c.aux'.
+
+ (P__graph4_8c.tex) [102
+
+
+]
+\openout2 = `P__graphic_8h.aux'.
+
+ (P__graphic_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+  
+ []
+
+[103
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 138--138
+  
+ []
+
+) [104]
+\openout2 = `P__gtree_8c.aux'.
+
+ (P__gtree_8c.tex) [105
+
+
+] [106]
+\openout2 = `P__gtree_8h.aux'.
+
+ (P__gtree_8h.tex)
+Underfull \vbox (badness 1286) has occurred while \output is active []
+
+ [107
+
+
+]
+[108]
+\openout2 = `P__IG_8c.aux'.
+
+ (P__IG_8c.tex) [109
+
+
+]
+\openout2 = `P__init_8c.aux'.
+
+ (P__init_8c.tex) [110
+
+
+]
+\openout2 = `P__init_8h.aux'.
+
+ (P__init_8h.tex) [111
+
+
+]
+\openout2 = `P__list_8c.aux'.
+
+
+(P__list_8c.tex)
+Underfull \vbox (badness 3058) has occurred while \output is active []
+
+ [112
+
+
+]
+[113]
+\openout2 = `P__list_8h.aux'.
+
+ (P__list_8h.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [114
+
+
+]
+[115]
+\openout2 = `P__parser_8c.aux'.
+
+ (P__parser_8c.tex [116
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 113--113
+  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [117])
+[118] [119]
+\openout2 = `P__parser_8h.aux'.
+
+ (P__parser_8h.tex) [120
+
+
+]
+\openout2 = `P__Pearson_8c.aux'.
+
+ (P__Pearson_8c.tex) [121
+
+
+]
+\openout2 = `P__PIR_8c.aux'.
+
+ (P__PIR_8c.tex)
+[122
+
+
+]
+\openout2 = `P__Preer_8c.aux'.
+
+ (P__Preer_8c.tex) [123
+
+
+]
+\openout2 = `P__protein_8c.aux'.
+
+ (P__protein_8c.tex) [124
+
+
+]
+\openout2 = `P__protein_8h.aux'.
+
+ (P__protein_8h.tex)
+[125
+
+
+]
+\openout2 = `P__queue_8c.aux'.
+
+ (P__queue_8c.tex)
+Underfull \vbox (badness 8056) has occurred while \output is active []
+
+ [126
+
+
+]
+[127]
+\openout2 = `P__queue_8h.aux'.
+
+ (P__queue_8h.tex) [128
+
+
+]
+\openout2 = `P__region_8c.aux'.
+
+ (P__region_8c.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [129
+
+
+]
+[130]
+\openout2 = `P__region_8h.aux'.
+
+ (P__region_8h.tex) [131
+
+
+]
+\openout2 = `P__sort_8c.aux'.
+
+ (P__sort_8c.tex)
+Underfull \vbox (badness 3271) has occurred while \output is active []
+
+ [132
+
+
+]
+[133]
+\openout2 = `P__sort_8h.aux'.
+
+ (P__sort_8h.tex) [134
+
+
+]
+\openout2 = `P__splay_8c.aux'.
+
+ (P__splay_8c.tex) [135
+
+
+]
+\openout2 = `P__stack_8c.aux'.
+
+ (P__stack_8c.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [136
+
+
+]
+[137]
+\openout2 = `P__stack_8h.aux'.
+
+ (P__stack_8h.tex) [138
+
+
+]
+\openout2 = `P__stree_8c.aux'.
+
+ (P__stree_8c.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [139
+
+
+]
+[140]
+\openout2 = `P__stree_8h.aux'.
+
+ (P__stree_8h.tex) [141
+
+
+]
+\openout2 = `P__Strider_8c.aux'.
+
+ (P__Strider_8c.tex) [142
+
+
+]
+\openout2 = `P__think_8c.aux'.
+
+ (P__think_8c.tex)
+Underfull \vbox (badness 1762) has occurred while \output is active []
+
+ [143
+
+
+]
+[144]
+\openout2 = `P__think_8h.aux'.
+
+ (P__think_8h.tex) [145
+
+
+]
+\openout2 = `P__types_8h.aux'.
+
+ (P__types_8h.tex) [146
+
+
+] [147]
+\openout2 = `P__unknown_8c.aux'.
+
+ (P__unknown_8c.tex) [148
+
+
+]
+\openout2 = `P__utils_8c.aux'.
+
+ (P__utils_8c.tex [149
+
+
+])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [150]
+Overfull \vbox (581.89697pt too high) has occurred while \output is active []
+
+
+[151]
+\openout2 = `P__utils_8h.aux'.
+
+ (P__utils_8h.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [152
+
+
+]
+[153]
+\openout2 = `P__UWGCG_8c.aux'.
+
+ (P__UWGCG_8c.tex) [154
+
+
+]
+\openout2 = `P__values_8c.aux'.
+
+ (P__values_8c.tex)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [155
+
+
+]
+[156]
+\openout2 = `P__values_8h.aux'.
+
+ (P__values_8h.tex) [157
+
+
+]
+\openout2 = `P__Zuker_8c.aux'.
+
+ (P__Zuker_8c.tex) [158
+
+
+]
+\openout2 = `Pilar__10_8c.aux'.
+
+ (Pilar__10_8c.tex
+[159
+
+
+])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [160]
+Overfull \vbox (390.65123pt too high) has occurred while \output is active []
+
+
+[161]
+\openout2 = `Pilar__2_8c.aux'.
+
+ (Pilar__2_8c.tex) [162
+
+
+]
+\openout2 = `Pilar__4_8c.aux'.
+
+ (Pilar__4_8c.tex) [163
+
+
+] [164]
+\openout2 = `Pilar__5_8c.aux'.
+
+ (Pilar__5_8c.tex)
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+ [165
+
+
+]
+[166]
+\openout2 = `Pilar__6_8c.aux'.
+
+ (Pilar__6_8c.tex)
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+ [167
+
+
+]
+[168]
+\openout2 = `Pilar__7_8c.aux'.
+
+ (Pilar__7_8c.tex)
+Underfull \vbox (badness 1762) has occurred while \output is active []
+
+ [169
+
+
+]
+[170]
+\openout2 = `Pilar__8_8c.aux'.
+
+ (Pilar__8_8c.tex [171
+
+
+])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [172]
+Overfull \vbox (342.35368pt too high) has occurred while \output is active []
+
+
+[173]
+\openout2 = `Pilar__9_8c.aux'.
+
+ (Pilar__9_8c.tex [174
+
+
+])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [175]
+Overfull \vbox (390.65123pt too high) has occurred while \output is active []
+
+
+[176]
+\openout2 = `portable_8h.aux'.
+
+ (portable_8h.tex [177
+
+
+]) [178]
+Overfull \vbox (1378.60216pt too high) has occurred while \output is active []
+
+
+[179]
+\openout2 = `Torture_8c.aux'.
+
+ (Torture_8c.tex) [180
+
+
+] [181]
+No file refman.ind.
+(refman.aux (struct__mc.aux) (structavl__node.aux) (structbinary__node.aux)
+(structdb__st.aux) (structdbly__node.aux) (structdescriptor__t.aux)
+(structdistance__rule__t.aux) (structdl__head__t.aux) (structdynamic__node.aux)
+(structfeature__t.aux) (structfifo__t.aux) (structforest__head.aux)
+(structforest__node.aux) (structindex__t.aux) (structl__head.aux)
+(structl__node.aux) (structlifo__t.aux) (structmemnod.aux)
+(structn__ary__node.aux) (structPoint__t.aux) (structprofile__rule__t.aux)
+(structprotein__t.aux) (structq__node.aux) (structregion__t.aux)
+(structrule__t.aux) (structs__node.aux) (structsequence__rule__t.aux)
+(structsplay__node.aux) (structst__fifo__header.aux)
+(structst__lifo__header.aux) (structst__queue.aux) (structstnode__t.aux)
+(structtoken__t.aux) (structtriple__node.aux) (MCon_8c.aux) (MCon_8h.aux)
+(mpq_8c.aux) (mshell_8c.aux) (mshell_8h.aux) (P__AVL_8c.aux) (P__AVL_8h.aux)
+(P__bits_8c.aux) (P__db_8c.aux) (P__db_8h.aux) (P__dblow_8h.aux)
+(P__defs_8h.aux) (P__desc_8h.aux) (P__descr_8c.aux) (P__dlist_8c.aux)
+(P__dlist_8h.aux) (P__EMBL_8c.aux) (P__extern_8h.aux) (P__Fitch_8c.aux)
+(P__GCGSw_8c.aux) (P__GenBank_8c.aux) (P__global_8h.aux) (P__graph1_8c.aux)
+(P__graph2_8c.aux) (P__graph3_8c.aux) (P__graph4_8c.aux) (P__graphic_8h.aux)
+(P__gtree_8c.aux) (P__gtree_8h.aux) (P__IG_8c.aux) (P__init_8c.aux)
+(P__init_8h.aux) (P__list_8c.aux) (P__list_8h.aux) (P__parser_8c.aux)
+(P__parser_8h.aux) (P__Pearson_8c.aux) (P__PIR_8c.aux) (P__Preer_8c.aux)
+(P__protein_8c.aux) (P__protein_8h.aux) (P__queue_8c.aux) (P__queue_8h.aux)
+(P__region_8c.aux) (P__region_8h.aux) (P__sort_8c.aux) (P__sort_8h.aux)
+(P__splay_8c.aux) (P__stack_8c.aux) (P__stack_8h.aux) (P__stree_8c.aux)
+(P__stree_8h.aux) (P__Strider_8c.aux) (P__think_8c.aux) (P__think_8h.aux)
+(P__types_8h.aux) (P__unknown_8c.aux) (P__utils_8c.aux) (P__utils_8h.aux)
+(P__UWGCG_8c.aux) (P__values_8c.aux) (P__values_8h.aux) (P__Zuker_8c.aux)
+(Pilar__10_8c.aux) (Pilar__2_8c.aux) (Pilar__4_8c.aux) (Pilar__5_8c.aux)
+(Pilar__6_8c.aux) (Pilar__7_8c.aux) (Pilar__8_8c.aux) (Pilar__9_8c.aux)
+(portable_8h.aux) (Torture_8c.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2487 strings out of 20887
+ 36019 string characters out of 196274
+ 80751 words of memory out of 350001
+ 5114 multiletter control sequences out of 10000+15000
+ 11007 words of font info for 39 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 33i,15n,40p,520b,1302s stack positions out of 3000i,100n,1500p,50000b,4000s
+
+Output written on refman.dvi (185 pages, 381464 bytes).

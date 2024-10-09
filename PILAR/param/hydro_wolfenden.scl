@@ -1,0 +1,26 @@
+; Wolfenden, R. V., Cullis, P. M., and Southgate, C. C. F. (1979)
+; Water, protein folding, and the genetic code. Science 206,
+; 575- 577
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	1.9
+Cys	-1.2
+Asp	-10.9
+Glu	-10.2
+Phe	-0.8
+Gly	2.4
+His	-10.2
+Ile	2.2
+Lys	-9.5
+Leu	2.3
+Met	-1.5
+Asn	-9.7
+Pro	N/A
+Gln	-9.4
+Arg	N/A
+Ser	-5.1
+Thr	-4.9
+Val	2.0
+Trp	-5.9
+Tyr	-6.1

@@ -1,0 +1,365 @@
+\section{P\_\-utils.c File Reference}
+\label{P__utils_8c}\index{P_utils.c@{P\_\-utils.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$ctype.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include $<$malloc.h$>$}\par
+{\tt \#include $<$stdarg.h$>$}\par
+{\tt \#include $<$curses.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DEBUG}\ -1
+\item 
+\#define {\bf MAX}({\bf x}, {\bf y})\ (({\bf x}) $>$ ({\bf y}))? ({\bf x}) : ({\bf y})
+\item 
+\#define {\bf CUBE}({\bf x})\ (({\bf x}) $\ast$ ({\bf x}) $\ast$ ({\bf x}))
+\item 
+\#define {\bf SQUARE}({\bf x})\ (({\bf x}) $\ast$ ({\bf x}))
+\item 
+\#define {\bf EPS1}\ 0.001
+\item 
+\#define {\bf EPS2}\ 1.0e-8
+\item 
+\#define {\bf BUFFERSIZE}\ 100
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf horror} (const char $\ast$, const char $\ast$)
+\item 
+{\bf \_\-Max\-Min} ({\bf counter} i, {\bf counter} {\bf j}, void $\ast$$\ast${\bf fmax}, void $\ast$$\ast${\bf fmin})
+\item 
+void $\ast$ {\bf \_\-max} (void $\ast$item1, void $\ast${\bf item2})
+\item 
+void $\ast$ {\bf \_\-min} (void $\ast$item1, void $\ast${\bf item2})
+\item 
+float {\bf prob\-KS} (float alam)
+\item 
+void {\bf i\-Max\-Min} (arr, {\bf n}, {\bf imax}, {\bf imin}) int arr[$\,$]
+\item 
+void {\bf r\-Max\-Min} (arr, {\bf n}, {\bf rmax}, {\bf rmin}, {\bf compare}) void $\ast$arr[$\,$]
+\item 
+void {\bf letalf} (char $\ast$format,...)
+\item 
+{\bf bool} {\bf is\_\-empty} (line) char $\ast$line
+\item 
+int {\bf getch} ()
+\item 
+int {\bf getche} ()
+\item 
+int {\bf ungetch} (c) int c
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf counter} {\bf n}
+\item 
+int $\ast$ {\bf imax}
+\item 
+int $\ast$ {\bf imin}
+\item 
+float $\ast$ {\bf fmax}
+\item 
+float $\ast$ {\bf fmin}
+\item 
+double $\ast$ {\bf dmax}
+\item 
+double $\ast$ {\bf dmin}
+\item 
+int($\ast$ {\bf \_\-comp} )()
+\item 
+void $\ast$$\ast$ {\bf rmax}
+\item 
+void $\ast$$\ast$ {\bf rmin}
+\item 
+int($\ast$ {\bf compare} )()
+\item 
+{\bf j}
+\item 
+$\ast$ {\bf item2}
+\item 
+float $\ast$ {\bf ave}
+\item 
+float $\ast$ {\bf adev}
+\item 
+float $\ast$ {\bf sdev}
+\item 
+float $\ast$ {\bf var}
+\item 
+float $\ast$ {\bf skew}
+\item 
+float $\ast$ {\bf kurt}
+\item 
+float($\ast$ {\bf func} )()
+\item 
+float $\ast$ {\bf d}
+\item 
+float $\ast$ {\bf prob}
+\item 
+{\bf counter} {\bf n1}
+\item 
+float {\bf data2} [$\,$]
+\item 
+{\bf counter} {\bf n2}
+\item 
+$\ast$ {\bf s2}
+\item 
+$\ast$ {\bf msg}
+\item 
+$\ast$ {\bf sub}
+\item 
+int {\bf bufp} = 0
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_utils.c@{P\_\-utils.c}!BUFFERSIZE@{BUFFERSIZE}}
+\index{BUFFERSIZE@{BUFFERSIZE}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BUFFERSIZE\ 100}\label{P__utils_8c_a6}
+
+
+\index{P_utils.c@{P\_\-utils.c}!CUBE@{CUBE}}
+\index{CUBE@{CUBE}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define CUBE({\bf x})\ (({\bf x}) $\ast$ ({\bf x}) $\ast$ ({\bf x}))}\label{P__utils_8c_a2}
+
+
+\index{P_utils.c@{P\_\-utils.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\ -1}\label{P__utils_8c_a0}
+
+
+\index{P_utils.c@{P\_\-utils.c}!EPS1@{EPS1}}
+\index{EPS1@{EPS1}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EPS1\ 0.001}\label{P__utils_8c_a4}
+
+
+\index{P_utils.c@{P\_\-utils.c}!EPS2@{EPS2}}
+\index{EPS2@{EPS2}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EPS2\ 1.0e-8}\label{P__utils_8c_a5}
+
+
+\index{P_utils.c@{P\_\-utils.c}!MAX@{MAX}}
+\index{MAX@{MAX}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX({\bf x}, {\bf y})\ (({\bf x}) $>$ ({\bf y}))? ({\bf x}) : ({\bf y})}\label{P__utils_8c_a1}
+
+
+\index{P_utils.c@{P\_\-utils.c}!SQUARE@{SQUARE}}
+\index{SQUARE@{SQUARE}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SQUARE({\bf x})\ (({\bf x}) $\ast$ ({\bf x}))}\label{P__utils_8c_a3}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_utils.c@{P\_\-utils.c}!_max@{\_\-max}}
+\index{_max@{\_\-max}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \_\-max (void $\ast$ {\em item1}, void $\ast$ {\em item2})\hspace{0.3cm}{\tt  [static]}}\label{P__utils_8c_a38}
+
+
+\index{P_utils.c@{P\_\-utils.c}!_MaxMin@{\_\-MaxMin}}
+\index{_MaxMin@{\_\-MaxMin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\_\-Max\-Min ({\bf counter} {\em i}, {\bf counter} {\em j}, void $\ast$$\ast$ {\em fmax}, void $\ast$$\ast$ {\em fmin})\hspace{0.3cm}{\tt  [static]}}\label{P__utils_8c_a37}
+
+
+\index{P_utils.c@{P\_\-utils.c}!_min@{\_\-min}}
+\index{_min@{\_\-min}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \_\-min (void $\ast$ {\em item1}, void $\ast$ {\em item2})\hspace{0.3cm}{\tt  [static]}}\label{P__utils_8c_a39}
+
+
+\index{P_utils.c@{P\_\-utils.c}!getch@{getch}}
+\index{getch@{getch}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getch ()}\label{P__utils_8c_a45}
+
+
+\index{P_utils.c@{P\_\-utils.c}!getche@{getche}}
+\index{getche@{getche}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int getche ()}\label{P__utils_8c_a46}
+
+
+\index{P_utils.c@{P\_\-utils.c}!horror@{horror}}
+\index{horror@{horror}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void horror (const char $\ast$, const char $\ast$)}\label{P__utils_8c_a36}
+
+
+\index{P_utils.c@{P\_\-utils.c}!iMaxMin@{iMaxMin}}
+\index{iMaxMin@{iMaxMin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void i\-Max\-Min (arr, {\bf n}, {\bf imax}, {\bf imin})}\label{P__utils_8c_a41}
+
+
+\index{P_utils.c@{P\_\-utils.c}!is_empty@{is\_\-empty}}
+\index{is_empty@{is\_\-empty}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} is\_\-empty (line)}\label{P__utils_8c_a44}
+
+
+\index{P_utils.c@{P\_\-utils.c}!letalf@{letalf}}
+\index{letalf@{letalf}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void letalf (char $\ast$ {\em format}, ...)}\label{P__utils_8c_a43}
+
+
+\index{P_utils.c@{P\_\-utils.c}!probKS@{probKS}}
+\index{probKS@{probKS}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float prob\-KS (float {\em alam})\hspace{0.3cm}{\tt  [static]}}\label{P__utils_8c_a40}
+
+
+\index{P_utils.c@{P\_\-utils.c}!rMaxMin@{rMaxMin}}
+\index{rMaxMin@{rMaxMin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void r\-Max\-Min (arr, {\bf n}, {\bf rmax}, {\bf rmin}, {\bf compare})}\label{P__utils_8c_a42}
+
+
+\index{P_utils.c@{P\_\-utils.c}!ungetch@{ungetch}}
+\index{ungetch@{ungetch}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int ungetch (c)}\label{P__utils_8c_a47}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_utils.c@{P\_\-utils.c}!_comp@{\_\-comp}}
+\index{_comp@{\_\-comp}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ \_\-comp)()\hspace{0.3cm}{\tt  [static]}}\label{P__utils_8c_a14}
+
+
+\index{P_utils.c@{P\_\-utils.c}!adev@{adev}}
+\index{adev@{adev}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ adev}\label{P__utils_8c_a21}
+
+
+\index{P_utils.c@{P\_\-utils.c}!ave@{ave}}
+\index{ave@{ave}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ ave}\label{P__utils_8c_a20}
+
+
+\index{P_utils.c@{P\_\-utils.c}!bufp@{bufp}}
+\index{bufp@{bufp}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int bufp = 0\hspace{0.3cm}{\tt  [static]}}\label{P__utils_8c_a35}
+
+
+\index{P_utils.c@{P\_\-utils.c}!compare@{compare}}
+\index{compare@{compare}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ compare)()}\label{P__utils_8c_a17}
+
+
+\index{P_utils.c@{P\_\-utils.c}!d@{d}}
+\index{d@{d}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ d}\label{P__utils_8c_a27}
+
+
+\index{P_utils.c@{P\_\-utils.c}!data2@{data2}}
+\index{data2@{data2}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float data2[$\,$]}\label{P__utils_8c_a30}
+
+
+\index{P_utils.c@{P\_\-utils.c}!dmax@{dmax}}
+\index{dmax@{dmax}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ dmax}\label{P__utils_8c_a12}
+
+
+\index{P_utils.c@{P\_\-utils.c}!dmin@{dmin}}
+\index{dmin@{dmin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double $\ast$ dmin}\label{P__utils_8c_a13}
+
+
+\index{P_utils.c@{P\_\-utils.c}!fmax@{fmax}}
+\index{fmax@{fmax}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ fmax}\label{P__utils_8c_a10}
+
+
+\index{P_utils.c@{P\_\-utils.c}!fmin@{fmin}}
+\index{fmin@{fmin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ fmin}\label{P__utils_8c_a11}
+
+
+\index{P_utils.c@{P\_\-utils.c}!func@{func}}
+\index{func@{func}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float($\ast$ func)()}\label{P__utils_8c_a26}
+
+
+\index{P_utils.c@{P\_\-utils.c}!imax@{imax}}
+\index{imax@{imax}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ imax}\label{P__utils_8c_a8}
+
+
+\index{P_utils.c@{P\_\-utils.c}!imin@{imin}}
+\index{imin@{imin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int $\ast$ imin}\label{P__utils_8c_a9}
+
+
+\index{P_utils.c@{P\_\-utils.c}!item2@{item2}}
+\index{item2@{item2}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ item2}\label{P__utils_8c_a19}
+
+
+\index{P_utils.c@{P\_\-utils.c}!j@{j}}
+\index{j@{j}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}j}\label{P__utils_8c_a18}
+
+
+\index{P_utils.c@{P\_\-utils.c}!kurt@{kurt}}
+\index{kurt@{kurt}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ kurt}\label{P__utils_8c_a25}
+
+
+\index{P_utils.c@{P\_\-utils.c}!msg@{msg}}
+\index{msg@{msg}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ msg}\label{P__utils_8c_a33}
+
+
+\index{P_utils.c@{P\_\-utils.c}!n@{n}}
+\index{n@{n}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf counter} n}\label{P__utils_8c_a7}
+
+
+\index{P_utils.c@{P\_\-utils.c}!n1@{n1}}
+\index{n1@{n1}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf counter} n1}\label{P__utils_8c_a29}
+
+
+\index{P_utils.c@{P\_\-utils.c}!n2@{n2}}
+\index{n2@{n2}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf counter} n2}\label{P__utils_8c_a31}
+
+
+\index{P_utils.c@{P\_\-utils.c}!prob@{prob}}
+\index{prob@{prob}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ prob}\label{P__utils_8c_a28}
+
+
+\index{P_utils.c@{P\_\-utils.c}!rmax@{rmax}}
+\index{rmax@{rmax}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ rmax}\label{P__utils_8c_a15}
+
+
+\index{P_utils.c@{P\_\-utils.c}!rmin@{rmin}}
+\index{rmin@{rmin}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void $\ast$$\ast$ rmin}\label{P__utils_8c_a16}
+
+
+\index{P_utils.c@{P\_\-utils.c}!s2@{s2}}
+\index{s2@{s2}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ s2}\label{P__utils_8c_a32}
+
+
+\index{P_utils.c@{P\_\-utils.c}!sdev@{sdev}}
+\index{sdev@{sdev}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ sdev}\label{P__utils_8c_a22}
+
+
+\index{P_utils.c@{P\_\-utils.c}!skew@{skew}}
+\index{skew@{skew}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ skew}\label{P__utils_8c_a24}
+
+
+\index{P_utils.c@{P\_\-utils.c}!sub@{sub}}
+\index{sub@{sub}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ sub}\label{P__utils_8c_a34}
+
+
+\index{P_utils.c@{P\_\-utils.c}!var@{var}}
+\index{var@{var}!P_utils.c@{P\_\-utils.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ var}\label{P__utils_8c_a23}
+
+

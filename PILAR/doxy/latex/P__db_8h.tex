@@ -1,0 +1,267 @@
+\section{P\_\-db.h File Reference}
+\label{P__db_8h}\index{P_db.h@{P\_\-db.h}}
+Generic database access functions. 
+
+
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef void $\ast$ {\bf db\_\-t}
+\begin{CompactList}\small\item\em typedef void $\ast$db\_\-t; Type definition for a generic database.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf db\_\-t} {\bf db\_\-open} (char $\ast${\bf db\_\-filnam}, int db\_\-type)
+\begin{CompactList}\small\item\em Opens a protein database.\item\end{CompactList}\item 
+{\bf status} {\bf db\_\-next\_\-protein} ({\bf db\_\-t}, {\bf protein\_\-t} $\ast$)
+\begin{CompactList}\small\item\em Get next protein from the database.\item\end{CompactList}\item 
+{\bf status} {\bf db\_\-seek\_\-protein} ({\bf db\_\-t}, {\bf index\_\-t} $\ast$, {\bf protein\_\-t} $\ast$)
+\begin{CompactList}\small\item\em Get the information about a protein from the database.\item\end{CompactList}\item 
+void {\bf db\_\-name} ({\bf db\_\-t} {\bf db}, char $\ast$filnam)
+\begin{CompactList}\small\item\em Return the database file name.\item\end{CompactList}\item 
+void {\bf db\_\-close} ({\bf db\_\-t} {\bf db})
+\begin{CompactList}\small\item\em Close the specified database.\item\end{CompactList}\item 
+int {\bf db\_\-type} ({\bf db\_\-t} {\bf db})
+\item 
+{\bf status} {\bf idx\_\-open} (char $\ast$file)
+\begin{CompactList}\small\item\em Open index file.\item\end{CompactList}\item 
+{\bf status} {\bf idx\_\-close} ()
+\begin{CompactList}\small\item\em Close the index file.\item\end{CompactList}\item 
+{\bf status} {\bf idx\_\-name} (char $\ast$)
+\begin{CompactList}\small\item\em Return name of the last index file read.\item\end{CompactList}\item 
+{\bf status} {\bf get\_\-index} ({\bf index\_\-t} $\ast${\bf idx})
+\begin{CompactList}\small\item\em Read index from index file.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Generic database access functions.
+
+ 
+
+ Header file with the definitions pertaining to module {\bf P\_\-db.c}. It is usually included via {\bf P\_\-extern.h}
+
+Requires PORTABLE.H for definition of type status.
+
+\begin{Desc}
+\item[See also: ]\par
+{\bf portable.h}\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde  \end{Desc}
+\begin{Desc}
+\item[Date: ]\par
+8-apr-1990\end{Desc}
+
+
+\subsection{Typedef Documentation}
+\index{P_db.h@{P\_\-db.h}!db_t@{db\_\-t}}
+\index{db_t@{db\_\-t}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ db\_\-t}\label{P__db_8h_a0}
+
+
+typedef void $\ast$db\_\-t; Type definition for a generic database.
+
+
+
+ This typedef hides the actual structure definition of db\_\-t from  module users. It forces it to be used as a black box. 
+
+\subsection{Function Documentation}
+\index{P_db.h@{P\_\-db.h}!db_close@{db\_\-close}}
+\index{db_close@{db\_\-close}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void db\_\-close ({\bf db\_\-t} {\em db})}\label{P__db_8h_a5}
+
+
+Close the specified database.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+db}]Database to be closed.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!db_name@{db\_\-name}}
+\index{db_name@{db\_\-name}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void db\_\-name ({\bf db\_\-t} {\em db}, char $\ast$ {\em filnam})}\label{P__db_8h_a4}
+
+
+Return the database file name.
+
+
+
+ Returns the current database file name by copying it into the supplied string.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+db}]The database whose filename we want to know. \item[{\em 
+filnam}]String to which the name must be copied.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Warning: ]\par
+The routine ASSUMES that this string is long enough.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!db_next_protein@{db\_\-next\_\-protein}}
+\index{db_next_protein@{db\_\-next\_\-protein}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} db\_\-next\_\-protein ({\bf db\_\-t} {\em db}, {\bf protein\_\-t} $\ast$ {\em prot})}\label{P__db_8h_a2}
+
+
+Get next protein from the database.
+
+
+
+ Gets next protein from the database. It sequentially access the database and reads the protein name and sequence. Also it gets the index of the protein into the database and obtains the access keywords.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+db}]Database to get the protein from. \item[{\em 
+prot}]Structure of type protein to store the read sequence\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if we could read a new protein, FALSE otherwise.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!db_open@{db\_\-open}}
+\index{db_open@{db\_\-open}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf db\_\-t} db\_\-open (char $\ast$ {\em db\_\-filnam}, int {\em db\_\-type})}\label{P__db_8h_a1}
+
+
+Opens a protein database.
+
+
+
+ It first tries to open the file. If succeeded then it reads the first line in the database and sets the pointer into the file appropriately. Also saves the current database name for possible use later.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+db\_\-filnam}]The database file name. \item[{\em 
+db\_\-type}]The type of database (if known) or 0 if unkown.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+a pointer to a database structure.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!db_seek_protein@{db\_\-seek\_\-protein}}
+\index{db_seek_protein@{db\_\-seek\_\-protein}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} db\_\-seek\_\-protein ({\bf db\_\-t} {\em db}, {\bf index\_\-t} $\ast$ {\em p\_\-index}, {\bf protein\_\-t} $\ast$ {\em the\_\-prot})}\label{P__db_8h_a3}
+
+
+Get the information about a protein from the database.
+
+
+
+ Gets the information about a protein from the current database. It access the file directly by using the supplied index. Obtains all the info about the protein and updates its structure appropriately\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+db}]Database to get the protein from. \item[{\em 
+p\_\-index}]Index of the sequence to retrieve \item[{\em 
+the\_\-prot}]Protein structure to receive the sequence\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if success, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!db_type@{db\_\-type}}
+\index{db_type@{db\_\-type}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int db\_\-type ({\bf db\_\-t} {\em db})}\label{P__db_8h_a6}
+
+
+\index{P_db.h@{P\_\-db.h}!get_index@{get\_\-index}}
+\index{get_index@{get\_\-index}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} get\_\-index ({\bf index\_\-t} $\ast$ {\em idx})}\label{P__db_8h_a10}
+
+
+Read index from index file.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+idx}]Structure to hold the read index.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if success, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!idx_close@{idx\_\-close}}
+\index{idx_close@{idx\_\-close}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} idx\_\-close ()}\label{P__db_8h_a8}
+
+
+Close the index file.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+file}]Name of index file.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if success, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!idx_name@{idx\_\-name}}
+\index{idx_name@{idx\_\-name}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} idx\_\-name (char $\ast$ {\em name})}\label{P__db_8h_a9}
+
+
+Return name of the last index file read.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+file}]String to store the name in.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if success, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Warning: ]\par
+It is assumed that the string passed as argument is long enough.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\index{P_db.h@{P\_\-db.h}!idx_open@{idx\_\-open}}
+\index{idx_open@{idx\_\-open}!P_db.h@{P\_\-db.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} idx\_\-open (char $\ast$ {\em file})}\label{P__db_8h_a7}
+
+
+Open index file.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+file}]Name of index file.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if success, FALSE if not.\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}

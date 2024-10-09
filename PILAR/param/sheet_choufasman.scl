@@ -1,0 +1,26 @@
+; Chou, P.Y., and Fasman, G. D. (1978) Empirical predictions
+; of protein conformations. Annu. Rev. Biochem. 47, 251-276
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology,
+; pg. 85
+;
+Val	1.70
+Ile	1.60
+Tyr	1.47
+Phe	1.38
+Trp	1.37
+Leu	1.30
+Cys	1.19
+Thr	1.19
+Gln	1.10
+Met	1.05
+Arg	0.93
+Asn	0.89
+His	0.87
+Ala	0.83
+Ser	0.75
+Gly	0.75
+Lys	0.74
+Pro	0.55
+Asp	0.54
+Glu	0.37

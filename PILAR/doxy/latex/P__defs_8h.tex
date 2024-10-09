@@ -1,0 +1,430 @@
+\section{P\_\-defs.h File Reference}
+\label{P__defs_8h}\index{P_defs.h@{P\_\-defs.h}}
+Constants used in PILAR. 
+
+
+\subsection*{General}
+General interest definitions.\begin{CompactItemize}
+\item 
+\#define {\bf MAXLINE}\ 256
+\begin{CompactList}\small\item\em Longest input line.\item\end{CompactList}\item 
+\#define {\bf KEYS\_\-NUMBER}\ 1
+\begin{CompactList}\small\item\em Number of index keywords.\item\end{CompactList}\item 
+\#define {\bf KEYLEN}\ 10
+\begin{CompactList}\small\item\em Length of keyword.\item\end{CompactList}\item 
+\#define {\bf PNAME\_\-LEN}\ 80
+\begin{CompactList}\small\item\em Maximum protein name length.\item\end{CompactList}\item 
+\#define {\bf MAX\_\-SEQ\_\-LEN}\ 10000
+\begin{CompactList}\small\item\em Maximum sequence length.\item\end{CompactList}\item 
+\#define {\bf MAX\_\-REGIONS}\ 100
+\begin{CompactList}\small\item\em Maximum number of regions.\item\end{CompactList}\item 
+\#define {\bf MAX\_\-CLASSES}\ 10
+\begin{CompactList}\small\item\em Maximum number of value categories.\item\end{CompactList}\item 
+\#define {\bf AA\_\-NUMBER}\ 21
+\begin{CompactList}\small\item\em Number of aminoacids.\item\end{CompactList}\item 
+\#define {\bf ASSIGNED}\ 1
+\begin{CompactList}\small\item\em The region has already been used.\item\end{CompactList}\item 
+\#define {\bf EXPLORED}\ 1
+\begin{CompactList}\small\item\em This rule has already been checked.\item\end{CompactList}\item 
+\#define {\bf OK}\ 1
+\begin{CompactList}\small\item\em The protein passes this rule.\item\end{CompactList}\item 
+\#define {\bf NOT\_\-ALIGNED}\ -1
+\begin{CompactList}\small\item\em Cannot align a region with a pattern.\item\end{CompactList}\item 
+\#define {\bf F\_\-INFINITY}\ 9.99e+36
+\begin{CompactList}\small\item\em maximum float.\item\end{CompactList}\item 
+\#define {\bf NEW}({\bf x})\ getmem( sizeof( {\bf x} ) )
+\begin{CompactList}\small\item\em A macro to safely allocate space for {\em {\bf x}}.\item\end{CompactList}\item 
+\#define {\bf P\_\-EXT}\ \char`\"{}.aa\char`\"{}
+\begin{CompactList}\small\item\em file extension for protein files.\item\end{CompactList}\item 
+\#define {\bf D\_\-EXT}\ \char`\"{}.dxr\char`\"{}
+\begin{CompactList}\small\item\em file extension for descriptor files.\item\end{CompactList}\item 
+\#define {\bf F\_\-EXT}\ \char`\"{}.nor\char`\"{}
+\begin{CompactList}\small\item\em default file extension for feat file.\item\end{CompactList}\end{CompactItemize}
+\subsection*{db}
+Definitions of low level database access types.
+
+\begin{Desc}
+\item[See also: ]\par
+{\bf P\_\-db.h} , {\bf P\_\-db.c}\end{Desc}
+\begin{CompactItemize}
+\item 
+\#define {\bf DB\_\-UNKNOWN}\ 0
+\item 
+\#define {\bf DB\_\-STANFORD}\ 1
+\item 
+\#define {\bf DB\_\-INTELLIGENETICS}\ 2
+\item 
+\#define {\bf DB\_\-STRIDER}\ 3
+\item 
+\#define {\bf DB\_\-GENBANK}\ 4
+\item 
+\#define {\bf DB\_\-NBRF}\ 5
+\item 
+\#define {\bf DB\_\-PIR}\ 6
+\item 
+\#define {\bf DB\_\-PEARSON}\ 7
+\item 
+\#define {\bf DB\_\-EMBL}\ 8
+\item 
+\#define {\bf DB\_\-SWISSPROT}\ 9
+\item 
+\#define {\bf DB\_\-UWGCG}\ 10
+\item 
+\#define {\bf DB\_\-ZUKER}\ 11
+\item 
+\#define {\bf DB\_\-FITCH}\ 12
+\item 
+\#define {\bf DB\_\-PREER}\ 13
+\end{CompactItemize}
+\subsection*{Queue}
+Definitions for queue manipulation.
+
+\begin{Desc}
+\item[See also: ]\par
+{\bf P\_\-queue.h} , {\bf P\_\-queue.c}\end{Desc}
+\begin{CompactItemize}
+\item 
+\#define {\bf QUEUE\_\-SIZE}\ 128
+\begin{CompactList}\small\item\em size of static circular queue.\item\end{CompactList}\item 
+\#define {\bf Q\_\-FULL}\ -1
+\begin{CompactList}\small\item\em error: queue is full.\item\end{CompactList}\item 
+\#define {\bf Q\_\-EMPTY}\ NULL
+\begin{CompactList}\small\item\em error: queue is empty.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Token}
+Definitions for token manipulation while parsing files .
+
+\begin{Desc}
+\item[See also: ]\par
+{\bf P\_\-parser.h} , {\bf P\_\-parser.c}\end{Desc}
+\begin{CompactItemize}
+\item 
+\#define {\bf NO\_\-MORE\_\-TOKENS}\ -1
+\begin{CompactList}\small\item\em No more tokens remain to be processed.\item\end{CompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+enum \{ {\bf NEW\_\-RULE}, 
+{\bf DISTANCE}, 
+{\bf SEQUENCE}, 
+{\bf PROFILE}, 
+{\bf POSITION}, 
+{\bf RANGE}, 
+{\bf SEQ}, 
+{\bf IN\_\-TOKEN}, 
+{\bf POS\_\-RANGE}, 
+{\bf REGION}, 
+{\bf VALUES}, 
+{\bf VALUE}, 
+{\bf HYPHEN}, 
+{\bf EQUAL}, 
+{\bf LPAREN}, 
+{\bf RPAREN}, 
+{\bf COLON}, 
+{\bf POINTS}, 
+{\bf LESSTHAN}
+ \} {\bf TOKENS}
+\end{tabbing}
+\begin{CompactList}\small\item\em The kinds of tokens known to the parser.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Exit}
+Definitions for program termination\begin{CompactItemize}
+\item 
+\#define {\bf BYE}\ 0
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Constants used in PILAR.
+
+ 
+
+ Constant definitions for the Protein Identification and  Library Access Resource.
+
+\begin{Desc}
+\item[Author: ]\par
+Jos\'{e} Ram\'{o}n Valverde Carrillo.\end{Desc}
+HISTORY:  J. R. Valverde (1989):  Updated as needed while developing the project.  J. R. Valverde ( 15 - aug - 1989):  Version 1 concluded.  J. R. Valverde ( 20 - aug - 1989):  Version 2 terminated.  J. R. Valverde ( 08 - oct - 1989):  Version 3 finished.
+
+
+
+\subsection{Define Documentation}
+\index{P_defs.h@{P\_\-defs.h}!AA_NUMBER@{AA\_\-NUMBER}}
+\index{AA_NUMBER@{AA\_\-NUMBER}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define AA\_\-NUMBER\ 21}\label{P__defs_8h_a7}
+
+
+Number of aminoacids.
+
+\index{P_defs.h@{P\_\-defs.h}!ASSIGNED@{ASSIGNED}}
+\index{ASSIGNED@{ASSIGNED}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ASSIGNED\ 1}\label{P__defs_8h_a8}
+
+
+The region has already been used.
+
+\index{P_defs.h@{P\_\-defs.h}!BYE@{BYE}}
+\index{BYE@{BYE}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BYE\ 0}\label{P__defs_8h_a35}
+
+
+\index{P_defs.h@{P\_\-defs.h}!D_EXT@{D\_\-EXT}}
+\index{D_EXT@{D\_\-EXT}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define D\_\-EXT\ \char`\"{}.dxr\char`\"{}}\label{P__defs_8h_a15}
+
+
+file extension for descriptor files.
+
+\index{P_defs.h@{P\_\-defs.h}!DB_EMBL@{DB\_\-EMBL}}
+\index{DB_EMBL@{DB\_\-EMBL}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-EMBL\ 8}\label{P__defs_8h_a25}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_FITCH@{DB\_\-FITCH}}
+\index{DB_FITCH@{DB\_\-FITCH}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-FITCH\ 12}\label{P__defs_8h_a29}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_GENBANK@{DB\_\-GENBANK}}
+\index{DB_GENBANK@{DB\_\-GENBANK}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-GENBANK\ 4}\label{P__defs_8h_a21}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_INTELLIGENETICS@{DB\_\-INTELLIGENETICS}}
+\index{DB_INTELLIGENETICS@{DB\_\-INTELLIGENETICS}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-INTELLIGENETICS\ 2}\label{P__defs_8h_a19}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_NBRF@{DB\_\-NBRF}}
+\index{DB_NBRF@{DB\_\-NBRF}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-NBRF\ 5}\label{P__defs_8h_a22}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_PEARSON@{DB\_\-PEARSON}}
+\index{DB_PEARSON@{DB\_\-PEARSON}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-PEARSON\ 7}\label{P__defs_8h_a24}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_PIR@{DB\_\-PIR}}
+\index{DB_PIR@{DB\_\-PIR}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-PIR\ 6}\label{P__defs_8h_a23}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_PREER@{DB\_\-PREER}}
+\index{DB_PREER@{DB\_\-PREER}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-PREER\ 13}\label{P__defs_8h_a30}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_STANFORD@{DB\_\-STANFORD}}
+\index{DB_STANFORD@{DB\_\-STANFORD}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-STANFORD\ 1}\label{P__defs_8h_a18}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_STRIDER@{DB\_\-STRIDER}}
+\index{DB_STRIDER@{DB\_\-STRIDER}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-STRIDER\ 3}\label{P__defs_8h_a20}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_SWISSPROT@{DB\_\-SWISSPROT}}
+\index{DB_SWISSPROT@{DB\_\-SWISSPROT}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-SWISSPROT\ 9}\label{P__defs_8h_a26}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_UNKNOWN@{DB\_\-UNKNOWN}}
+\index{DB_UNKNOWN@{DB\_\-UNKNOWN}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-UNKNOWN\ 0}\label{P__defs_8h_a17}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_UWGCG@{DB\_\-UWGCG}}
+\index{DB_UWGCG@{DB\_\-UWGCG}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-UWGCG\ 10}\label{P__defs_8h_a27}
+
+
+\index{P_defs.h@{P\_\-defs.h}!DB_ZUKER@{DB\_\-ZUKER}}
+\index{DB_ZUKER@{DB\_\-ZUKER}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DB\_\-ZUKER\ 11}\label{P__defs_8h_a28}
+
+
+\index{P_defs.h@{P\_\-defs.h}!EXPLORED@{EXPLORED}}
+\index{EXPLORED@{EXPLORED}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define EXPLORED\ 1}\label{P__defs_8h_a9}
+
+
+This rule has already been checked.
+
+\index{P_defs.h@{P\_\-defs.h}!F_EXT@{F\_\-EXT}}
+\index{F_EXT@{F\_\-EXT}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define F\_\-EXT\ \char`\"{}.nor\char`\"{}}\label{P__defs_8h_a16}
+
+
+default file extension for feat file.
+
+\index{P_defs.h@{P\_\-defs.h}!F_INFINITY@{F\_\-INFINITY}}
+\index{F_INFINITY@{F\_\-INFINITY}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define F\_\-INFINITY\ 9.99e+36}\label{P__defs_8h_a12}
+
+
+maximum float.
+
+\index{P_defs.h@{P\_\-defs.h}!KEYLEN@{KEYLEN}}
+\index{KEYLEN@{KEYLEN}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define KEYLEN\ 10}\label{P__defs_8h_a2}
+
+
+Length of keyword.
+
+\index{P_defs.h@{P\_\-defs.h}!KEYS_NUMBER@{KEYS\_\-NUMBER}}
+\index{KEYS_NUMBER@{KEYS\_\-NUMBER}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define KEYS\_\-NUMBER\ 1}\label{P__defs_8h_a1}
+
+
+Number of index keywords.
+
+\index{P_defs.h@{P\_\-defs.h}!MAX_CLASSES@{MAX\_\-CLASSES}}
+\index{MAX_CLASSES@{MAX\_\-CLASSES}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-CLASSES\ 10}\label{P__defs_8h_a6}
+
+
+Maximum number of value categories.
+
+\index{P_defs.h@{P\_\-defs.h}!MAX_REGIONS@{MAX\_\-REGIONS}}
+\index{MAX_REGIONS@{MAX\_\-REGIONS}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-REGIONS\ 100}\label{P__defs_8h_a5}
+
+
+Maximum number of regions.
+
+\index{P_defs.h@{P\_\-defs.h}!MAX_SEQ_LEN@{MAX\_\-SEQ\_\-LEN}}
+\index{MAX_SEQ_LEN@{MAX\_\-SEQ\_\-LEN}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-SEQ\_\-LEN\ 10000}\label{P__defs_8h_a4}
+
+
+Maximum sequence length.
+
+\index{P_defs.h@{P\_\-defs.h}!MAXLINE@{MAXLINE}}
+\index{MAXLINE@{MAXLINE}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXLINE\ 256}\label{P__defs_8h_a0}
+
+
+Longest input line.
+
+\index{P_defs.h@{P\_\-defs.h}!NEW@{NEW}}
+\index{NEW@{NEW}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NEW({\bf x})\ getmem( sizeof( {\bf x} ) )}\label{P__defs_8h_a13}
+
+
+A macro to safely allocate space for {\em {\bf x}}.
+
+\index{P_defs.h@{P\_\-defs.h}!NO_MORE_TOKENS@{NO\_\-MORE\_\-TOKENS}}
+\index{NO_MORE_TOKENS@{NO\_\-MORE\_\-TOKENS}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-MORE\_\-TOKENS\ -1}\label{P__defs_8h_a34}
+
+
+No more tokens remain to be processed.
+
+\index{P_defs.h@{P\_\-defs.h}!NOT_ALIGNED@{NOT\_\-ALIGNED}}
+\index{NOT_ALIGNED@{NOT\_\-ALIGNED}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NOT\_\-ALIGNED\ -1}\label{P__defs_8h_a11}
+
+
+Cannot align a region with a pattern.
+
+\index{P_defs.h@{P\_\-defs.h}!OK@{OK}}
+\index{OK@{OK}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define OK\ 1}\label{P__defs_8h_a10}
+
+
+The protein passes this rule.
+
+\index{P_defs.h@{P\_\-defs.h}!P_EXT@{P\_\-EXT}}
+\index{P_EXT@{P\_\-EXT}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define P\_\-EXT\ \char`\"{}.aa\char`\"{}}\label{P__defs_8h_a14}
+
+
+file extension for protein files.
+
+\index{P_defs.h@{P\_\-defs.h}!PNAME_LEN@{PNAME\_\-LEN}}
+\index{PNAME_LEN@{PNAME\_\-LEN}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PNAME\_\-LEN\ 80}\label{P__defs_8h_a3}
+
+
+Maximum protein name length.
+
+\index{P_defs.h@{P\_\-defs.h}!Q_EMPTY@{Q\_\-EMPTY}}
+\index{Q_EMPTY@{Q\_\-EMPTY}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Q\_\-EMPTY\ NULL}\label{P__defs_8h_a33}
+
+
+error: queue is empty.
+
+\index{P_defs.h@{P\_\-defs.h}!Q_FULL@{Q\_\-FULL}}
+\index{Q_FULL@{Q\_\-FULL}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define Q\_\-FULL\ -1}\label{P__defs_8h_a32}
+
+
+error: queue is full.
+
+\index{P_defs.h@{P\_\-defs.h}!QUEUE_SIZE@{QUEUE\_\-SIZE}}
+\index{QUEUE_SIZE@{QUEUE\_\-SIZE}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define QUEUE\_\-SIZE\ 128}\label{P__defs_8h_a31}
+
+
+size of static circular queue.
+
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{P__defs_8h_a56}
+
+
+\begin{Desc}
+\item[Enumeration values:]\par
+\begin{description}
+\index{NEW_RULE@{NEW\_\-RULE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!NEW_RULE@{NEW\_\-RULE}}\item[{\em 
+{\em NEW\_\-RULE}\label{P__defs_8h_a56a37}
+}]\index{DISTANCE@{DISTANCE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!DISTANCE@{DISTANCE}}\item[{\em 
+{\em DISTANCE}\label{P__defs_8h_a56a38}
+}]\index{SEQUENCE@{SEQUENCE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!SEQUENCE@{SEQUENCE}}\item[{\em 
+{\em SEQUENCE}\label{P__defs_8h_a56a39}
+}]\index{PROFILE@{PROFILE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!PROFILE@{PROFILE}}\item[{\em 
+{\em PROFILE}\label{P__defs_8h_a56a40}
+}]\index{POSITION@{POSITION}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!POSITION@{POSITION}}\item[{\em 
+{\em POSITION}\label{P__defs_8h_a56a41}
+}]\index{RANGE@{RANGE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!RANGE@{RANGE}}\item[{\em 
+{\em RANGE}\label{P__defs_8h_a56a42}
+}]\index{SEQ@{SEQ}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!SEQ@{SEQ}}\item[{\em 
+{\em SEQ}\label{P__defs_8h_a56a43}
+}]\index{IN_TOKEN@{IN\_\-TOKEN}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!IN_TOKEN@{IN\_\-TOKEN}}\item[{\em 
+{\em IN\_\-TOKEN}\label{P__defs_8h_a56a44}
+}]\index{POS_RANGE@{POS\_\-RANGE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!POS_RANGE@{POS\_\-RANGE}}\item[{\em 
+{\em POS\_\-RANGE}\label{P__defs_8h_a56a45}
+}]\index{REGION@{REGION}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!REGION@{REGION}}\item[{\em 
+{\em REGION}\label{P__defs_8h_a56a46}
+}]\index{VALUES@{VALUES}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!VALUES@{VALUES}}\item[{\em 
+{\em VALUES}\label{P__defs_8h_a56a47}
+}]\index{VALUE@{VALUE}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!VALUE@{VALUE}}\item[{\em 
+{\em VALUE}\label{P__defs_8h_a56a48}
+}]\index{HYPHEN@{HYPHEN}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!HYPHEN@{HYPHEN}}\item[{\em 
+{\em HYPHEN}\label{P__defs_8h_a56a49}
+}]\index{EQUAL@{EQUAL}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!EQUAL@{EQUAL}}\item[{\em 
+{\em EQUAL}\label{P__defs_8h_a56a50}
+}]\index{LPAREN@{LPAREN}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!LPAREN@{LPAREN}}\item[{\em 
+{\em LPAREN}\label{P__defs_8h_a56a51}
+}]\index{RPAREN@{RPAREN}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!RPAREN@{RPAREN}}\item[{\em 
+{\em RPAREN}\label{P__defs_8h_a56a52}
+}]\index{COLON@{COLON}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!COLON@{COLON}}\item[{\em 
+{\em COLON}\label{P__defs_8h_a56a53}
+}]\index{POINTS@{POINTS}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!POINTS@{POINTS}}\item[{\em 
+{\em POINTS}\label{P__defs_8h_a56a54}
+}]\index{LESSTHAN@{LESSTHAN}!P_defs.h@{P\_\-defs.h}}\index{P_defs.h@{P\_\-defs.h}!LESSTHAN@{LESSTHAN}}\item[{\em 
+{\em LESSTHAN}\label{P__defs_8h_a56a55}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Variable Documentation}
+\index{P_defs.h@{P\_\-defs.h}!TOKENS@{TOKENS}}
+\index{TOKENS@{TOKENS}!P_defs.h@{P\_\-defs.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}     TOKENS}\label{P__defs_8h_a36}
+
+
+The kinds of tokens known to the parser.
+

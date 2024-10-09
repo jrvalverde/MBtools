@@ -1,0 +1,26 @@
+; Bull, H. B. and Breese, K. (1974) Surface tension of amino
+; acids solutions: A hydrophobicity scale of the amino acid
+; residues. Arch. Biochem. Biophys. 161, 665-670
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	-0.2
+Cys	-0.5
+Asp	-0.2
+Glu	-0.3
+Phe	-2.3
+Gly	0.0
+His	-0.1
+Ile	-2.3
+Lys	-0.4
+Leu	-2.5
+Met	-1.5
+Asn	0.1
+Pro	-1.0
+Gln	0.2
+Arg	-0.1
+Ser	-0.4
+Thr	-0.5
+Val	-1.6
+Trp	-2.0
+Tyr	-2.2

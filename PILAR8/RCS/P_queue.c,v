@@ -1,0 +1,542 @@
+head	1.2;
+access;
+symbols;
+locks
+	jr:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	97.05.24.17.11.55;	author jr;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	97.05.15.15.31.33;	author jr;	state Exp;
+branches;
+next	;
+
+
+desc
+@Generic static and dynamic sized queues
+@
+
+
+1.2
+log
+@Ported to FreeBSD
+@
+text
+@/*
+ *
+ *
+ *	MODULE
+ *	    P_QUEUE.C -- soubroutines for queue
+ *    	manipulation
+ *
+ *	SYNOPSIS
+ *	    new_queue()
+ *	    qstore()
+ *	    qretrieve()
+ *  	    free_queue()
+ *
+ *	    new_fifo()
+ *	    enqueue()
+ *	    dequeue()
+ *  	    free_fifo()
+ *
+ *	DESCRIPTION
+ *	    The module contains the generic implementation of
+ *	queue manipulation routines for both, static and
+ *	dynamic queues.
+ *		new_queue() returns a new static constant
+ *		    sized queue.
+ *		q_store() stores an item in a static queue
+ *		q_retrieve() getss an item from a static fifo
+ *  	    	free_queue() disposes of a queue
+ *
+ *		new_fifo() returns a new dynamic queue.
+ *		enqueue() stores an item in a dynamic queue
+ *		dequeue() gets next item from a dynamic fifo
+ *  	    	free_fifo() frees a dynamic queue
+ *
+ *	RETURNS
+ *
+ *	CAVEATS
+ *
+ *  	FILES
+ *	    STDIO.H
+ *	    PORTABLE.H
+ *
+ *	NOTES
+ *
+ *	SEE ALSO
+ *
+ *	DESIGNED BY
+ *	    José Ramón Valverde Carrillo
+ *
+ *		jr@@es.embnet.org			OK
+ *		jose@@ebi.ac.uk				OUTDATED
+ *		JRValverde@@biomed.iib.uam.es		OUTDATED
+ *		JRamon@@uamed.uam.es			OUTDATED
+ *		JRamon@@ccuam1.uam.es			OUTDATED
+ *		JRAMON@@EMDUAM51	    (BITNET, EARN)	OUTDATED
+ *
+ *	HISTORY
+ *	    10 - jul - 1989 (First implementation)
+ *	     1 - aug - 1991 (Ported to Ultrix)
+ *   	    15 - May - 1997 (Ported to Linux)
+ *  	    24 - May - 1997 (Ported to FreeBSD)
+ *
+ *	COPYRIGHT
+ *
+ *
+ * $Log: P_queue.c,v $
+ * Revision 1.1  1997/05/15 15:31:33  jr
+ * Initial revision
+ *
+ */
+
+#include <stdio.h>
+
+#include "portable.h"
+
+#define MOD_DEBUG	0
+
+#define info_t	void
+
+#define NEW( type )	((type *) malloc( sizeof(type) ))
+
+/* --- Static circular queue manipulation routines --- */
+typedef int counter;
+
+struct st_queue {
+    counter q_spos;
+    counter q_rpos;
+    counter q_size;
+    counter q_nelms;
+    info_t  **queue;
+};
+
+typedef struct st_queue	*queue_t;
+
+/*-------------------------------------------------------------------
+    NEW_QUEUE
+	Create a new static, fixed sized, queue.
+
+    INPUT:  SIZE -- size of the queue.
+    OUTPUT: A pointer to the new queue
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+queue_t	new_queue(size)
+int size;
+{
+    queue_t new;
+
+    /* ask for space to store the new queue */
+    if (new = NEW(struct st_queue)) {
+	/* OK, now ask for the space actually needed by the queue */
+	new->queue = (info_t *) calloc(size, sizeof(info_t *));
+	if (new->queue == NULL) {
+	    /* we have not enough memory for the new queue */
+	    free( (char *) new);
+	    return NULL;
+	}
+ 	new->q_spos = new->q_rpos = 0;	/* set start and rear positions */
+	new->q_size = size;
+    	new->q_nelms = 0;
+    }
+    return (new);
+}
+
+/*-------------------------------------------------------------------
+    FREE_QUEUE
+	Free a queue. Any items that were stored on it are
+    irremisibly lost.
+
+    INPUT:  Q -- The queue to be disposed of.
+    OUTPUT:
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+void free_queue(q)
+queue_t q;
+{
+
+    free(q->queue);
+    free(q);
+}
+
+/*-------------------------------------------------------------------
+    Q_STORE   
+	Store items in a static circular queue.
+
+    INPUT:  DATA -- pointer to item to store in the queue.
+	    Q -- the queue to recieve the data.
+    OUTPUT: TRUE -- if item has been successfully stored.
+	    FALSE -- if there is no empty slot in the queue.
+
+    J. R. VALVERDE
+-------------------------------------------------------------------*/
+
+boolean q_store(q, data)
+queue_t q;
+info_t *data;
+{
+    counter newspos;
+
+    /* check for queue full */
+    if (q->q_nelms == q->q_size)
+	return FALSE;
+
+    q->queue[q->q_spos] = data;		/* store the information */
+    q->q_nelms++;
+
+    q->q_spos++;			/* update start position */
+    if (q->q_spos == q->q_size)		/* if at the end of the array */
+	q->q_spos = 0;			/* loop back */
+
+    return TRUE;
+}
+
+/*-------------------------------------------------------------------
+    Q_RETRIEVE
+	Get an item from the circular static queue
+
+    INPUT:  Q -- the queue to get the information from
+    OUTPUT: A pointer to the item if success, or NULL if
+	there are no items in the queue.
+
+    J. R. VALVERDE
+-------------------------------------------------------------------*/
+
+info_t *q_retrieve(q)
+queue_t q;
+{
+    info_t *result;
+
+    /* check if the queue is empty */
+    if (q->q_nelms == 0)
+    	return NULL;
+
+    result = q->queue[q->q_rpos];
+    q->q_rpos++;
+    if (q->q_rpos == q->q_size)
+    	q->q_rpos = 0;
+    q->q_nelms--;
+
+    return (result);
+}
+
+
+/* --- Dynamic queue manipulation rouines --- */
+
+typedef struct q_node {
+    info_t	    *item;
+    struct q_node   *next;
+} q_node_t;
+
+typedef struct st_fifo_header {
+    int		q_size;
+    q_node_t	*q_front;
+    q_node_t	*q_rear;
+} *fifo_t;
+
+/*-------------------------------------------------------------------
+    NEW_FIFO
+	Creates a new circular dynamic queue.
+
+    OUTPUT: A pointer to the newly created queue.
+
+    J. R. VALVERDE
+-------------------------------------------------------------------*/
+
+fifo_t	new_fifo()
+{
+    fifo_t new;
+
+    /* Check memory allocation */
+    if (new = NEW( struct st_fifo_header )) {
+	/* OK, initialize fields of the header */
+	new->q_size = 0;
+	new->q_front = new->q_rear = NULL;
+    }
+
+    return (new);
+}
+
+/*--------------------------------------------------------------------
+    ENQUEUE
+	Add a new item to the rear of the queue
+
+    INPUT:  DATA -- pointer to the information to be stored.
+	    FIFO -- the queue that will receive the data.
+    OUTPUT: TRUE if the data could be appended without problems
+	    FALSE if not.
+
+    J. R. VALVERDE
+---------------------------------------------------------------------*/
+
+static q_node_t *new_node(data)
+info_t *data;
+{
+    q_node_t *new;
+
+    /* Check memory allocation */
+    if (new = NEW( q_node_t )) {
+	/* OK, initialize the new node */
+	new->item = data;
+	new->next = NULL;
+    }
+    return new;
+}
+
+boolean enqueue(queue, data)
+fifo_t queue;
+info_t *data;
+{
+    q_node_t *new, *new_node();
+
+    /* add data to the end of the queue */
+    if (new = new_node( data )) {
+	/* We have a new node, insert it in the queue */
+	if (queue->q_size)		/* if the queue is not empty */
+	    queue->q_rear->next = new;	/* link the new node */
+	else				/* otherwise */
+ 	    queue->q_front = new;	/* this is the first item */
+	queue->q_rear = new;		/* update queue's end */
+	queue->q_size++;		/* and length */
+
+	return (TRUE);
+    }
+    else
+	/* could not add another item */
+	return (FALSE);
+}
+
+/*--------------------------------------------------------------------
+    DEQUEUE
+	Retrieve an item from the beginning of a queue
+
+    CAUTION:	You should check the length of the queue before
+	calling this function
+    INPUT:  QUEUE -- The queue that will provide the information
+    OUTPUT: A pointer to the information stored in the front of the queue
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dequeue(queue)
+fifo_t queue;
+{
+    q_node_t *temp;
+    info_t *data;
+
+    /* Retrieve the element at the beginning of the queue */
+    if (queue->q_size == 0)	    /* if queue is empty */
+	return NULL;
+    temp = queue->q_front;	    /* save pointer to first element */
+    data = temp->item;		    /* save pointer to data */
+    queue->q_front = temp->next;    /* update pointer to first item */
+    queue->q_size--;		    /* and the length of the queue */
+    if (queue->q_size == 0)	    /* if there are no more items */
+	queue->q_rear = NULL;	    /* set pointer to last element to NULL */
+
+    free( (char *) temp);	    /* free memory used by the node */
+
+    /* return the information */
+    return (data);
+}
+
+
+/*--------------------------------------------------------------------
+    FREE_FIFO
+    	Release an allocated fifo. Any items stored are irrevocably
+    lost.
+
+    INPUT:  FIFO -- the dynamic queue to destroy
+    OUTPUT:
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+void free_fifo(f)
+fifo_t f;
+{
+    while (dequeue(f) != NULL);
+    free(f);
+}
+
+
+/*---------------------------------------------------------------------------*/
+
+#if MOD_DEBUG == 1
+
+#define QUEUESIZE	10
+
+main()
+{
+    queue_t	myqueue;
+    long int idata[QUEUESIZE+1], odata[QUEUESIZE+1];
+    int i, *p;
+
+    fprintf(stderr, "Generating data\n");
+    for (i = 0; i < QUEUESIZE + 1; i++) {
+    	idata[i] = random();
+    	fprintf(stderr, "%d ", i+1);
+    }
+    fprintf(stderr, "\n");
+    /* Create a new queue of size 10 */
+    fprintf(stderr, "Creating a new queue of size %d\n", QUEUESIZE);
+    myqueue = new_queue(QUEUESIZE);
+    /* store some items */
+    fprintf(stderr, "Filling in the queue\n");
+    for (i = 0; i < QUEUESIZE; i++) {
+    	if (!q_store(myqueue, &idata[i]))
+    	    fprintf(stderr, "ERROR: could not store item %d\n", i+1);
+    	fprintf(stderr, "%d ", i+1);
+    }
+    /* attempt to store past capacity of queue */
+    fprintf(stderr, "\nPushing the limit\n");
+    if (q_store(myqueue, &idata[QUEUESIZE])) {
+    	fprintf(stderr, "ERROR: overflowed queue capacity\n");
+    	exit(1);
+    }
+    
+    /* Read a few items */
+    fprintf(stderr, "Reading a few items\n");
+    for (i = 0; i < QUEUESIZE/2; i++) {
+    	if ((p = q_retrieve(myqueue)) == NULL) {
+    	    fprintf(stderr, "ERROR: could not retrieve value %d\n", i+1);
+    	    exit(1);
+    	}
+    	if ((odata[i] = *p) != idata[i]) {
+    	    fprintf(stderr, "ERROR: strange data at %d: %d\n", i+1, *p);
+    	    exit(1);
+    	}
+    	fprintf(stderr, "%d ", i+1);
+    }
+    /* Now we should have room to store something */
+    fprintf(stderr, "\nStoring something more\n");
+    if (!q_store(myqueue, &idata[QUEUESIZE])) {
+    	fprintf(stderr, "There should be space in the queue!\n");
+    	exit(1);
+    }
+    /* empty the queue */
+    fprintf(stderr, "Emptying the queue\n");
+    for (i = QUEUESIZE/2; i < QUEUESIZE+1; i++) {
+    	if ((p = q_retrieve(myqueue)) == NULL) {
+    	    fprintf(stderr, "ERROR: could not retrieve value %d\n", i+1);
+    	    exit(1);
+    	}
+    	if ((odata[i] = *p) != idata[i]) {
+    	    fprintf(stderr, "ERROR: strange data at %d: %d\n", i+1, *p);
+    	    exit(1);
+    	}
+    	fprintf(stderr, "%d ", i+1);
+    }
+    /* Attempt to retrieve from an empty queue */
+    fprintf(stderr, "\nPulling too much\n");
+    if ((p = q_retrieve(myqueue)) != NULL) {
+    	fprintf(stderr, "ERROR: could read from an empty queue %d", *p);
+    	exit(1);
+    }
+
+    /* we are done */
+    free_queue(myqueue);
+
+    /* OK */
+    fprintf(stderr, "OK\n");
+    exit(0);
+}
+#endif
+
+#if MOD_DEBUG == 2
+
+#define QUEUESIZE	10
+
+main()
+{
+    fifo_t	myqueue;
+    long int idata[QUEUESIZE+1], odata[QUEUESIZE+1];
+    int i, *p;
+
+    fprintf(stderr, "Generating data\n");
+    for (i = 0; i < QUEUESIZE + 1; i++) {
+    	idata[i] = random();
+    	fprintf(stderr, "%d ", i+1);
+    }
+    fprintf(stderr, "\n");
+    /* Create a new queue of size 10 */
+    fprintf(stderr, "Creating a new dynamic queue\n");
+    myqueue = new_fifo(QUEUESIZE);
+    /* store some items */
+    fprintf(stderr, "Filling in the queue\n");
+    for (i = 0; i < QUEUESIZE; i++) {
+    	if (!enqueue(myqueue, &idata[i]))
+    	    fprintf(stderr, "ERROR: could not store item %d\n", i+1);
+    	fprintf(stderr, "%d ", i+1);
+    }
+    
+    /* Read a few items */
+    fprintf(stderr, "\nReading a few items\n");
+    for (i = 0; i < QUEUESIZE/2; i++) {
+    	if ((p = dequeue(myqueue)) == NULL) {
+    	    fprintf(stderr, "ERROR: could not retrieve value %d\n", i+1);
+    	    exit(1);
+    	}
+    	if ((odata[i] = *p) != idata[i]) {
+    	    fprintf(stderr, "ERROR: strange data at %d: %d\n", i+1, *p);
+    	    exit(1);
+    	}
+    	fprintf(stderr, "%d ", i+1);
+    }
+    /* Now we should have room to store something */
+    fprintf(stderr, "\nStoring something more\n");
+    if (!enqueue(myqueue, &idata[QUEUESIZE])) {
+    	fprintf(stderr, "There should be space in the queue!\n");
+    	exit(1);
+    }
+    /* empty the queue */
+    fprintf(stderr, "Emptying the queue\n");
+    for (i = QUEUESIZE/2; i < QUEUESIZE+1; i++) {
+    	if ((p = dequeue(myqueue)) == NULL) {
+    	    fprintf(stderr, "ERROR: could not retrieve value %d\n", i+1);
+    	    exit(1);
+    	}
+    	if ((odata[i] = *p) != idata[i]) {
+    	    fprintf(stderr, "ERROR: strange data at %d: %d\n", i+1, *p);
+    	    exit(1);
+    	}
+    	fprintf(stderr, "%d ", i+1);
+    }
+    /* Attempt to retrieve from an empty queue */
+    fprintf(stderr, "\nPulling too much\n");
+    if ((p = dequeue(myqueue)) != NULL) {
+    	fprintf(stderr, "ERROR: could read from an empty queue %d", *p);
+    	exit(1);
+    }
+    
+    free_fifo(myqueue);
+    
+    /* OK */
+    fprintf(stderr, "OK\n");
+    exit(0);
+}
+#endif
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d60 1
+d66 1
+a66 1
+ * Revision 1.1  1997/05/15 15:16:11  jr
+@

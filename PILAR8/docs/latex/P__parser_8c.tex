@@ -1,0 +1,255 @@
+\section{P\_\-parser.c File Reference}
+\label{P__parser_8c}\index{P_parser.c@{P\_\-parser.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$ctype.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-list.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DEBUG}\ 0
+\item 
+\#define {\bf NO\_\-RULES}\ 3
+\item 
+\#define {\bf MAX\_\-PAT\_\-SIZE}\ MAXLINE
+\item 
+\#define {\bf MAX\_\-TOKEN}\ MAXLINE
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \{ {\bf DIS\_\-TOKEN}, 
+{\bf SEQ\_\-TOKEN}, 
+{\bf PRO\_\-TOKEN}
+ \}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf bool} {\bf is\_\-token} (char $\ast${\bf token}, char $\ast${\bf name})
+\item 
+int {\bf get\_\-next\_\-token} (int type)
+\item 
+void {\bf get\_\-delimiter} (int type)
+\item 
+void {\bf get\_\-value} ()
+\item 
+void {\bf get\_\-sequence} ()
+\item 
+void {\bf get\_\-next\_\-word} ()
+\item 
+void {\bf parser\_\-error} (char $\ast${\bf msg})
+\item 
+void {\bf get\_\-integer} ()
+\item 
+void {\bf get\_\-delimiter} ()
+\item 
+void {\bf parser\_\-error} ()
+\item 
+void {\bf parse} (pattern\_\-file) FILE $\ast$pattern\_\-file
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+enum  \{ ... \}  {\bf RULE\_\-TOKENS}
+\item 
+char {\bf buff} [MAX\_\-PAT\_\-SIZE+1]
+\item 
+char $\ast$ {\bf pat} = {\bf buff}
+\item 
+char {\bf token} [MAX\_\-TOKEN+1]
+\item 
+char $\ast$ {\bf p\_\-token} = {\bf token}
+\item 
+FILE $\ast$ {\bf pat\_\-file}
+\item 
+{\bf descriptor\_\-t} $\ast$ {\bf d}
+\item 
+{\bf list\_\-t} {\bf token\_\-list}
+\item 
+char $\ast$ {\bf rules\_\-table} [$\,$]
+\item 
+char $\ast$ {\bf data}
+\item 
+char $\ast$ {\bf table} [$\,$]
+\item 
+int {\bf no\_\-entries}
+\item 
+$\ast$ {\bf name}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_parser.c@{P\_\-parser.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\ 0}\label{P__parser_8c_a0}
+
+
+\index{P_parser.c@{P\_\-parser.c}!MAX_PAT_SIZE@{MAX\_\-PAT\_\-SIZE}}
+\index{MAX_PAT_SIZE@{MAX\_\-PAT\_\-SIZE}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-PAT\_\-SIZE\ MAXLINE}\label{P__parser_8c_a2}
+
+
+\index{P_parser.c@{P\_\-parser.c}!MAX_TOKEN@{MAX\_\-TOKEN}}
+\index{MAX_TOKEN@{MAX\_\-TOKEN}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\_\-TOKEN\ MAXLINE}\label{P__parser_8c_a3}
+
+
+\index{P_parser.c@{P\_\-parser.c}!NO_RULES@{NO\_\-RULES}}
+\index{NO_RULES@{NO\_\-RULES}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NO\_\-RULES\ 3}\label{P__parser_8c_a1}
+
+
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{P__parser_8c_a31}
+
+
+\begin{Desc}
+\item[Enumeration values:]\par
+\begin{description}
+\index{DIS_TOKEN@{DIS\_\-TOKEN}!P_parser.c@{P\_\-parser.c}}\index{P_parser.c@{P\_\-parser.c}!DIS_TOKEN@{DIS\_\-TOKEN}}\item[{\em 
+{\em DIS\_\-TOKEN}\label{P__parser_8c_a31a17}
+}]\index{SEQ_TOKEN@{SEQ\_\-TOKEN}!P_parser.c@{P\_\-parser.c}}\index{P_parser.c@{P\_\-parser.c}!SEQ_TOKEN@{SEQ\_\-TOKEN}}\item[{\em 
+{\em SEQ\_\-TOKEN}\label{P__parser_8c_a31a18}
+}]\index{PRO_TOKEN@{PRO\_\-TOKEN}!P_parser.c@{P\_\-parser.c}}\index{P_parser.c@{P\_\-parser.c}!PRO_TOKEN@{PRO\_\-TOKEN}}\item[{\em 
+{\em PRO\_\-TOKEN}\label{P__parser_8c_a31a19}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\index{P_parser.c@{P\_\-parser.c}!get_delimiter@{get\_\-delimiter}}
+\index{get_delimiter@{get\_\-delimiter}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-delimiter ()}\label{P__parser_8c_a28}
+
+
+\index{P_parser.c@{P\_\-parser.c}!get_delimiter@{get\_\-delimiter}}
+\index{get_delimiter@{get\_\-delimiter}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-delimiter (int {\em type})\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a22}
+
+
+\index{P_parser.c@{P\_\-parser.c}!get_integer@{get\_\-integer}}
+\index{get_integer@{get\_\-integer}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-integer ()}\label{P__parser_8c_a27}
+
+
+\index{P_parser.c@{P\_\-parser.c}!get_next_token@{get\_\-next\_\-token}}
+\index{get_next_token@{get\_\-next\_\-token}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int get\_\-next\_\-token (int {\em type})\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a21}
+
+
+\index{P_parser.c@{P\_\-parser.c}!get_next_word@{get\_\-next\_\-word}}
+\index{get_next_word@{get\_\-next\_\-word}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-next\_\-word ()\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a25}
+
+
+\index{P_parser.c@{P\_\-parser.c}!get_sequence@{get\_\-sequence}}
+\index{get_sequence@{get\_\-sequence}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-sequence ()\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a24}
+
+
+\index{P_parser.c@{P\_\-parser.c}!get_value@{get\_\-value}}
+\index{get_value@{get\_\-value}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void get\_\-value ()\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a23}
+
+
+\index{P_parser.c@{P\_\-parser.c}!is_token@{is\_\-token}}
+\index{is_token@{is\_\-token}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} is\_\-token (char $\ast$ {\em token}, char $\ast$ {\em name})\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a20}
+
+
+\index{P_parser.c@{P\_\-parser.c}!parse@{parse}}
+\index{parse@{parse}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parse (pattern\_\-file)}\label{P__parser_8c_a30}
+
+
+\index{P_parser.c@{P\_\-parser.c}!parser_error@{parser\_\-error}}
+\index{parser_error@{parser\_\-error}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parser\_\-error ()}\label{P__parser_8c_a29}
+
+
+\index{P_parser.c@{P\_\-parser.c}!parser_error@{parser\_\-error}}
+\index{parser_error@{parser\_\-error}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parser\_\-error (char $\ast$ {\em msg})\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a26}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_parser.c@{P\_\-parser.c}!buff@{buff}}
+\index{buff@{buff}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char buff[MAX\_\-PAT\_\-SIZE + 1]\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a5}
+
+
+\index{P_parser.c@{P\_\-parser.c}!d@{d}}
+\index{d@{d}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf descriptor\_\-t}$\ast$ d\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a10}
+
+
+\index{P_parser.c@{P\_\-parser.c}!data@{data}}
+\index{data@{data}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ data}\label{P__parser_8c_a13}
+
+
+\index{P_parser.c@{P\_\-parser.c}!name@{name}}
+\index{name@{name}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ name}\label{P__parser_8c_a16}
+
+
+\index{P_parser.c@{P\_\-parser.c}!no_entries@{no\_\-entries}}
+\index{no_entries@{no\_\-entries}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int no\_\-entries}\label{P__parser_8c_a15}
+
+
+\index{P_parser.c@{P\_\-parser.c}!p_token@{p\_\-token}}
+\index{p_token@{p\_\-token}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ p\_\-token = {\bf token}\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a8}
+
+
+\index{P_parser.c@{P\_\-parser.c}!pat@{pat}}
+\index{pat@{pat}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ pat = {\bf buff}\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a6}
+
+
+\index{P_parser.c@{P\_\-parser.c}!pat_file@{pat\_\-file}}
+\index{pat_file@{pat\_\-file}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ pat\_\-file\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a9}
+
+
+\index{P_parser.c@{P\_\-parser.c}!RULE_TOKENS@{RULE\_\-TOKENS}}
+\index{RULE_TOKENS@{RULE\_\-TOKENS}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}enum \{ ... \}   RULE\_\-TOKENS}\label{P__parser_8c_a4}
+
+
+\index{P_parser.c@{P\_\-parser.c}!rules_table@{rules\_\-table}}
+\index{rules_table@{rules\_\-table}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rules\_\-table[$\,$]\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a12}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim} {
+    "DISTANCE",
+    "SEQUENCE",
+    "PROFILE" }\end{verbatim}\normalsize 
+\index{P_parser.c@{P\_\-parser.c}!table@{table}}
+\index{table@{table}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ table[$\,$]}\label{P__parser_8c_a14}
+
+
+\index{P_parser.c@{P\_\-parser.c}!token@{token}}
+\index{token@{token}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char token[MAX\_\-TOKEN + 1]\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a7}
+
+
+\index{P_parser.c@{P\_\-parser.c}!token_list@{token\_\-list}}
+\index{token_list@{token\_\-list}!P_parser.c@{P\_\-parser.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf list\_\-t} token\_\-list\hspace{0.3cm}{\tt  [static]}}\label{P__parser_8c_a11}
+
+

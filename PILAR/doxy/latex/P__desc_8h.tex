@@ -1,0 +1,120 @@
+\section{P\_\-desc.h File Reference}
+\label{P__desc_8h}\index{P_desc.h@{P\_\-desc.h}}
+Interface module for protein descriptors. 
+
+
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf read\_\-feature} (char $\ast$file, {\bf feature\_\-t} $\ast$f)
+\begin{CompactList}\small\item\em Reads data values from the especified feature values file.\item\end{CompactList}\item 
+{\bf status} {\bf get\_\-feature} ({\bf feature\_\-t} $\ast$f)
+\begin{CompactList}\small\item\em Prompt user for feature file and read it.\item\end{CompactList}\item 
+{\bf status} {\bf feature\_\-name} (char $\ast$file)
+\begin{CompactList}\small\item\em Returns the name of the last feature read.\item\end{CompactList}\item 
+{\bf status} {\bf read\_\-descriptor} (char $\ast$file, {\bf descriptor\_\-t} $\ast${\bf d})
+\begin{CompactList}\small\item\em Read descriptor.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Interface module for protein descriptors.
+
+ 
+
+ Header file with the definitions pertaining to module {\bf P\_\-descr.c}. It is usually included via {\bf P\_\-extern.h}
+
+\begin{Desc}
+\item[Precondition: ]\par
+Requires PORTABLE.H for definition of type status.\end{Desc}
+\begin{Desc}
+\item[See also: ]\par
+{\bf portable.h}\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde  \end{Desc}
+\begin{Desc}
+\item[Date: ]\par
+8-apr-1990\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{P_desc.h@{P\_\-desc.h}!feature_name@{feature\_\-name}}
+\index{feature_name@{feature\_\-name}!P_desc.h@{P\_\-desc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} feature\_\-name (char $\ast$ {\em file})}\label{P__desc_8h_a2}
+
+
+Returns the name of the last feature read.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+file}]String to store the name.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+SUCCESS if so, FAIL if there is not current feature name.\end{Desc}
+\begin{Desc}
+\item[Warning: ]\par
+This function is HIGHLY SYSTEM DEPENDENT. Supposes that f\_\-name is long enough to hold the name. \end{Desc}
+\index{P_desc.h@{P\_\-desc.h}!get_feature@{get\_\-feature}}
+\index{get_feature@{get\_\-feature}!P_desc.h@{P\_\-desc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} get\_\-feature ({\bf feature\_\-t} $\ast$ {\em f})}\label{P__desc_8h_a1}
+
+
+Prompt user for feature file and read it.
+
+
+
+ Asks the user for the feature to be used in the search and reads it from the file.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+f}]Table to read data values into.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+SUCCESS if read's been OK. FAIL otherwise. \end{Desc}
+\index{P_desc.h@{P\_\-desc.h}!read_descriptor@{read\_\-descriptor}}
+\index{read_descriptor@{read\_\-descriptor}!P_desc.h@{P\_\-desc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} read\_\-descriptor (char $\ast$ {\em file}, {\bf descriptor\_\-t} $\ast$ {\em d})}\label{P__desc_8h_a3}
+
+
+Read descriptor.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+file}]Name of file containing the descriptor definition. \item[{\em 
+d}]Structure to store the descriptor in.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+TRUE if all went well, FALSE otherwise. \end{Desc}
+\index{P_desc.h@{P\_\-desc.h}!read_feature@{read\_\-feature}}
+\index{read_feature@{read\_\-feature}!P_desc.h@{P\_\-desc.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int read\_\-feature (char $\ast$ {\em file}, {\bf feature\_\-t} $\ast$ {\em f})}\label{P__desc_8h_a0}
+
+
+Reads data values from the especified feature values file.
+
+
+
+ \begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+file}]Name of file containing values. \item[{\em 
+f}]Feature table filled with the values.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Note: ]\par
+Values must be stored in the following format: \char`\"{}Amino\-Acid (1 letter code) HTAB Value CR/LF\char`\"{}\end{Desc}
+\begin{Desc}
+\item[Returns: ]\par
+Number of amino acid values read. \end{Desc}

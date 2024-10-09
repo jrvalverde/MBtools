@@ -1,0 +1,105 @@
+\section{P\_\-queue.c File Reference}
+\label{P__queue_8c}\index{P_queue.c@{P\_\-queue.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf st\_\-fifo\_\-header}
+\item 
+struct {\bf st\_\-queue}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MOD\_\-DEBUG}\ 0
+\item 
+\#define {\bf info\_\-t}\ void
+\item 
+\#define {\bf NEW}(type)\ ((type $\ast$) malloc( sizeof(type) ))
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef int {\bf counter}
+\item 
+typedef {\bf st\_\-queue} $\ast$ {\bf queue\_\-t}
+\item 
+typedef {\bf st\_\-fifo\_\-header} $\ast$ {\bf fifo\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf queue\_\-t} {\bf new\_\-queue} (size) int size
+\item 
+{\bf fifo\_\-t} {\bf new\_\-fifo} ()
+\item 
+{\bf q\_\-node\_\-t} $\ast$ {\bf new\_\-node} ({\bf data}) info\_\-t $\ast${\bf data}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+info\_\-t $\ast$ {\bf data}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_queue.c@{P\_\-queue.c}!info_t@{info\_\-t}}
+\index{info_t@{info\_\-t}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define info\_\-t\ void}\label{P__queue_8c_a1}
+
+
+\index{P_queue.c@{P\_\-queue.c}!MOD_DEBUG@{MOD\_\-DEBUG}}
+\index{MOD_DEBUG@{MOD\_\-DEBUG}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MOD\_\-DEBUG\ 0}\label{P__queue_8c_a0}
+
+
+\index{P_queue.c@{P\_\-queue.c}!NEW@{NEW}}
+\index{NEW@{NEW}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NEW(type)\ ((type $\ast$) malloc( sizeof(type) ))}\label{P__queue_8c_a2}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{P_queue.c@{P\_\-queue.c}!counter@{counter}}
+\index{counter@{counter}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef int counter}\label{P__queue_8c_a3}
+
+
+\index{P_queue.c@{P\_\-queue.c}!fifo_t@{fifo\_\-t}}
+\index{fifo_t@{fifo\_\-t}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf st\_\-fifo\_\-header} $\ast$ fifo\_\-t}\label{P__queue_8c_a6}
+
+
+\index{P_queue.c@{P\_\-queue.c}!queue_t@{queue\_\-t}}
+\index{queue_t@{queue\_\-t}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf st\_\-queue}$\ast$ queue\_\-t}\label{P__queue_8c_a4}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_queue.c@{P\_\-queue.c}!new_fifo@{new\_\-fifo}}
+\index{new_fifo@{new\_\-fifo}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf fifo\_\-t} new\_\-fifo ()}\label{P__queue_8c_a8}
+
+
+\index{P_queue.c@{P\_\-queue.c}!new_node@{new\_\-node}}
+\index{new_node@{new\_\-node}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf q\_\-node\_\-t}$\ast$ new\_\-node ({\bf data})\hspace{0.3cm}{\tt  [static]}}\label{P__queue_8c_a9}
+
+
+\index{P_queue.c@{P\_\-queue.c}!new_queue@{new\_\-queue}}
+\index{new_queue@{new\_\-queue}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf queue\_\-t} new\_\-queue (size)}\label{P__queue_8c_a7}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_queue.c@{P\_\-queue.c}!data@{data}}
+\index{data@{data}!P_queue.c@{P\_\-queue.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}info\_\-t$\ast$ data}\label{P__queue_8c_a5}
+
+

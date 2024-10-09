@@ -1,0 +1,28 @@
+; Parker, J. M. R., Guo, D., and Hodges, R. S. (1986) New
+; hydrophilicity scale derived from high-performance liquid
+; chromatography peptide retention data: Correlation of
+; predicted surface residues with antigenicity and X-ray-
+; derived accessible sites. Biochemistry 25, 5425-5432
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	2.1
+Cys	1.4
+Asp	10.0
+Glu	7.8
+Phe	-9.2
+Gly	5.7
+His	2.1
+Ile	-8.0
+Lys	5.7
+Leu	-9.2
+Met	-4.2
+Asn	7.0
+Pro	2.1
+Gln	6.0
+Arg	4.2
+Ser	6.5
+Thr	5.2
+Val	-3.7
+Trp	-10.0
+Tyr	-1.9

@@ -1,0 +1,1014 @@
+head	1.2;
+access;
+symbols;
+locks
+	jr:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	97.05.24.17.09.16;	author jr;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	97.05.18.20.26.22;	author jr;	state Exp;
+branches;
+next	;
+
+
+desc
+@Routines to handle generic doubly linked lists
+@
+
+
+1.2
+log
+@Ported to FreeBSD
+@
+text
+@/*
+ *
+ *	MODULE:
+ *	    P_dlist.c
+ *
+ *	DESCRIPTION:
+ *	    Package for manipulation of doubly linked lists
+ *	to be used with the PILAR (Protein identification
+ *	and library access resource).
+ *
+ *	SYNOPSIS:
+ *	    new_dlist()
+ *	    new_dnode()
+ *	    dlist_put()
+ *	    dlist_append()
+ *	    delete_dnode()
+ *
+ *	CAVEATS:
+ *
+ *	NOTES:
+ *	    You should test length of the list before
+ *	attempting to delete a node.
+ *
+ *	FILES:
+ *	    This module needs the following files:
+ *		STDIO.H
+ *		PORTABLE.H
+ *
+ *	SEE ALSO:
+ *
+ *	DESIGNED BY:
+ *	    José Ramón Valverde Carrillo.
+ *
+ *	HISTORY:
+ *	     1 - oct - 1989 J.R.Valverde: Implementation
+ *	    22 - oct - 1989 J.R.Valverde: Added second set
+ *		of list manipulation functions.
+ *	     1 - aug - 1991 J.R.Valverde: Ported to ULTRIX
+ *  	    18 - may - 1997 J.R.Valverde: Ported to Linux
+ *  	    24 - may - 1997 J.R.Valverde: Ported to FreeBSD
+ *
+ *	COPYRIGHT:
+ *
+ * $Log: P_dlist.c,v $
+ * Revision 1.1  1997/05/18 20:26:22  jr
+ * Initial revision
+ *
+ */
+
+#include <stdio.h>
+
+#include "portable.h"
+
+#define MOD_DEBUG   0
+
+#define NEW(type)   (type *) malloc(sizeof(type))
+
+#define info_t	void
+
+struct dbly_node {
+    info_t     		*item;
+    struct dbly_node	*prev;
+    struct dbly_node	*next;
+    };
+
+typedef struct dbly_node dl_node_t;
+
+typedef struct {
+    int		dl_length;
+    dl_node_t	*dl_first;
+    dl_node_t	*dl_last;
+    dl_node_t	*dl_cur;
+    } dl_head_t;
+
+typedef dl_head_t *dlist_t;
+
+/*--------------------------------------------------------------------
+    NEW_DLIST
+	Create a doubly linked list.
+
+    INPUT:  NONE
+    OUTPUT: A pointer to the newly creted doubly linked list.
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+dlist_t new_dlist()
+{
+    dlist_t new;
+
+    /* check memory allocation */
+    if (new = NEW(dl_head_t)) {
+	/* correct allocation, initialize fields */
+	new->dl_length = 0;
+	new->dl_first = new->dl_last = new->dl_cur = NULL;
+    }
+    /* return address of new list */
+    return (new);
+}
+
+/*--------------------------------------------------------------------
+    NEW_DNODE
+	Initialize a node for a doubly linked list.
+
+    INPUT:  DATA -- information to store in this node
+	    PREV -- previous node in the list
+	    NEXT -- next node in the list
+    OUTPUT: A pointer to the newly created node.
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+static dl_node_t *new_dnode(data, prev, next)
+info_t *data;
+dl_node_t *prev, *next;
+{
+    dl_node_t *new;    
+
+    /* check memory allocation */
+    if (new = NEW(dl_node_t)) {
+	/* allocation correct, assign pointers */
+	new->item = data;
+	new->prev = prev;
+	new->next = next;
+    }
+    
+    return (new);
+}
+
+/*--------------------------------------------------------------------
+    DLIST_PUT
+	Insert an item at the beginning of a doubly linked list.
+
+    INPUT:  DATA -- The information to add to the front of the list.
+	    LIST -- The list that will receive the information.
+    OUTPUT: TRUE if it is able to add the new item.
+	    FALSE if not.
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+boolean dlist_put(list, data)
+dlist_t list;
+info_t *data;
+{
+    dl_node_t *new, *new_dnode();
+
+    /* check insertion operation */
+    if (new = new_dnode(data, NULL, list->dl_first)) {
+	/* OK, actualize values accordingly */
+	if (list->dl_length)		/* if the list is not empty */
+	    list->dl_first->prev = new;	/* assign prev to the new one to
+					chain with the former first item */
+	else				/* otherwise */
+	    list->dl_last = new;	/* set the also the last node to
+					the new one */
+	list->dl_first = new;		/* link to the new node */
+	list->dl_length++;		/* update list length */
+
+	return (TRUE);
+    }
+    else
+	/* an error has occurred when initializing the new node */
+	return (FALSE);
+}
+
+/*--------------------------------------------------------------------
+    DLIST_APPEND
+	Append data to the end of a doubly linked list.
+
+    INPUT:  DATA -- Information to append to the list
+	    LIST -- List that will receive the item
+    OUTPUT: TRUE if all goes OK, FALSE if not.
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+boolean dlist_append(list, data)
+dlist_t list;
+info_t *data;
+{
+    dl_node_t *new, *new_dnode();
+
+    /* append data to the end of the list */
+    if (new = new_dnode(data, list->dl_last, NULL)) {
+	/* successfull initialization, append the record */
+	if (list->dl_length)		/* if list is not empty */
+	    list->dl_last->next = new;	/* link to the new node */
+	else				/* otherwise		*/
+	    list->dl_first = new;	/* set the pointer to the
+					first node too */
+	list->dl_last = new;		/* update pointer to last item */
+	list->dl_length++;		/* as well as the length */
+
+	return (TRUE);
+    }
+    else
+	/* could not initialize a new node to append */
+	return (FALSE);
+}
+
+/*--------------------------------------------------------------------
+    DLIST_DEL_FIRST
+	Erase the first node from a doubly linked list.
+
+    CAUTION:	The value of list->dl_length should be verified before
+	calling this routine.
+    INPUT:  LIST -- The list that will be deprived of a node
+    OUTPUT: A pointer to the information stored in the deleted node
+
+    J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_del_first(list)
+dlist_t list;
+{
+    dl_node_t *temp;
+    info_t *data;
+
+    if (list->dl_length == 0)	    /*if the list is empty */
+	return NULL;
+    /* delete first node */
+    temp = list->dl_first;	    /* save the pointer to the node 	*/
+    data = temp->item;		    /* save the pointer to the info 	*/
+    list->dl_first = temp->next;    /* update pointer to first element	*/
+    list->dl_length--;		    /* decrement list length		*/
+    if (list->dl_length)	    /* if the list is not empty		*/
+	list->dl_first->prev = NULL;	/* reset beginning of the list	*/
+    else
+	list->dl_last = NULL;	    /* set ptr to last to NULL too	*/
+
+    free( (char *) temp);	    /* free memory occupied by the node */
+
+    /* return address of the record stored in the killed item */
+    return (data);
+}
+
+/*
+    We may give advice, but we can not inspire common sense.
+
+	La Rochefocauld.
+
+*/
+
+/*--------------------------------------------------------------------
+	DLIST_INSERT
+	    Insert a node after a given one in a doubly linked list
+
+	INPUT:	DATA -- The data to store.
+		NODE -- The node after which we are to insert the
+	    new one.
+		LIST -- The list
+	OUTPUT:	TRUE if the node could succesfully be inserted.
+		FALSE if an error occurred.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+bool dlist_insert(list, node, data)
+dlist_t list;
+dl_node_t *node;
+info_t *data;
+{
+    dl_node_t *new;
+    /* first chech the two special cases */
+    /* first node */
+    if (node == NULL)
+	return (dlist_put(list, data));
+
+    /* last node */
+    if (node == list->dl_last)
+      	return (dlist_append(list, data));
+
+    /* other cases */
+    if (new = new_dnode(data, node, node->next)) {
+	/* allocation of new space has gone OK. Update pointers */
+	node->next = new;	    /* backwards */
+	new->next->prev = new;	    /* forwards */
+	list->dl_length++;	    /* update list length */
+	return ( TRUE );
+    }
+
+    /* we failed during allocation process */
+    return ( FALSE );
+}
+
+/*--------------------------------------------------------------------
+	DLIST_DEL_LAST
+	    Delete last node in a doubly linked list
+
+	INPUT:	LIST -- The list
+	OUTPUT:	Address of the item stored in the last node of the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_del_last(list)
+dlist_t list;
+{
+    info_t *data;
+    dl_node_t *tmp;
+
+    if (list->dl_length == 0)	    /* if empty, we are done */
+	return NULL;
+
+    /* delete last node */
+    tmp = list->dl_last;	    /* save pointer to the node 	*/
+    data = tmp->item;		    /* save pointer to data		*/
+    list->dl_last = tmp->prev;	    /* update pointer to last element	*/
+    list->dl_length--;		    /* as well as list's length		*/
+    if (list->dl_length)	    /* now, if the list is not empty	*/
+	list->dl_last->next = NULL;	/* reset end of list		*/
+    else
+	list->dl_first->prev = NULL;	/* set begin to NULL too	*/
+
+    free( tmp );		    /* return memory to the system	*/
+
+    /* and send back the record stored in the victim item. */
+    return ( data );
+}
+
+/*--------------------------------------------------------------------
+	DLIST_DEL_NEXT
+	    Delete next node in the list.
+
+	INPUT:	NODE -- The node to be deleted.
+		LIST -- The list to be decreased.
+
+	OUTPUT:	Address of the item stored in the deleted node.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_del_next(list, node)
+dlist_t list;
+dl_node_t *node;
+{
+    dl_node_t *victim;
+    info_t *data;
+
+    /* first item in the list */
+    if (node == NULL)
+	return (dlist_del_first(list));
+
+    victim = node->next;
+
+    /* is it the last item? */
+    if (victim == list->dl_last)
+	return (dlist_del_last(list));
+
+    /* have we gone past the end of the list ? */
+    if (victim == NULL)
+	return NULL;
+
+    data = victim->item;	    /* save stored data		*/
+    node->next = victim->next;	    /* maintain list continuity	*/
+    victim->next->prev = node;
+    list->dl_length--;		    /* decrement list size	*/
+
+    free( victim );		    /* kill the node		*/
+    return ( data );
+}
+
+/*--------------------------------------------------------------------
+	DLIST_DEL_NODE
+	    Delete this node in a doubly linked list.
+
+	INPUT:	VICTIM -- The node to be deleted
+		LIST -- The list.
+	OUTPUT: The address of the item stored in that node
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_del_node(list, victim)
+dlist_t list;
+dl_node_t *victim;
+{
+    info_t *data;
+
+    if (victim == NULL)			/* Which node ?? 	    */
+	return NULL;
+
+    if (victim->prev == NULL)		/* Is it the first? 	    */
+	return (dlist_del_first(list));
+
+    if (victim->next == NULL)		/* or either the last? 	    */
+	return (dlist_del_last(list));
+
+    data = victim->item;		/* save info it contained   */
+    victim->prev->next = victim->next;	/* restore continuity	    */
+    victim->next->prev = victim->prev;
+    list->dl_length--;			/* update list length	    */
+    free(victim);			/* return memory to system  */
+
+    return (data);			/* send back the item	    */
+}
+
+/*-------------------------------------------------------------------
+	DLIST_LENGTH
+	    Return number of items stored in a list
+
+	INPUT:	LIST -- the list
+	OUTPUT:	Size of the list
+
+	J. R. VALVERDE
+-------------------------------------------------------------------*/
+
+int dlist_length(list)
+dlist_t list;
+{
+    return (list->dl_length);
+}
+
+/*-------------------------------------------------------------------
+	DLIST_FIRST
+	    Return first node in the list
+
+	INPUT:	LIST -- the list
+	OUTPUT:	Address of the first node in the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_first(list)
+dlist_t list;
+{
+    list->dl_cur = list->dl_first;
+    return (list->dl_first->item);
+}
+
+/*--------------------------------------------------------------------
+	DLIST_LAST
+	    Return last node in the list
+
+	INPUT:	LIST -- the list
+	OUTPUT:	Address of last item in the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_last(list)
+dlist_t list;
+{                              
+    list->dl_cur = list->dl_last;
+    return (list->dl_last->item);
+}
+
+
+/*--------------------------------------------------------------------
+	DLIST_CURRENT
+	    Return current node in the list
+
+	INPUT:	LIST -- the list
+	OUTPUT:	Address of current item in the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_current(list)
+dlist_t list;
+{                              
+    return (list->dl_cur->item);
+}
+
+/*--------------------------------------------------------------------
+	DLIST_NEXT
+	    Return next item in the list
+
+	INPUT:	LIST -- the list
+	OUTPUT:	Address of next item in the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_next(list)
+dlist_t list;
+{
+    /* move one step forward */
+    if (list->dl_cur->next == NULL)
+    	/* already at last node */
+    	return NULL;
+    list->dl_cur = list->dl_cur->next;
+	return (list->dl_cur->item);
+}
+
+/*--------------------------------------------------------------------
+	DLIST_PREV
+	    Return previous item in the list
+
+	INPUT:	LIST -- The list
+	OUTPUT: Address of the item.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_prev(list)
+dlist_t list;
+{
+    /* move one step back */
+    if (list->dl_cur->prev == NULL)
+    	/* already at beginning of list */
+    	return NULL;
+
+    list->dl_cur = list->dl_cur->prev;
+	return (list->dl_cur->item);
+}
+
+/*--------------------------------------------------------------------
+	DLIST_BEGSET
+	    Restore pointer to current node to the beginning of the
+	list.
+
+	INPUT:	LIST -- the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_begset(list)
+dlist_t list;
+{
+    list->dl_cur = list->dl_first;
+    return list->dl_cur;
+}
+
+/*--------------------------------------------------------------------
+	DLIST_ENDSET
+	    Restore pointer to current node to the ending of the
+	list.
+
+	INPUT:	LIST -- the list
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_endset(list)
+dlist_t list;
+{
+    list->dl_cur = list->dl_last;
+    return list->dl_cur;
+}
+
+/*--------------------------------------------------------------------
+	DLIST_FWFIND
+	    Look for a given value in a list. Since you can store
+	any kind of item in a list, you must also provide a comparison
+	function to know the properties of each item. It sets the
+	current node pointer to the node containing that item.
+	Lookes for in the forward direction.
+
+	INPUT:	DATA -- The value to be looked up.
+		COMP -- A comparison function between items.
+		    It must receive two pointer arguments and return
+			> 0	if arg1 > arg2
+			= 0	if arg1 = arg2
+			< 0	if arg1 < arg2
+		LIST -- The list to be searched.
+	OUTPUT:	TRUE if the value searched was found.
+		FALSE if not.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+bool dlist_fwfind(list, data, comp)
+dlist_t list;
+info_t *data;
+int (*comp)(info_t *, info_t *);
+{
+    dl_node_t *tmp;
+
+    /* tmp = list->dl_cur; */
+    tmp = list->dl_first;
+    while (tmp) {
+	if ( (*comp)(data, tmp->item) == 0) {
+	    list->dl_cur = tmp;
+	    return TRUE;
+	}
+	tmp = tmp->next;
+    }
+    return FALSE;
+}
+
+/*--------------------------------------------------------------------
+	DLIST_BKFIND
+	    Look for a given value in a list. Since you can store
+	any kind of item in a list, you must also provide a comparison
+	function to know the properties of each item. It sets the
+	current node pointer to the node containing that item.
+	Lookes for in the backward direction.
+
+	INPUT:	DATA -- The value to be looked up.
+		COMP -- A comparison function between items.
+		    It must receive two pointer arguments and return
+			> 0	if arg1 > arg2
+			= 0	if arg1 = arg2
+			< 0	if arg1 < arg2
+		LIST -- The list to be searched.
+	OUTPUT:	TRUE if the value searched was found.
+		FALSE if not.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+bool dlist_bkfind(list, data, comp)
+dlist_t list;
+info_t *data;
+int (*comp)(info_t *, info_t *);
+{
+    dl_node_t *tmp;
+
+    /* tmp = list->dl_cur; */
+    tmp = list->dl_last;
+    while (tmp) {
+	if ( (*comp)(data, tmp->item) == 0) {
+	    list->dl_cur = tmp;
+	    return TRUE;
+	}
+	tmp = tmp->prev;
+    }
+    return FALSE;
+}
+
+/*--------------------------------------------------------------------
+	DLIST_FWTRAVERSE
+	    Traverse a list and process all the items in the list going
+	in forward direction.
+	You must provide a function to process the items.
+
+	INPUT:	LIST -- The list to be traversed.
+		PROCESS -- What we want to do with each item in the list
+		    It must be a void function that receives a pointer
+		    to an item as argument.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+void dlist_fwtraverse(list, process)
+dlist_t list;
+void (*process)(info_t *);
+{
+    dl_node_t *tmp;
+
+    tmp = list->dl_first;
+    while (tmp) {
+	(*process)(tmp->item);
+	tmp = tmp->next;
+    }
+}
+
+/*--------------------------------------------------------------------
+	DLIST_BKTRAVERSE
+	    Traverse a list and process all the items in the list going
+	in backward direction.
+	You must provide a function to process the items.
+
+	INPUT:	LIST -- The list to be traversed.
+		PROCESS -- What we want to do with each item in the list
+		    It must be a void function that receives a pointer
+		    to an item as argument.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+void dlist_bktraverse(list, process)
+dlist_t list;
+void (*process)();
+{
+    dl_node_t *tmp;
+
+    tmp = list->dl_last;
+    while (tmp) {
+	(*process)(tmp->item);
+	tmp = tmp->prev;
+    }
+}
+
+/*--------------------------------------------------------------------
+	DLIST_FWDELETE
+	    Remove an item in the list. You must provide a comparison
+	function to know when the item has been found. This function
+	scans the list in the forward direction.
+
+	INPUT:	LIST -- the list
+		DATA -- The value to be deleted
+		COMP -- A comparison function to know wether we have
+	    found the item to delete. It must receive two pointers and
+	    return 0 if the two items are the same.
+
+	OUTPUT: Address of the item removed from the list. The reason
+	    is that we don't know if the space occupied by it must be
+	    freed or not, only the caller can know.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_fwdelete(list, data, comp)
+dlist_t list;
+info_t *data;
+int (*comp)(info_t*, info_t*);
+{
+    dl_node_t *tmp;
+
+    /* test if list is empty */
+    if (list->dl_length == 0)
+	return NULL;
+
+    /* Run over the list until we find the node, and then, delete it */
+
+    tmp = list->dl_first;
+
+    while (tmp) {
+	if ( (*comp)(data, tmp->item) == 0) {
+	    /* found, delete it. */
+	    return (dlist_del_node(list, tmp));
+	}
+	tmp = tmp->next;
+    }
+
+    /* the item has not been found */
+    return NULL;
+}
+
+/*--------------------------------------------------------------------
+	DLIST_BKDELETE
+	    Remove an item in the list. You must provide a comparison
+	function to know when the item has been found. This function
+	scans the list in the backward direction.
+
+	INPUT:	LIST -- the list
+		DATA -- The value to be deleted
+		COMP -- A comparison function to know wether we have
+	    found the item to delete. It must receive two pointers and
+	    return 0 if the two items are the same.
+
+	OUTPUT: Address of the item removed from the list. The reason
+	    is that we don't know if the space occupied by it must be
+	    freed or not, only the caller can know.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *dlist_bkdelete(list, data, comp)
+dlist_t list;
+info_t *data;
+int (*comp)(info_t*, info_t*);
+{
+    dl_node_t *tmp;
+
+    /* test if list is empty */
+    if (list->dl_length == 0)
+	return NULL;
+
+    /* Run over the list until we find the node, and then, delete it */
+
+    tmp = list->dl_last;
+
+    while (tmp) {
+	if ( (*comp)(data, tmp->item) == 0) {
+	    /* found, delete it. */
+	    return (dlist_del_node(list, tmp));
+	}
+	tmp = tmp->prev;
+    }
+
+    /* the item has not been found */
+    return NULL;
+}	    
+
+/* ------------------------------------------------------------------------
+    	    DEBUGGING
+-------------------------------------------------------------------------*/
+
+#if MOD_DEBUG != 0
+
+#include <stdio.h>
+
+int iary[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 100};
+
+int icmp(p1, p2)
+int *p1, *p2;
+{
+    return ((p1 > p2)? 1 : ((p1 == p2)? 0 : -1));
+}
+
+int putpint(p)
+int *p;
+{
+    if (p == NULL)
+    	fprintf(stderr, " ERROR: got a NULL ptr on putpint\n");
+    else
+    	fprintf(stderr, "%d ", *p);
+}
+
+main()
+{
+    dlist_t dl;
+    dl_node_t *mynode;
+    int i = 0;
+    int *p = &i;
+
+    if ((dl = new_dlist()) == NULL) {
+    	fprintf(stderr, "ERROR allocating new dlist\n");
+    	exit(0);
+    }
+    /* Put five items at the beginning of the list */
+    puts("Testing dlist_put(): Is this 4 3 2 1 0 ?");
+    for (i = 0; i < 5; i++)
+    	dlist_put(dl, &iary[i]);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+        p = (int *) mynode->item;
+        printf("%d ", *p);
+    }
+    puts("\n");
+    
+    puts("Testing dlist_append(): is this 4 3 2 1 0 5 6 7 8 9 ?");
+    for (i = 5; i < 10; i++)
+        dlist_append(dl, &iary[i]);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+    	p = (int *) mynode->item;
+    	printf("%d ", *p);
+    }
+    puts("\n");
+    
+    puts("Testing dlist_del_first(); is this 3 2 1 0 5 6 7 8 9 ?");
+    dlist_del_first(dl);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+    	p = (int *) mynode->item;
+    	printf("%d ", *p);
+    }
+    puts("\n");
+
+    puts("Testing dlist_insert(): is this 3 2 1 0 100 5 6 7 8 9 ?");
+    mynode = dl->dl_first;
+    for (i = 0; i < 3; i++) mynode = mynode->next;
+    dlist_insert(dl, mynode, &iary[10]);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+    	p = (int *) mynode->item;
+    	printf("%d ", *p);
+    }
+    puts("\n");
+    
+    puts("Testing dlist_del_last(); is this 3 2 1 0 100 5 6 7 8 ?");
+    dlist_del_last(dl);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+    	p = (int *) mynode->item;
+    	printf("%d ", *p);
+    }
+    puts("\n");
+
+    puts("Testing dlist_del_next(): is this 3 2 1 0 5 6 7 8 ?");
+    mynode = dl->dl_first;
+    for (i = 0; i < 3; i++) mynode = mynode->next;
+    p = (int *) mynode->item;
+    dlist_del_next(dl, mynode);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+    	p = (int *) mynode->item;
+    	printf("%d ", *p);
+    }
+    puts("\n");
+    
+    puts("Testing dlist_del_node(): is this 3 2 1 5 6 7 8 ?");
+    mynode = dl->dl_first;
+    for (i = 0; i < 3; i++) mynode = mynode->next;
+    p = (int *) mynode->item;
+    printf("Deleting value %d\n", *p);
+    dlist_del_node(dl, mynode);
+    for (mynode = dl->dl_first; mynode != NULL; mynode = mynode->next)
+    {
+    	p = (int *) mynode->item;
+    	printf("%d ", *p);
+    }
+    puts("\n");
+
+    puts("Testing dlist_length(): is it 7 ?");
+    printf("%d\n\n", dlist_length(dl));
+    p = (int *) dlist_first(dl);
+    printf("First item is %d according to dlist_first()\n\n", *p);
+    p = (int *) dlist_last(dl);
+    printf("Last item is %d according to dlist_last()\n\n", *p);
+
+    puts("Testing dlist_next(): is this 3 2 1 5 ?");
+    for (p = (int *) dlist_first(dl), i = 0;
+    	 i < 4;
+    	 p = (int *) dlist_next(dl), i++)
+    	printf("%d ", *p);
+    puts("\n");
+    
+    puts("Testing dlist_prev(): is this 6 5 1 2 ?");
+    for (p = (int *) dlist_current(dl), i = 0;
+    	 i < 4;
+    	 p = (int *) dlist_prev(dl), i++)
+    	printf("%d ", *p);
+    puts("\n");
+    
+    puts("Testing dlist_begset(): is this 3 2 1 5 6 7 8 ?");
+    dlist_begset(dl);
+    for (p = (int *) dlist_current(dl);
+    	 p != NULL;
+    	 p = (int *) dlist_next(dl))
+    	printf("%d ", *p);
+    puts("\n");
+
+    puts("Testing dlist_endset(): is this 8 7 6 5 1 2 3 ?");
+    dlist_endset(dl);
+    for (p = (int *) dlist_current(dl);
+    	 p != NULL;
+    	 p = (int *) dlist_prev(dl))
+    	printf("%d ", *p);
+    puts("\n");
+
+    puts("Testing dlist_fwfind()");
+    p = &iary[6];
+    if (! dlist_fwfind(dl, p, icmp))
+    	puts("ERROR: evanescent data");
+    else {
+        p = &iary[10];
+    	if (dlist_fwfind(dl, p, icmp))
+    	    puts("ERROR: value should not exist");
+    	else
+    	    puts("OK\n");
+    }
+
+    puts("Testing dlist_bkfind()");
+    p = &iary[6];
+    if (! dlist_bkfind(dl, p, icmp))
+    	puts("ERROR: evanescent data");
+    else {
+        p = &iary[10];
+    	if (dlist_bkfind(dl, p, icmp))
+    	    puts("ERROR: value should not exist");
+    	else
+    	    puts("OK\n");
+    }
+
+    puts("Traversing list forwards and backwards");
+    dlist_fwtraverse(dl, putpint);
+    puts("");
+    dlist_bktraverse(dl, putpint);
+    puts("\n");
+
+    puts("Forward deleting 7");
+    p = &iary[7];
+    dlist_fwdelete(dl,p, icmp);
+    dlist_fwtraverse(dl, putpint);
+    puts("\n");
+
+    puts("Backwards deleting 2");
+    p = &iary[2];
+    dlist_bkdelete(dl,p, icmp);
+    dlist_fwtraverse(dl, putpint);
+    puts("\n");
+
+}
+
+
+#endif
+
+/*
+ *
+ *	    END OF P_DLIST.C
+ *
+ */
+
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d40 1
+d44 4
+a47 1
+ * $Log$
+d239 1
+a239 1
+    We give counsels, but we can not inspire good sense.
+@

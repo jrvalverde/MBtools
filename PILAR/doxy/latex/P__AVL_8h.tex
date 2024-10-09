@@ -1,0 +1,103 @@
+\section{P\_\-AVL.h File Reference}
+\label{P__AVL_8h}\index{P_AVL.h@{P\_\-AVL.h}}
+A class to manipulate AVL trees. 
+
+
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf avl\_\-node}
+\begin{CompactList}\small\item\em A node in an AVL tree.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef void $\ast$ {\bf item\_\-t}
+\begin{CompactList}\small\item\em A type definition for a generic object store.\item\end{CompactList}\item 
+typedef {\bf avl\_\-node} $\ast$ {\bf avl\_\-tree}
+\begin{CompactList}\small\item\em A type definition for an AVL tree.\item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf avl\_\-insert} ({\bf avl\_\-tree} $\ast$tree, {\bf item\_\-t} $\ast$item, int($\ast${\bf compare})(), {\bf bool} $\ast${\bf h})
+\begin{CompactList}\small\item\em Search+Insert a value in an AVL tree.\item\end{CompactList}\item 
+void {\bf avl\_\-delete} ({\bf avl\_\-tree} $\ast$tree, {\bf item\_\-t} $\ast$item, int($\ast${\bf compare})(), {\bf bool} $\ast${\bf h})
+\begin{CompactList}\small\item\em Delete a key from an AVL tree.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A class to manipulate AVL trees.
+
+ 
+
+ File to include to provide access to the routines for special manipulation of AVL trees in module P\_\-AVL.C. The remaining functions must be provided by the module P\_\-Stree.C (binary search tree subroutines).
+
+Notes: AVL trees are balanced trees: a tree is balanced if for each node the depths of its two subtrees differ in at most 1. Use only if information recovery is considerably more frequent than insertion.
+
+\begin{Desc}
+\item[See also: ]\par
+{\bf P\_\-AVL.c} , {\bf P\_\-stree.h} , {\bf P\_\-stree.c}\end{Desc}
+\begin{Desc}
+\item[Author: ]\par
+J. R. Valverde \end{Desc}
+\begin{Desc}
+\item[Date: ]\par
+8-Apr-1990\end{Desc}
+
+
+\subsection{Typedef Documentation}
+\index{P_AVL.h@{P\_\-AVL.h}!avl_tree@{avl\_\-tree}}
+\index{avl_tree@{avl\_\-tree}!P_AVL.h@{P\_\-AVL.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct {\bf avl\_\-node} $\ast$ avl\_\-tree}\label{P__AVL_8h_a1}
+
+
+A type definition for an AVL tree.
+
+\index{P_AVL.h@{P\_\-AVL.h}!item_t@{item\_\-t}}
+\index{item_t@{item\_\-t}!P_AVL.h@{P\_\-AVL.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ item\_\-t}\label{P__AVL_8h_a0}
+
+
+A type definition for a generic object store.
+
+
+
+\subsection{Function Documentation}
+\index{P_AVL.h@{P\_\-AVL.h}!avl_delete@{avl\_\-delete}}
+\index{avl_delete@{avl\_\-delete}!P_AVL.h@{P\_\-AVL.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}avl\_\-delete ({\bf avl\_\-tree} $\ast$ {\em tree}, {\bf item\_\-t} $\ast$ {\em item}, int($\ast$ {\em compare})(), {\bf bool} $\ast$ {\em h})}\label{P__AVL_8h_a3}
+
+
+Delete a key from an AVL tree.
+
+
+
+ If the requested key was not found in the tree, h will be set to FALSE.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+tree}]The AVL tree to operate upon. \item[{\em 
+item}]The item to remove. \item[{\em 
+compare}]A function to compare two items in the tree. \item[{\em 
+h}]A flag set to TRUE to find out if the key was in the tree. \end{description}
+\end{Desc}
+\index{P_AVL.h@{P\_\-AVL.h}!avl_insert@{avl\_\-insert}}
+\index{avl_insert@{avl\_\-insert}!P_AVL.h@{P\_\-AVL.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void avl\_\-insert ({\bf avl\_\-tree} $\ast$ {\em tree}, {\bf item\_\-t} $\ast$ {\em item}, int($\ast$ {\em compare})(), {\bf bool} $\ast$ {\em h})}\label{P__AVL_8h_a2}
+
+
+Search+Insert a value in an AVL tree.
+
+
+
+ If the item is already stored in the tree, sets h to TRUE. If the item is not in the tree, store it. To actually search without inserting the key, use the generic binary tree functions.\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+tree}]The AVL tree to operate upon. \item[{\em 
+item}]The item to search/store. \item[{\em 
+compare}]A function to compare two items in the tree. \item[{\em 
+h}]A flag set to FALSE to find out if the key was in the tree.\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Warning: ]\par
+ The root of the tree might change (?) in this process. P will keep pointing to it in any case. We should return a pointer to the deleted key so it can be freed by the caller. This is horriby inefficient since the key must be passed through all the recursive calls. \end{Desc}

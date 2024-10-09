@@ -1,0 +1,4 @@
+paste <(paste - - - - < R1.fastq) \
+      <(paste - - - - < R2.fastq) \
+    | tr '\t' '\n' \
+    > reads.fastq

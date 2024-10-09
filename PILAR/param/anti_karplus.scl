@@ -1,0 +1,26 @@
+; Karplus, P. A., and Schultz, G. E. (1985) Prediction of
+; chain flexibility in proteins. Naturwissenchaften 72, 212-213
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 107
+;	  B0	  B1	  B2	"rigid"
+Arg	1.038	1.028	0.901	N
+Asp	1.033	1.089	0.932	N
+Glu	1.094	1.036	0.933	N
+Lys	1.093	1.082	1.057	N
+Ser	1.169	1.048	0.923	N
+Asn	1.117	1.006	0.930	N
+Gln	1.165	1.028	0.855	N
+Gly	1.142	1.042	0.923	N
+Pro	1.055	1.085	0.932	N
+Thr	1.073	1.051	0.934	N
+Ala	1.041	0.946	0.892	Y
+His	0.982	0.952	0.894	Y
+Cys	0.960	0.878	0.925	Y
+Met	0.947	0.862	0.804	Y
+Val	0.982	0.927	0.913	Y
+Ile	1.002	0.892	0.872	Y
+Leu	0.967	0.961	0.921	Y
+Tyr	0.961	0.930	0.837	Y
+Phe	0.930	0.912	0.914	Y
+Trp	0.925	0.917	0.803	Y

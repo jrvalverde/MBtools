@@ -1,0 +1,3 @@
+paste - - - - - - - - < reads.fastq \
+    | tee >(cut -f 1-4 | tr '\t' '\n' > R1.fastq) \
+    | cut -f 5-8 | tr '\t' '\n' > R2.fastq

@@ -1,0 +1,105 @@
+\section{P\_\-values.c File Reference}
+\label{P__values_8c}\index{P_values.c@{P\_\-values.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$ctype.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-list.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-utils.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DEBUG}\ -1
+\item 
+\#define {\bf PI}\ 3.1415926538979323846
+\item 
+\#define {\bf SQR}({\bf x})\ (({\bf x}) $\ast$ ({\bf x}))
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf moment\_\-soften} ()
+\item 
+void {\bf assign\_\-values} ({\bf prot}, {\bf d}) {\bf protein\_\-t} $\ast${\bf prot}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf aa\_\-table} [$\,$]
+\item 
+float $\ast$ {\bf aa\_\-values}
+\item 
+{\bf descriptor\_\-t} $\ast$ {\bf d}
+\item 
+int {\bf p\_\-seqlen}
+\item 
+int {\bf wsize}
+\item 
+float {\bf degrees}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_values.c@{P\_\-values.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\ -1}\label{P__values_8c_a0}
+
+
+\index{P_values.c@{P\_\-values.c}!PI@{PI}}
+\index{PI@{PI}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define PI\ 3.1415926538979323846}\label{P__values_8c_a1}
+
+
+\index{P_values.c@{P\_\-values.c}!SQR@{SQR}}
+\index{SQR@{SQR}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define SQR({\bf x})\ (({\bf x}) $\ast$ ({\bf x}))}\label{P__values_8c_a2}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_values.c@{P\_\-values.c}!assign_values@{assign\_\-values}}
+\index{assign_values@{assign\_\-values}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void assign\_\-values ({\bf prot}, {\bf d})}\label{P__values_8c_a10}
+
+
+\index{P_values.c@{P\_\-values.c}!moment_soften@{moment\_\-soften}}
+\index{moment_soften@{moment\_\-soften}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void moment\_\-soften ()}\label{P__values_8c_a9}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_values.c@{P\_\-values.c}!aa_table@{aa\_\-table}}
+\index{aa_table@{aa\_\-table}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aa\_\-table[$\,$]}\label{P__values_8c_a3}
+
+
+\index{P_values.c@{P\_\-values.c}!aa_values@{aa\_\-values}}
+\index{aa_values@{aa\_\-values}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float$\ast$ aa\_\-values\hspace{0.3cm}{\tt  [static]}}\label{P__values_8c_a4}
+
+
+\index{P_values.c@{P\_\-values.c}!d@{d}}
+\index{d@{d}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf descriptor\_\-t}$\ast$ d}\label{P__values_8c_a5}
+
+
+\index{P_values.c@{P\_\-values.c}!degrees@{degrees}}
+\index{degrees@{degrees}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float degrees}\label{P__values_8c_a8}
+
+
+\index{P_values.c@{P\_\-values.c}!p_seqlen@{p\_\-seqlen}}
+\index{p_seqlen@{p\_\-seqlen}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int p\_\-seqlen}\label{P__values_8c_a6}
+
+
+\index{P_values.c@{P\_\-values.c}!wsize@{wsize}}
+\index{wsize@{wsize}!P_values.c@{P\_\-values.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int wsize}\label{P__values_8c_a7}
+
+

@@ -1,0 +1,269 @@
+head	1.2;
+access;
+symbols;
+locks
+	jr:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	97.05.24.17.13.59;	author jr;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	97.05.18.18.14.26;	author jr;	state Exp;
+branches;
+next	;
+
+
+desc
+@Generic stack handling routines
+@
+
+
+1.2
+log
+@Ported to FreeBSD
+@
+text
+@/*
+ *
+ *	MODULE
+ *	    P_stack.c -- Stack manipulation routines for PILAR
+ *
+ *	SYNOPSIS:
+ *	    new_lifo()
+ *	    push()
+ *	    pop()
+ *
+ *	DESCRIPTION:
+ *	    This module is a generic package for manipulation
+ *	of stacks. It contains the following utilities:
+ *		-- new_lifo() - create a new stack.
+ *		-- push() - store a new value at the top of the
+ *	    stack.
+ *		-- pop() - retrieve value stored at the top of
+ *	    the stack.
+ *
+ *	CAVEATS:
+ *	    You should test the length of the stack before
+ *	calling pop() to retrieve an item, or test the returned
+ *  	item against NULL instead.
+ *
+ *	NOTES:
+ *
+ *	FILES:
+ *
+ * 	DESIGNED BY:
+ *		José Ramón Valverde Carrillo.
+ *
+ *	HISTORY:
+ *		 1 - oct - 1989 J.R.Valverde	Implementation
+ *		 1 - aug - 1991 J.R.Valverde	Port to Ultrix
+ *  	    	18 - may - 1997 J.R.Valverde	Port to Linux
+ *  	    	24 - may - 1997 J.R.Valverde	Port to FreeBSD
+ *
+ *	COPYRIGHT:
+ *
+ * $Log: P_stack.c,v $
+ * Revision 1.1  1997/05/18 18:14:26  jr
+ * Initial revision
+ *
+ */
+
+#include <stdio.h>
+
+#include "portable.h"
+
+#define MOD_DEBUG   0
+
+#define info_t	void
+
+#define NEW( type )	    ((type *) malloc( sizeof(type) ))
+
+typedef struct s_node {
+    info_t	    *item;
+    struct s_node   *next;
+    }	s_node_t;
+
+typedef struct st_lifo_header {
+    int		s_length;
+    s_node_t	*s_top;
+    }	*lifo_t;
+
+/*--------------------------------------------------------------------
+	NEW_LIFO
+	    Create a new stack.
+
+	OUTPUT:	A pointer to the newly created stack.
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+lifo_t	new_lifo()
+{
+    lifo_t new;
+
+    /* check memory allocation */
+    if (new = NEW( struct st_lifo_header )) {        
+	/* OK. initialize component fields */
+	new->s_length = 0;
+	new->s_top = NULL;
+    }
+
+    /* return address of the new stack */
+    return (new);
+}
+
+/*
+    "Twinkle, twinkle, little bat!
+     How I wonder what you're at!"
+
+	Lewis Carroll. Alice's Adventures in Wonderland.
+*/
+
+/*--------------------------------------------------------------------
+	PUSH
+	    Add an item to the stack.
+
+	INPUT:	DATA -- The information to add to the stack
+		STACK -- The stack to store it into.
+	OUTPUT:	TRUE if all goes OK, FALSE otherwise
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+static s_node_t *new_node(data, top)
+info_t	*data;
+s_node_t *top;
+{
+    s_node_t *new;
+
+    /* Is there enough memory ? */
+    if (new = NEW( s_node_t )) {
+	/* yes, initialize the item */
+	new->item = data;
+	new->next = top;
+    }
+
+    return (new);
+}
+
+boolean push(stack, data)
+lifo_t stack;
+info_t *data;
+{
+    s_node_t *new, *new_node();
+
+    /* check addition of the new data */
+/*    if (new = new_node(data, stack->s_top)) { */
+    if ((new = NEW(s_node_t)) == NULL)
+    	return FALSE;
+    else {
+	/* Ok, set values of the fields */
+	new->item = data;
+	new->next = stack->s_top;
+	stack->s_top = new;	/* set new upper element in the stack */
+	stack->s_length++;	/* update stack length */
+
+	return (TRUE);
+    }
+}
+
+/*
+    "Up above the world you fly,
+     Like a tea-tray in the sky.
+	    Twinkle, twinkle..."
+
+    Lewis Carroll. Alice's Adventures in Wonderland.
+*/
+
+/*--------------------------------------------------------------------
+	POP
+	    Extract the last item stored in the stack
+
+	CAUTION:    You should test the length of the stack before
+	    trying to extract any information with this function.
+	INPUT:	STACK -- The stack that will provide the information
+	OUTPUT: A pointer to the information retrieved from the stack
+
+	J. R. VALVERDE
+--------------------------------------------------------------------*/
+
+info_t *pop(stack)
+lifo_t	stack;
+{
+    s_node_t	*temp;
+    info_t	*data;
+
+    if (stack->s_length == 0)	    /* if the stack is empty */
+	return NULL;
+    /* extract from the top of the stack */
+    temp = stack->s_top;	    /* save pointer to upper node */
+    data = temp->item;		    /* save the information retrieved */
+    stack->s_top = temp->next;	    /* update top of stack */
+    stack->s_length--;		    /* and number of stored nodes */
+
+    free( (char *) temp);	    /* free memory used by the node */
+
+    /* return the information */
+    return (data);
+}
+
+/*-----------------------------------------------------------------------
+    	DEBUGGING
+-----------------------------------------------------------------------*/
+
+#if MOD_DEBUG != 0
+
+#include <stdio.h>
+
+int iary[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+main()
+{
+    lifo_t  mystack;
+    int i, *p;
+
+    mystack = new_lifo();
+    puts("Testing stack routines: is this 9 8 7 6 5 4 3 2 1 0 ?");
+    for (i = 0; i < 10; i++)
+    	push(mystack, &iary[i]);
+    for (i = 0; i < 10; i++) {
+    	p = (int *) pop(mystack);
+    	if (p == NULL)
+    	    fprintf(stderr, " ERROR popping data\n");
+    	else
+    	    fprintf(stderr, "%d ", *p);
+    }
+    if ((p = (int *) pop(mystack)) != NULL)
+    	fprintf(stderr, "\nERROR: where does this come from [%d]?", *p);
+    puts("");
+
+}
+
+#endif
+
+
+/*
+ * * * * * * * * * * * * * * * * *
+ *				 *
+ *	THAT'S ALL FOLKS	 *
+ *				 *
+ * * * * * * * * * * * * * * * * *
+ */
+
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d36 1
+d40 4
+a43 1
+ * $Log$
+@

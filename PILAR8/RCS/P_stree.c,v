@@ -1,0 +1,602 @@
+head	1.2;
+access;
+symbols;
+locks
+	jr:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	97.05.21.20.09.55;	author jr;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	97.05.15.15.31.33;	author jr;	state Exp;
+branches;
+next	;
+
+
+desc
+@Generic search trees
+@
+
+
+1.2
+log
+@Ported to FreeBSD
+@
+text
+@/*
+ *  P_STREE.C
+ *	Generic binary search tree subroutines for
+ * PILAR (Protein Identification and Library Access
+ * Resource).
+ *
+ *  Subroutines:
+ *	void st_preorder(stree_t, void (*)());
+ *
+ *	void st_inorder(stree_t, void (*)());
+ *
+ *	void st_postorder(stree_t, void (*)()); 
+ *
+ *	info_t *st_search(stree_t, info_t *, int (*)());
+ * 
+ *	bool st_insert(stree_t, info_t *, int (*)());
+ *
+ *	info_t *st_delete(stree_t, info_t *, int(*)());
+ *
+ *	info_t *st_item(stree_t);
+ *
+ *	These routines implement a generic binary search tree module.
+ * A search tree is one in which for every node a_i all the keys of
+ * its left subtree are minor than a_i and all the keys in the right
+ * subtree are greater. 
+ *	The main problem is that the topology of the tree is strongly
+ * dependent on the order of the input data. In the average case data
+ * will come in more or less random order, and the tree will be more
+ * or less balanced. In the worst case, data will arrive already ordered
+ * and then the tree will only grow along one branch and degenerate into
+ * a linked list.
+ *	So, use these tree building routines only if you expect the
+ * keys to follow a random distribution. If you expect them to be skewed
+ * or some degree of previous ordering to be present, then you'd rather
+ * use other package.
+ *	On the other hand, the traversal routines are generic for any
+ * kind of binary tree, and have been designed so that you can use them
+ * with any other binary tree structure.
+ *
+ *
+ *  Files:
+ *	STDIO.H
+ *	PORTABLE.H
+ *
+ *  Caveats:
+ *
+ *  Designed by:
+ *	José Ramón Valverde Carrillo
+ *
+ *  History:
+ *	Begun on 5 - jan - 1990		(J. R. Valverde)
+ *	22 - jul - 1090 Debugged	(J. R. Valverde)
+ *	1 - aug - 1991 Ported to Ultrix	(J. R. Valverde)
+ *	1994 - Ported to OSF/1		(J. R. Valverde)
+ *	19 - apr - 1997 Ported to Linux	(J. R. Valverde)
+ *  	21 - apr - 1997 Ported to FBSD	(J. R. Valverde)
+ *
+ *  Copyright:
+ *	This is Public Domain software. You can feel free to use it as far
+ * as it isn't employed for commercial purposes and this copyright notice
+ * is included with it.
+ *
+ *	    J. R. Valverde Carrillo
+ *
+ *			jr@@es.embnet.org			OK
+ *			jose@@ebi.ac.uk				OUTDATED
+ *			JRValverde@@biomed.iib.uam.es		OUTDATED
+ *			JRamon@@uamed.uam.es			OUTDATED
+ *			JRamon@@ccuam1.uam.es			OUTDATED
+ *			JRAMON@@EMDUAM51	    (BITNET, EARN)	OUTDATED
+ *
+ *  $Log: P_stree.c,v $
+ *  Revision 1.1  1997/05/15 15:16:20  jr
+ *  Initial revision
+ *
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MOD_DEBUG	0
+
+#include "portable.h"
+
+/*
+    Pour moi, si je me penche vers la belle Féline, la si bien
+    nommée, qui est à la fois l'honneur de son sexe, l'orgueil
+    de mon coeur et le parfum de mon esprit, que ce soit la nuit,
+    que ce soit le jour, dans la pleine lumière ou dans l'ombre
+    opaque, au fond de ses yeux adorables je vois toujours l'heure
+    distinctement, toujours la même, une heure vaste, solennelle,
+    grande comme l'espace, sans divisions de minutes ni de secondes,
+    - une heure immobile qui n'est pas marquée sur les horloges,
+    et cependant légère comme un soupir, rapide comme un coup
+    d'oeil.
+		Charles Baudelaire. Le spleen de Paris.
+*/
+
+#define info_t void
+
+struct stnode_t {
+    info_t	    *item;
+/*  int		    count;	*/
+    struct stnode_t *left;
+    struct stnode_t *right;
+};
+
+typedef struct stnode_t *stree_t;	/* search tree type */
+
+/*
+ *  ST_PREORDER
+ *	Make a preorder traversal of a binary search tree
+ *
+ *  J. R. Valverde
+ */
+
+void st_preorder(tree, process)
+stree_t tree;
+void (*process)(info_t *);
+{
+    if (tree) {
+	(*process)(tree->item);
+	st_preorder(tree->left, process);
+	st_preorder(tree->right, process);
+    }
+}
+
+/*
+ *  ST_INORDER
+ *	Make an in-order traversal
+ *
+ *  J. R. Valverde
+ */
+
+void st_inorder(tree, process)
+stree_t tree;
+void (*process)(info_t *);
+{
+    if (tree) {
+	st_inorder(tree->left, process);
+	(*process)(tree->item);
+	st_inorder(tree->right, process);
+    }
+}
+
+/*
+ *  ST_POSTORDER
+ *	Make a postorder traversal
+ *
+ *  J. R. Valverde
+ */
+
+void st_postorder(tree, process)
+stree_t tree;
+void (*process)(info_t *);
+{
+    if (tree) {
+	st_postorder(tree->left, process);
+	st_postorder(tree->right, process);
+	(*process)(tree->item);
+    }
+}
+
+/*
+ *  ST_SEARCH
+ *	Locate the node containing a value in a tree
+ *  INPUT
+ *	tree - the tree/subtree to be searched
+ *	val  - the value to be looked up
+ *	cmp  - a comparison function
+ *  OUTPUT
+ *	pointer to node containing the value, or NULL if not found
+ *
+ *  J. R. Valverde
+ */
+
+stree_t st_search(tree, val, compare)
+stree_t tree;
+info_t *val;
+int (*compare)(info_t *, info_t *);
+{
+    int cmp;
+
+    while (tree) {
+	cmp = (*compare)(tree->item, val);
+	if (cmp == 0)
+	    break;
+	else
+	    if (cmp > 0)
+		tree = tree->left;
+	    else
+		tree = tree->right;
+    }
+    return tree;
+}
+
+/*
+ *  ST_INSERT
+ *	Insert a new node in the tree. Increment the counter if already in
+ *  tree must be a non-empty tree.
+ *
+ *  J. R. Valverde
+ */
+
+bool st_insert(ptree, val, compare)
+stree_t *ptree;
+info_t *val;
+int (*compare)(info_t *, info_t *);
+{
+    int cmp;
+    stree_t tree = *ptree;
+
+    if (!tree) {
+	/* the item is not in the tree */
+	if ((tree = (stree_t) malloc(sizeof(struct stnode_t))) != NULL) {
+     	    tree->item = val;
+/*	    tree->count = 1; */
+	    tree->left = tree->right = NULL;
+	    *ptree = tree;
+	    	return TRUE;
+	}
+	else
+	    return FALSE;
+    }
+    else {
+	cmp = (*compare)(val, tree->item);
+	if (cmp < 0) {
+	    /* val < tree->item --> insert in left subtree */
+	    return st_insert(&tree->left, val, compare);
+	}
+	else if (cmp > 0)
+	    /* val > tree->item --> insert in right subtree */
+	    return st_insert(&tree->right, val, compare);
+	else    
+	    /* val is already in the tree */
+/*	    tree->count++; */
+	    return TRUE;
+	    /* return tree;	return the node for further processing,
+				e. g. incrementing a counter...	     */
+    }
+}
+
+/*
+ *  ST_DELETE
+ *	Delete key from a binary search tree
+ *
+ *	The key will usually have been allocated elsewhere,
+ *	and as such it will be the responsibility of the
+ *	caller to preserve a pointer to it and delete it.
+ *	We can't do it since it could even be static data!
+ *
+ *	An inefficient resource is to st_search the tree to
+ *	get the pointer, and then st_delete the item. This
+ *	implies two actual searches, but works.
+ *
+ *	This could be changed so that the key ptr is returned
+ *	somehow. How?... Uhm... have to think more about this.
+ *	In any case since the root of the tree may have changed
+ *	we need to return it.
+ *
+ *	It is a serious problem now... Pass a ptr to a key_free()
+ *	function??? What else?
+ *	I think we could do as with AVL trees: work with a pointer to
+ *	an stree_t, and update it as needed. This will ensure root
+ *	will still be the root, and we'd return the key ptr. It
+ *	would require a rewriting of the algorithm too...
+ *
+ *  J. R. Valverde
+ */
+
+stree_t st_delete(root, key, compare)
+stree_t	root;
+info_t *key;
+int (*compare)(info_t *, info_t *);
+{
+    stree_t p, p2;
+    int cmp;
+                           
+    if (! root)
+	/* the key is not in the tree */
+	return NULL;
+    cmp = (*compare)(root->item, key);
+    if (cmp == 0) {
+	/* delete root */
+/* This creates a problem: if we handle count here, then the
+   caller doesnt know if he must free the pointer to the item,
+   but if we don't then there can not be repeated keys in the 
+   tree
+	if (root->count > 1) {
+	    root->count--;
+	    return root;
+	}			*/
+	if (root->left == root->right) {
+	    /* this means an empty tree */
+	    free(root);
+	    root = NULL;
+	    return NULL;
+	}
+	/* or if one subtree is null */
+	else if (root->left == NULL) {
+	    p = root->right;
+	    free( root );
+	    root = NULL;
+	    return p;
+	}
+	else if (root->right == NULL) {
+	    p = root->left;
+	    free( root );
+	    root = NULL;
+	    return p;
+	}
+	else {
+	    /* both subtrees present */
+	    p = p2 = root->right;
+	    while (p->left) p = p->left;
+	    p->left = root->left;
+	    free( root );
+	    return p2;
+	}
+    }
+    if (cmp < 0)
+	root->right = st_delete( root->right, key, compare );
+    else
+	root->left = st_delete( root->left, key, compare );
+    return root;
+}
+
+/*
+ *  ST_ITEM
+ *	Return the item stored in the root of a specified tree
+ *
+ *  INPUT: TREE -- the tree
+ *  OUTPUT: The address of the item stored.
+ *
+ *  J. R. Valverde
+ */
+
+info_t *st_item(stree_t tree)
+{
+	return tree->item;
+}
+
+/*--------------------------------------------------------------------
+    DEBUGGING ROUTINES
+--------------------------------------------------------------------*/
+
+#if MOD_DEBUG == 1
+
+#define	GREATER	     1
+#define	EQUAL	     0
+#define	MINOR	    -1
+
+
+int data[30] = { 0, 1, 2, 4, 3, 9, 7, 8, 6,10,
+		20,15,17,13,18,16,14,12,19,11,
+		32,40,50,27,68,41,58,46,5,100 };
+
+int icmp( i1, i2 )
+int *i1, *i2;
+{
+    return ((*i1 > *i2)? GREATER : (*i1 == *i2)? EQUAL : MINOR);
+}
+
+void show( i )
+int *i;
+{
+    printf("%d\t", *i);
+}
+
+
+main()
+{
+    static int i;
+    static int *pi;
+    static stree_t tree = NULL, chk;
+
+    printf("There we go!...\n");
+    st_insert(&tree, &data[0], icmp);
+    for (i = 1; i < 30; i++)
+	st_insert(&tree, &data[i], icmp);
+
+
+    printf("\nThis is preorder...\n");	
+    st_preorder(tree, show);
+
+    printf("\nThis is inorder...\n");
+    st_inorder(tree, show);                  
+
+    printf("\nAnd this postorder...\n");
+    st_postorder(tree, show);
+
+    i = 20; pi = &i;
+    chk =  st_search(tree, pi, icmp);
+    pi = chk->item;
+    printf("\nIs this 20?... %d\n", *pi);
+    i = 5; pi = &i;
+    chk = st_search(tree, pi, icmp);
+    pi = chk->item;
+    printf("Is this 5?... %d\n", *pi);
+    i = 1000; pi = &i;
+    chk = st_search(tree, pi, icmp);
+    if (chk == NULL)
+	printf("1000 not found... OK\n");
+    else
+	printf("Error, horror, where does 1000 come from?\n");
+
+    printf("\nLet us delete 20 values...\n");
+    pi = &i;
+    for (i = 1; i <= 20; ++i)
+	tree = st_delete(tree, pi, icmp);
+
+    st_inorder(tree, show);
+    printf("\n Was this 0, 27, 32, 40, 41, 46, 50, 58, 68, 100 ?\n");
+}
+
+#endif
+#if MOD_DEBUG == 2
+
+#define	GREATER	     1
+#define	EQUAL	     0
+#define	MINOR	    -1
+
+
+#include <string.h>
+
+char *data[30] = { "0", "1", "2", "4", "3", "9", "7", "8", "6","10",
+            "20","15","17","13","18","16","14","12","19","11",
+            "32","40","50","27","68","41","58","46","5","100" };
+
+char *data2[30] = { "0", "1", "2", "3", "4", "5", "6", "7", "8","9",
+            "10","11","12","13","14","15","16","17","18","19",
+            "20","40","50","27","68","41","58","46","5","100" };
+
+
+void show( i )
+char *i;
+{
+	if (i != NULL)
+	    printf("%s\t", i);
+}
+
+pstrcmp( ps1, ps2 )
+char *ps1, *ps2;
+{
+    return (strcmp(ps1, ps2));
+}
+
+main()
+{
+    static int i;
+    static int *pi; char *str;
+    static stree_t tree = NULL, chk;
+
+    printf("There we go!...\n");
+    st_insert(&tree, data[0], pstrcmp);
+    for (i = 1; i < 30; i++)
+        st_insert(&tree, data[i], pstrcmp);
+
+
+    printf("\nThis is preorder...\n");
+    st_preorder(tree, show);
+
+    printf("\nThis is inorder...\n");
+    st_inorder(tree, show);
+
+    printf("\nAnd this postorder...\n");
+    st_postorder(tree, show);
+
+    str = "20";
+    chk =  st_search(tree, str, pstrcmp);
+    str = (char *) (chk->item);
+    printf("\nIs this 20?... %s\n", str);
+    str = "5";
+    chk = st_search(tree, str, pstrcmp);
+    str = (char *) (chk->item);
+    printf("Is this 5?... %s\n", str);
+    str = "1000";
+    chk = st_search(tree, str, pstrcmp);
+    if (chk == NULL)
+        printf("1000 not found... OK\n");
+    else
+        printf("Error, horror, where does 1000 come from?\n");
+
+    printf("\nLet us delete 20 values...\n");
+    for (i = 1; i <= 20; ++i) {
+        str = data2[i];
+        st_delete(tree, str, pstrcmp);
+    }
+
+    st_inorder(tree, show);
+    printf("\n Was this 0, 100, 27, 32, 40, 41, 46, 50, 58, 68 ?\n");
+}
+
+#endif
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d56 1
+a75 1
+ *
+d99 1
+a99 5
+#define	GREATER	     1
+#define	EQUAL	     0
+#define	MINOR	    -1
+
+#define info_t	    void *
+a103 1
+    int		    (*compare)(infot_t *, info_t *);
+d186 1
+a186 1
+	if (cmp == EQUAL)
+d189 1
+a189 1
+	    if (cmp == GREATER)
+d217 1
+a217 1
+/*	    tree->count = 1; /
+d227 1
+a227 1
+	if (cmp == MINOR)
+d230 2
+a231 1
+	else if (cmp == GREATER)
+d283 1
+a283 1
+    if (cmp == EQUAL) {
+d321 1
+a321 1
+    if (cmp == MINOR)
+d349 5
+d419 5
+d436 1
+a436 1
+char **i;
+d438 2
+a439 1
+    printf("%s\t", *i);
+d443 1
+a443 1
+char **ps1, **ps2;
+d445 1
+a445 1
+    return (strcmp(*ps1, *ps2));
+d455 1
+a455 1
+    st_insert(&tree, &data[0], pstrcmp);
+d457 1
+a457 1
+        st_insert(&tree, &data[i], pstrcmp);
+d470 2
+a471 2
+    chk =  st_search(tree, &str, pstrcmp);
+    str = *(chk->item);
+d474 2
+a475 2
+    chk = st_search(tree, &str, pstrcmp);
+    str = *(chk->item);
+d478 1
+a478 1
+    chk = st_search(tree, &str, pstrcmp);
+d487 1
+a487 1
+        st_delete(tree, &str, pstrcmp);
+d491 1
+a491 1
+    printf("\n Was this 0, 27, 32, 40, 41, 46, 50, 58, 68, 100 ?\n");
+@

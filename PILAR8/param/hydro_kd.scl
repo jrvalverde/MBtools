@@ -1,0 +1,26 @@
+; Kyte, J. and Doolittle, R. F. (1982) A simple method for
+; displaying the hydropathic character of a protein. J. Mol.
+; Biol. 157, 105-132
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	1.8
+Cys	2.5
+Asp	-3.5
+Glu	-3.5
+Phe	2.8
+Gly	-0.4
+His	-3.2
+Ile	4.5
+Lys	-3.9
+Leu	3.8
+Met	1.9
+Asn	-3.5
+Pro	-1.6
+Gln	-3.5
+Arg	-4.5
+Ser	-0.8
+Thr	-0.7
+Val	4.2
+Trp	-0.9
+Tyr	-1.3

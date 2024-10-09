@@ -1,0 +1,25 @@
+; VonHeijne, G. (1981) On the hydrophobic nature of signal
+; sequences. Eur. J. Biochem. 116, 419-422
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	-1.0
+Cys	-1.5
+Asp	7.4
+Glu	5.9
+Phe	-3.4
+Gly	0.0
+His	3.4
+Ile	-2.5
+Lys	4.2
+Leu	-2.4
+Met	-2.7
+Asn	2.9
+Pro	3.3
+Gln	2.4
+Arg	11.3
+Ser	1.5
+Thr	0.9
+Val	-2.0
+Trp	-2.0
+Tyr	1.1

@@ -1,0 +1,166 @@
+\section{mpq.c File Reference}
+\label{mpq_8c}\index{mpq.c@{mpq.c}}
+{\tt \#include $<$stdio.h$>$}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf FALSE}\ 0
+\item 
+\#define {\bf TRUE}\ 1
+\item 
+\#define {\bf MAXLINE}\ 512
+\item 
+\#define {\bf ASCII}({\bf x})\ (({\bf x}) \& 0x7F)
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf main} (argc, {\bf argv}) int argc
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+int {\bf scores} [20000]
+\item 
+char {\bf sequence} [20001]
+\item 
+char {\bf name} [MAXLINE+1]
+\item 
+char {\bf buff} [MAXLINE+1]
+\item 
+long {\bf index}
+\item 
+long {\bf idx}
+\item 
+char {\bf dbnam} [512]
+\item 
+char {\bf outnam} [512]
+\item 
+FILE $\ast$ {\bf db}
+\item 
+FILE $\ast$ {\bf ifil}
+\item 
+FILE $\ast$ {\bf out}
+\item 
+int {\bf aa\_\-table} [$\,$]
+\item 
+char $\ast$ {\bf argv} [$\,$]
+\item 
+$\ast$ {\bf sub}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{mpq.c@{mpq.c}!ASCII@{ASCII}}
+\index{ASCII@{ASCII}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define ASCII({\bf x})\ (({\bf x}) \& 0x7F)}\label{mpq_8c_a3}
+
+
+\index{mpq.c@{mpq.c}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define FALSE\ 0}\label{mpq_8c_a0}
+
+
+\index{mpq.c@{mpq.c}!MAXLINE@{MAXLINE}}
+\index{MAXLINE@{MAXLINE}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXLINE\ 512}\label{mpq_8c_a2}
+
+
+\index{mpq.c@{mpq.c}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define TRUE\ 1}\label{mpq_8c_a1}
+
+
+
+
+\subsection{Function Documentation}
+\index{mpq.c@{mpq.c}!main@{main}}
+\index{main@{main}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}main (argc, {\bf argv})}\label{mpq_8c_a18}
+
+
+
+
+\subsection{Variable Documentation}
+\index{mpq.c@{mpq.c}!aa_table@{aa\_\-table}}
+\index{aa_table@{aa\_\-table}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int aa\_\-table[$\,$]}\label{mpq_8c_a15}
+
+
+{\bf Initial value:}
+
+\footnotesize\begin{verbatim} {
+    -1, 0, 0, 0, 0, 0, 0, 0, 0,-1, 0, 0,-1, 0, 0, 0,
+     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    -1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 0, 9,10,11,12, 0,
+    13,14,15,16,17, 0,18,19,20,21, 4, 0, 0, 0, 0, 0,
+     0, 1, 3, 2, 3, 4, 5, 6, 7, 8, 0, 9,10,11,12, 0,
+    13,14,15,16,17, 0,18,19,20,21, 4, 0, 0, 0, 0, 0,
+}\end{verbatim}\normalsize 
+\index{mpq.c@{mpq.c}!argv@{argv}}
+\index{argv@{argv}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ argv}\label{mpq_8c_a16}
+
+
+\index{mpq.c@{mpq.c}!buff@{buff}}
+\index{buff@{buff}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char buff[MAXLINE + 1]}\label{mpq_8c_a7}
+
+
+\index{mpq.c@{mpq.c}!db@{db}}
+\index{db@{db}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ db}\label{mpq_8c_a12}
+
+
+\index{mpq.c@{mpq.c}!dbnam@{dbnam}}
+\index{dbnam@{dbnam}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char dbnam[512]}\label{mpq_8c_a10}
+
+
+\index{mpq.c@{mpq.c}!idx@{idx}}
+\index{idx@{idx}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long idx}\label{mpq_8c_a9}
+
+
+\index{mpq.c@{mpq.c}!ifil@{ifil}}
+\index{ifil@{ifil}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ ifil}\label{mpq_8c_a13}
+
+
+\index{mpq.c@{mpq.c}!index@{index}}
+\index{index@{index}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long index}\label{mpq_8c_a8}
+
+
+\index{mpq.c@{mpq.c}!name@{name}}
+\index{name@{name}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char name[MAXLINE + 1]}\label{mpq_8c_a6}
+
+
+\index{mpq.c@{mpq.c}!out@{out}}
+\index{out@{out}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ out}\label{mpq_8c_a14}
+
+
+\index{mpq.c@{mpq.c}!outnam@{outnam}}
+\index{outnam@{outnam}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char outnam[512]}\label{mpq_8c_a11}
+
+
+\index{mpq.c@{mpq.c}!scores@{scores}}
+\index{scores@{scores}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int scores[ 20000 ]}\label{mpq_8c_a4}
+
+
+\index{mpq.c@{mpq.c}!sequence@{sequence}}
+\index{sequence@{sequence}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char sequence[ 20001 ]}\label{mpq_8c_a5}
+
+
+\index{mpq.c@{mpq.c}!sub@{sub}}
+\index{sub@{sub}!mpq.c@{mpq.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}$\ast$ sub}\label{mpq_8c_a17}
+
+

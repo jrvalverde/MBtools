@@ -1,0 +1,177 @@
+\section{Torture.c File Reference}
+\label{Torture_8c}\index{Torture.c@{Torture.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$stddef.h$>$}\par
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$malloc.h$>$}\par
+{\tt \#include $<$memory.h$>$}\par
+{\tt \#include \char`\"{}MCon.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MAXTYPES}\ 20
+\item 
+\#define {\bf MAXINSTANCES}\ 500
+\item 
+\#define {\bf BASESIZE}\ 25
+\item 
+\#define {\bf MAXEXTRA}\ 25
+\item 
+\#define {\bf NPASSES}\ 50000
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf torture} (void)
+\item 
+void {\bf error} (char $\ast$)
+\item 
+void {\bf make\-New\-Type} (void)
+\item 
+void {\bf make\-New\-Object} (void)
+\item 
+void {\bf free\-Some\-Object} (void)
+\item 
+int {\bf randle} (int)
+\item 
+void {\bf debug\-Con} (char $\ast$)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>{\bf MCon} {\bf mCon}\\
+\>long {\bf theID}\\
+\} {\bf regType} [MAXTYPES]
+\end{tabbing}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>void $\ast$ {\bf mObj}\\
+\>long {\bf typeID}\\
+\} {\bf mBag} [MAXINSTANCES]
+\end{tabbing}
+\item 
+int {\bf n\-Instances} = 0
+\item 
+int {\bf n\-Types} = 0
+\item 
+long {\bf serial\-ID} = 1000
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{Torture.c@{Torture.c}!BASESIZE@{BASESIZE}}
+\index{BASESIZE@{BASESIZE}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define BASESIZE\ 25}\label{Torture_8c_a2}
+
+
+\index{Torture.c@{Torture.c}!MAXEXTRA@{MAXEXTRA}}
+\index{MAXEXTRA@{MAXEXTRA}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXEXTRA\ 25}\label{Torture_8c_a3}
+
+
+\index{Torture.c@{Torture.c}!MAXINSTANCES@{MAXINSTANCES}}
+\index{MAXINSTANCES@{MAXINSTANCES}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXINSTANCES\ 500}\label{Torture_8c_a1}
+
+
+\index{Torture.c@{Torture.c}!MAXTYPES@{MAXTYPES}}
+\index{MAXTYPES@{MAXTYPES}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAXTYPES\ 20}\label{Torture_8c_a0}
+
+
+\index{Torture.c@{Torture.c}!NPASSES@{NPASSES}}
+\index{NPASSES@{NPASSES}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define NPASSES\ 50000}\label{Torture_8c_a4}
+
+
+
+
+\subsection{Function Documentation}
+\index{Torture.c@{Torture.c}!debugCon@{debugCon}}
+\index{debugCon@{debugCon}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void debug\-Con (char $\ast$)}\label{Torture_8c_a20}
+
+
+\index{Torture.c@{Torture.c}!error@{error}}
+\index{error@{error}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void error (char $\ast$)}\label{Torture_8c_a15}
+
+
+\index{Torture.c@{Torture.c}!freeSomeObject@{freeSomeObject}}
+\index{freeSomeObject@{freeSomeObject}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void free\-Some\-Object (void)}\label{Torture_8c_a18}
+
+
+\index{Torture.c@{Torture.c}!makeNewObject@{makeNewObject}}
+\index{makeNewObject@{makeNewObject}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void make\-New\-Object (void)}\label{Torture_8c_a17}
+
+
+\index{Torture.c@{Torture.c}!makeNewType@{makeNewType}}
+\index{makeNewType@{makeNewType}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void make\-New\-Type (void)}\label{Torture_8c_a16}
+
+
+\index{Torture.c@{Torture.c}!randle@{randle}}
+\index{randle@{randle}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}randle (int)}\label{Torture_8c_a19}
+
+
+\index{Torture.c@{Torture.c}!torture@{torture}}
+\index{torture@{torture}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void torture (void)}\label{Torture_8c_a14}
+
+
+
+
+\subsection{Variable Documentation}
+\index{Torture.c@{Torture.c}!mBag@{mBag}}
+\index{mBag@{mBag}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   m\-Bag[MAXINSTANCES]}\label{Torture_8c_a10}
+
+
+\index{Torture.c@{Torture.c}!mCon@{mCon}}
+\index{mCon@{mCon}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf MCon} m\-Con}\label{Torture_8c_a5}
+
+
+\index{Torture.c@{Torture.c}!mObj@{mObj}}
+\index{mObj@{mObj}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ m\-Obj}\label{Torture_8c_a8}
+
+
+\index{Torture.c@{Torture.c}!nInstances@{nInstances}}
+\index{nInstances@{nInstances}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int n\-Instances = 0}\label{Torture_8c_a11}
+
+
+\index{Torture.c@{Torture.c}!nTypes@{nTypes}}
+\index{nTypes@{nTypes}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int n\-Types = 0}\label{Torture_8c_a12}
+
+
+\index{Torture.c@{Torture.c}!regType@{regType}}
+\index{regType@{regType}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   reg\-Type[MAXTYPES]}\label{Torture_8c_a7}
+
+
+\index{Torture.c@{Torture.c}!serialID@{serialID}}
+\index{serialID@{serialID}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long serial\-ID = 1000}\label{Torture_8c_a13}
+
+
+\index{Torture.c@{Torture.c}!theID@{theID}}
+\index{theID@{theID}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long the\-ID}\label{Torture_8c_a6}
+
+
+\index{Torture.c@{Torture.c}!typeID@{typeID}}
+\index{typeID@{typeID}!Torture.c@{Torture.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}long type\-ID}\label{Torture_8c_a9}
+
+

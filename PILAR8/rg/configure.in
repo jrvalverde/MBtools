@@ -1,0 +1,18 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(P_graph1.c)
+AM_INIT_AUTOMAKE(pilar,8.0)
+AM_CONFIG_HEADER(../config.h)
+
+dnl Checks for programs.
+AC_PROG_CC
+AM_PROG_LIBTOOL
+
+dnl Checks for libraries.
+
+dnl Checks for header files.
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+
+dnl Checks for library functions.
+
+AC_OUTPUT(Makefile)

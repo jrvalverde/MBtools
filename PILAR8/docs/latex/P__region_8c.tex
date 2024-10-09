@@ -1,0 +1,113 @@
+\section{P\_\-region.c File Reference}
+\label{P__region_8c}\index{P_region.c@{P\_\-region.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$ctype.h$>$}\par
+{\tt \#include $<$math.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-list.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-utils.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf skip\_\-gap} (float $\ast$p\_\-aaval, int {\bf p\_\-seqlen})
+\item 
+void {\bf calc\_\-length} (float $\ast$p\_\-aaval, int {\bf p\_\-seqlen})
+\item 
+void {\bf annotate\_\-region} ({\bf list\_\-t} p\_\-regions)
+\item 
+{\bf status} {\bf find\_\-regions} ({\bf prot}, {\bf d}) {\bf protein\_\-t} $\ast${\bf prot}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+{\bf counter} {\bf pos} = 0
+\item 
+{\bf counter} {\bf length} = 0
+\item 
+{\bf counter} {\bf beginning} = 0
+\item 
+float {\bf threshold} = 0.0
+\item 
+char {\bf find} [$\,$] = \char`\"{}FIND REGIONS\char`\"{}
+\item 
+char {\bf annotate} [$\,$] = \char`\"{}ANNOTATE REGION\char`\"{}
+\item 
+char {\bf nem} [$\,$] = \char`\"{}NOT ENOUGH MEMORY\char`\"{}
+\item 
+{\bf descriptor\_\-t} $\ast$ {\bf d}
+\item 
+int {\bf p\_\-seqlen}
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{P_region.c@{P\_\-region.c}!annotate_region@{annotate\_\-region}}
+\index{annotate_region@{annotate\_\-region}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void annotate\_\-region ({\bf list\_\-t} {\em p\_\-regions})\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a11}
+
+
+\index{P_region.c@{P\_\-region.c}!calc_length@{calc\_\-length}}
+\index{calc_length@{calc\_\-length}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void calc\_\-length (float $\ast$ {\em p\_\-aaval}, int {\em p\_\-seqlen})\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a10}
+
+
+\index{P_region.c@{P\_\-region.c}!find_regions@{find\_\-regions}}
+\index{find_regions@{find\_\-regions}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf status} find\_\-regions ({\bf prot}, {\bf d})}\label{P__region_8c_a12}
+
+
+\index{P_region.c@{P\_\-region.c}!skip_gap@{skip\_\-gap}}
+\index{skip_gap@{skip\_\-gap}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void skip\_\-gap (float $\ast$ {\em p\_\-aaval}, int {\em p\_\-seqlen})\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a9}
+
+
+
+
+\subsection{Variable Documentation}
+\index{P_region.c@{P\_\-region.c}!annotate@{annotate}}
+\index{annotate@{annotate}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char annotate[$\,$] = \char`\"{}ANNOTATE REGION\char`\"{}\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a5}
+
+
+\index{P_region.c@{P\_\-region.c}!beginning@{beginning}}
+\index{beginning@{beginning}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf counter} beginning = 0\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a2}
+
+
+\index{P_region.c@{P\_\-region.c}!d@{d}}
+\index{d@{d}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float $\ast$ d}\label{P__region_8c_a7}
+
+
+\index{P_region.c@{P\_\-region.c}!find@{find}}
+\index{find@{find}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char find[$\,$] = \char`\"{}FIND REGIONS\char`\"{}\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a4}
+
+
+\index{P_region.c@{P\_\-region.c}!length@{length}}
+\index{length@{length}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf counter} length = 0\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a1}
+
+
+\index{P_region.c@{P\_\-region.c}!nem@{nem}}
+\index{nem@{nem}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char nem[$\,$] = \char`\"{}NOT ENOUGH MEMORY\char`\"{}\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a6}
+
+
+\index{P_region.c@{P\_\-region.c}!p_seqlen@{p\_\-seqlen}}
+\index{p_seqlen@{p\_\-seqlen}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int p\_\-seqlen}\label{P__region_8c_a8}
+
+
+\index{P_region.c@{P\_\-region.c}!pos@{pos}}
+\index{pos@{pos}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf counter} pos = 0\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a0}
+
+
+\index{P_region.c@{P\_\-region.c}!threshold@{threshold}}
+\index{threshold@{threshold}!P_region.c@{P\_\-region.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}float threshold = 0.0\hspace{0.3cm}{\tt  [static]}}\label{P__region_8c_a3}
+
+

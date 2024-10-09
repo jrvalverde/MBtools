@@ -1,0 +1,153 @@
+\section{P\_\-types.h File Reference}
+\label{P__types_8h}\index{P_types.h@{P\_\-types.h}}
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf dbly\_\-node}
+\item 
+struct {\bf descriptor\_\-t}
+\item 
+struct {\bf distance\_\-rule\_\-t}
+\item 
+struct {\bf dl\_\-head\_\-t}
+\item 
+struct {\bf feature\_\-t}
+\item 
+struct {\bf fifo\_\-t}
+\item 
+struct {\bf index\_\-t}
+\item 
+struct {\bf l\_\-head}
+\item 
+struct {\bf l\_\-node}
+\item 
+struct {\bf lifo\_\-t}
+\item 
+struct {\bf profile\_\-rule\_\-t}
+\item 
+struct {\bf protein\_\-t}
+\item 
+struct {\bf q\_\-node}
+\item 
+struct {\bf region\_\-t}
+\item 
+struct {\bf rule\_\-t}
+\item 
+struct {\bf s\_\-node}
+\item 
+struct {\bf sequence\_\-rule\_\-t}
+\item 
+struct {\bf st\_\-queue}
+\item 
+struct {\bf token\_\-t}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf generic}\ void $\ast$
+\item 
+\#define {\bf info\_\-t}\ void
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef int {\bf counter}
+\item 
+typedef float {\bf distance\_\-t}
+\item 
+typedef char {\bf key\_\-t} [KEYLEN+1]
+\item 
+typedef {\bf st\_\-queue} $\ast$ {\bf queue\_\-t}
+\item 
+typedef {\bf q\_\-node} {\bf q\_\-node\_\-t}
+\item 
+typedef {\bf l\_\-node} {\bf l\_\-node\_\-t}
+\item 
+typedef {\bf l\_\-head} {\bf l\_\-head\_\-t}
+\item 
+typedef {\bf l\_\-head\_\-t} $\ast$ {\bf list\_\-t}
+\item 
+typedef {\bf dbly\_\-node} {\bf dl\_\-node\_\-t}
+\item 
+typedef {\bf dl\_\-head\_\-t} $\ast$ {\bf dlist\_\-t}
+\item 
+typedef {\bf s\_\-node} {\bf s\_\-node\_\-t}
+\item 
+typedef float {\bf feature\_\-table\_\-t} [AA\_\-NUMBER]
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_types.h@{P\_\-types.h}!generic@{generic}}
+\index{generic@{generic}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define generic\ void $\ast$}\label{P__types_8h_a0}
+
+
+\index{P_types.h@{P\_\-types.h}!info_t@{info\_\-t}}
+\index{info_t@{info\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define info\_\-t\ void}\label{P__types_8h_a1}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{P_types.h@{P\_\-types.h}!counter@{counter}}
+\index{counter@{counter}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef int counter}\label{P__types_8h_a2}
+
+
+\index{P_types.h@{P\_\-types.h}!distance_t@{distance\_\-t}}
+\index{distance_t@{distance\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef float distance\_\-t}\label{P__types_8h_a3}
+
+
+\index{P_types.h@{P\_\-types.h}!dl_node_t@{dl\_\-node\_\-t}}
+\index{dl_node_t@{dl\_\-node\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf dbly\_\-node} dl\_\-node\_\-t}\label{P__types_8h_a10}
+
+
+\index{P_types.h@{P\_\-types.h}!dlist_t@{dlist\_\-t}}
+\index{dlist_t@{dlist\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf dl\_\-head\_\-t}$\ast$ dlist\_\-t}\label{P__types_8h_a11}
+
+
+\index{P_types.h@{P\_\-types.h}!feature_table_t@{feature\_\-table\_\-t}}
+\index{feature_table_t@{feature\_\-table\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef float feature\_\-table\_\-t[AA\_\-NUMBER]}\label{P__types_8h_a13}
+
+
+\index{P_types.h@{P\_\-types.h}!key_t@{key\_\-t}}
+\index{key_t@{key\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef char key\_\-t[KEYLEN + 1]}\label{P__types_8h_a4}
+
+
+\index{P_types.h@{P\_\-types.h}!l_head_t@{l\_\-head\_\-t}}
+\index{l_head_t@{l\_\-head\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf l\_\-head} l\_\-head\_\-t}\label{P__types_8h_a8}
+
+
+\index{P_types.h@{P\_\-types.h}!l_node_t@{l\_\-node\_\-t}}
+\index{l_node_t@{l\_\-node\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf l\_\-node} l\_\-node\_\-t}\label{P__types_8h_a7}
+
+
+\index{P_types.h@{P\_\-types.h}!list_t@{list\_\-t}}
+\index{list_t@{list\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf l\_\-head\_\-t}$\ast$ list\_\-t}\label{P__types_8h_a9}
+
+
+\index{P_types.h@{P\_\-types.h}!q_node_t@{q\_\-node\_\-t}}
+\index{q_node_t@{q\_\-node\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf q\_\-node}  q\_\-node\_\-t}\label{P__types_8h_a6}
+
+
+\index{P_types.h@{P\_\-types.h}!queue_t@{queue\_\-t}}
+\index{queue_t@{queue\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf st\_\-queue}$\ast$ queue\_\-t}\label{P__types_8h_a5}
+
+
+\index{P_types.h@{P\_\-types.h}!s_node_t@{s\_\-node\_\-t}}
+\index{s_node_t@{s\_\-node\_\-t}!P_types.h@{P\_\-types.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf s\_\-node}	 s\_\-node\_\-t}\label{P__types_8h_a12}
+
+

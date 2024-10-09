@@ -1,0 +1,26 @@
+; Nozaki, Y. and Tanford, C. (1971) The solubility of amino
+; acids and two glycine peptides in aqueous ethanol and dioxane
+; solutions. J. Biol. Chem. 246, 2211-2217
+;
+; Taken from Von Heijne, Sequence analysis in Molecular Biology
+; pg. 99
+Ala	0.5
+Cys	N/A
+Asp	N/A
+Glu	N/A
+Phe	2.5
+Gly	0.0
+His	0.5
+Ile	2.6
+Lys	N/A
+Leu	1.8
+Met	1.3
+Asn	N/A
+Pro	N/A
+Gln	N/A
+Arg	N/A
+Ser	-0.3
+Thr	0.4
+Val	1.5
+Trp	3.4
+Tyr	2.3

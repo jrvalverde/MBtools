@@ -1,0 +1,160 @@
+\section{Pilar\_\-6.c File Reference}
+\label{Pilar__6_8c}\index{Pilar_6.c@{Pilar\_\-6.c}}
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$errno.h$>$}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-defs.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-types.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-extern.h\char`\"{}}\par
+{\tt \#include \char`\"{}P\_\-global.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf MIN\_\-ARG\_\-COUNT}\ 7
+\item 
+\#define {\bf DEBUG}\ 0
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf save\_\-name} (char $\ast$)
+\item 
+void {\bf show\_\-usage} ()
+\item 
+void {\bf parse\_\-arguments} (int, char $\ast$[$\,$])
+\item 
+int {\bf new\_\-protein} ({\bf protein\_\-t} $\ast$)
+\item 
+int {\bf check\_\-protein} ({\bf protein\_\-t} $\ast$, {\bf descriptor\_\-t} $\ast$)
+\item 
+void {\bf save\_\-protein} ({\bf protein\_\-t} $\ast$)
+\item 
+{\bf main} (argc, {\bf argv}) int argc
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+char {\bf lib\_\-file} [MAXPATH+1]
+\item 
+char {\bf ind\_\-file} [MAXPATH+1]
+\item 
+char {\bf out\_\-file} [MAXPATH+1]
+\item 
+char {\bf dsc\_\-file} [MAXPATH+1]
+\item 
+FILE $\ast$ {\bf out\_\-fp}
+\item 
+{\bf flag} {\bf ind\_\-flag} = NO
+\item 
+char {\bf program} [MAXPATH+1]
+\item 
+{\bf db\_\-t} {\bf database}
+\item 
+char $\ast$ {\bf argv} [$\,$]
+\item 
+{\bf descriptor\_\-t} $\ast$ {\bf d}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{Pilar_6.c@{Pilar\_\-6.c}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DEBUG\ 0}\label{Pilar__6_8c_a1}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!MIN_ARG_COUNT@{MIN\_\-ARG\_\-COUNT}}
+\index{MIN_ARG_COUNT@{MIN\_\-ARG\_\-COUNT}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MIN\_\-ARG\_\-COUNT\ 7}\label{Pilar__6_8c_a0}
+
+
+
+
+\subsection{Function Documentation}
+\index{Pilar_6.c@{Pilar\_\-6.c}!check_protein@{check\_\-protein}}
+\index{check_protein@{check\_\-protein}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int check\_\-protein ({\bf protein\_\-t} $\ast$, {\bf descriptor\_\-t} $\ast$)}\label{Pilar__6_8c_a16}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!main@{main}}
+\index{main@{main}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}main (argc, {\bf argv})}\label{Pilar__6_8c_a18}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!new_protein@{new\_\-protein}}
+\index{new_protein@{new\_\-protein}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int new\_\-protein ({\bf protein\_\-t} $\ast$)}\label{Pilar__6_8c_a15}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!parse_arguments@{parse\_\-arguments}}
+\index{parse_arguments@{parse\_\-arguments}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void parse\_\-arguments (int, char $\ast$[$\,$])}\label{Pilar__6_8c_a14}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!save_name@{save\_\-name}}
+\index{save_name@{save\_\-name}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-name (char $\ast$)}\label{Pilar__6_8c_a12}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!save_protein@{save\_\-protein}}
+\index{save_protein@{save\_\-protein}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void save\_\-protein ({\bf protein\_\-t} $\ast$)}\label{Pilar__6_8c_a17}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!show_usage@{show\_\-usage}}
+\index{show_usage@{show\_\-usage}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void show\_\-usage ()}\label{Pilar__6_8c_a13}
+
+
+
+
+\subsection{Variable Documentation}
+\index{Pilar_6.c@{Pilar\_\-6.c}!argv@{argv}}
+\index{argv@{argv}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ argv[$\,$]}\label{Pilar__6_8c_a10}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!d@{d}}
+\index{d@{d}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf descriptor\_\-t}$\ast$ d}\label{Pilar__6_8c_a11}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!database@{database}}
+\index{database@{database}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf db\_\-t} database\hspace{0.3cm}{\tt  [static]}}\label{Pilar__6_8c_a9}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!dsc_file@{dsc\_\-file}}
+\index{dsc_file@{dsc\_\-file}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char dsc\_\-file[MAXPATH + 1]}\label{Pilar__6_8c_a5}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!ind_file@{ind\_\-file}}
+\index{ind_file@{ind\_\-file}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char ind\_\-file[MAXPATH + 1]}\label{Pilar__6_8c_a3}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!ind_flag@{ind\_\-flag}}
+\index{ind_flag@{ind\_\-flag}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf flag} ind\_\-flag = NO}\label{Pilar__6_8c_a7}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!lib_file@{lib\_\-file}}
+\index{lib_file@{lib\_\-file}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char lib\_\-file[MAXPATH + 1]}\label{Pilar__6_8c_a2}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!out_file@{out\_\-file}}
+\index{out_file@{out\_\-file}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char out\_\-file[MAXPATH + 1]}\label{Pilar__6_8c_a4}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!out_fp@{out\_\-fp}}
+\index{out_fp@{out\_\-fp}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FILE$\ast$ out\_\-fp}\label{Pilar__6_8c_a6}
+
+
+\index{Pilar_6.c@{Pilar\_\-6.c}!program@{program}}
+\index{program@{program}!Pilar_6.c@{Pilar\_\-6.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}char program[MAXPATH + 1]\hspace{0.3cm}{\tt  [static]}}\label{Pilar__6_8c_a8}
+
+

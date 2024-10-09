@@ -1,0 +1,161 @@
+\section{P\_\-gtree.h File Reference}
+\label{P__gtree_8h}\index{P_gtree.h@{P\_\-gtree.h}}
+\subsection*{Compounds}
+\begin{CompactItemize}
+\item 
+struct {\bf binary\_\-node}
+\item 
+struct {\bf dynamic\_\-node}
+\item 
+struct {\bf forest\_\-head}
+\item 
+struct {\bf forest\_\-node}
+\item 
+struct {\bf n\_\-ary\_\-node}
+\item 
+struct {\bf triple\_\-node}
+\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf info\_\-t}\ void
+\item 
+\#define {\bf MAX}\ 10
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf binary\_\-node} $\ast$ {\bf b\_\-tree\_\-t}
+\item 
+typedef {\bf triple\_\-node} $\ast$ {\bf t\_\-tree\_\-t}
+\item 
+typedef {\bf n\_\-ary\_\-node} $\ast$ {\bf n\_\-tree\_\-t}
+\item 
+typedef {\bf dynamic\_\-node} $\ast$ {\bf g\_\-tree\_\-t}
+\item 
+typedef {\bf forest\_\-node} {\bf forest\_\-n\_\-t}
+\item 
+typedef {\bf forest\_\-head} $\ast$ {\bf forest\_\-t}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+{\bf g\_\-tree\_\-t} {\bf init\_\-gtree} (info\_\-t $\ast$, {\bf g\_\-tree\_\-t})
+\item 
+{\bf g\_\-tree\_\-t} {\bf new\_\-gtree} (info\_\-t $\ast$)
+\item 
+{\bf bool} {\bf add\_\-child} (info\_\-t $\ast$, {\bf g\_\-tree\_\-t})
+\item 
+{\bf bool} {\bf add\_\-sibling} (info\_\-t $\ast$, {\bf g\_\-tree\_\-t})
+\item 
+{\bf l\_\-node\_\-t} $\ast$ {\bf leftmost} ({\bf g\_\-tree\_\-t})
+\item 
+{\bf g\_\-tree\_\-t} {\bf root} ({\bf g\_\-tree\_\-t})
+\item 
+{\bf is\_\-leaf} ({\bf g\_\-tree\_\-t})
+\item 
+void {\bf pre\_\-order} ({\bf g\_\-tree\_\-t}, void($\ast$)())
+\item 
+void {\bf in\_\-order} ({\bf g\_\-tree\_\-t}, void($\ast$)())
+\item 
+void {\bf post\_\-order} ({\bf g\_\-tree\_\-t}, void($\ast$)())
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{P_gtree.h@{P\_\-gtree.h}!info_t@{info\_\-t}}
+\index{info_t@{info\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define info\_\-t\ void}\label{P__gtree_8h_a0}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!MAX@{MAX}}
+\index{MAX@{MAX}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define MAX\ 10}\label{P__gtree_8h_a1}
+
+
+
+
+\subsection{Typedef Documentation}
+\index{P_gtree.h@{P\_\-gtree.h}!b_tree_t@{b\_\-tree\_\-t}}
+\index{b_tree_t@{b\_\-tree\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf binary\_\-node}$\ast$ b\_\-tree\_\-t}\label{P__gtree_8h_a2}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!forest_n_t@{forest\_\-n\_\-t}}
+\index{forest_n_t@{forest\_\-n\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf forest\_\-node} forest\_\-n\_\-t}\label{P__gtree_8h_a6}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!forest_t@{forest\_\-t}}
+\index{forest_t@{forest\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf forest\_\-head}$\ast$ forest\_\-t}\label{P__gtree_8h_a7}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!g_tree_t@{g\_\-tree\_\-t}}
+\index{g_tree_t@{g\_\-tree\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf dynamic\_\-node}$\ast$ g\_\-tree\_\-t}\label{P__gtree_8h_a5}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!n_tree_t@{n\_\-tree\_\-t}}
+\index{n_tree_t@{n\_\-tree\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf n\_\-ary\_\-node}$\ast$ n\_\-tree\_\-t}\label{P__gtree_8h_a4}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!t_tree_t@{t\_\-tree\_\-t}}
+\index{t_tree_t@{t\_\-tree\_\-t}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf triple\_\-node}$\ast$ t\_\-tree\_\-t}\label{P__gtree_8h_a3}
+
+
+
+
+\subsection{Function Documentation}
+\index{P_gtree.h@{P\_\-gtree.h}!add_child@{add\_\-child}}
+\index{add_child@{add\_\-child}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} add\_\-child (info\_\-t $\ast$, {\bf g\_\-tree\_\-t})}\label{P__gtree_8h_a10}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!add_sibling@{add\_\-sibling}}
+\index{add_sibling@{add\_\-sibling}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} add\_\-sibling (info\_\-t $\ast$, {\bf g\_\-tree\_\-t})}\label{P__gtree_8h_a11}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!in_order@{in\_\-order}}
+\index{in_order@{in\_\-order}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void in\_\-order ({\bf g\_\-tree\_\-t}, void($\ast$)())}\label{P__gtree_8h_a16}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!init_gtree@{init\_\-gtree}}
+\index{init_gtree@{init\_\-gtree}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf g\_\-tree\_\-t} init\_\-gtree (info\_\-t $\ast$, {\bf g\_\-tree\_\-t})}\label{P__gtree_8h_a8}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!is_leaf@{is\_\-leaf}}
+\index{is_leaf@{is\_\-leaf}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}is\_\-leaf ({\bf g\_\-tree\_\-t})}\label{P__gtree_8h_a14}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!leftmost@{leftmost}}
+\index{leftmost@{leftmost}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf l\_\-node\_\-t}$\ast$ leftmost ({\bf g\_\-tree\_\-t})}\label{P__gtree_8h_a12}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!new_gtree@{new\_\-gtree}}
+\index{new_gtree@{new\_\-gtree}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf g\_\-tree\_\-t} new\_\-gtree (info\_\-t $\ast$)}\label{P__gtree_8h_a9}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!post_order@{post\_\-order}}
+\index{post_order@{post\_\-order}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void post\_\-order ({\bf g\_\-tree\_\-t}, void($\ast$)())}\label{P__gtree_8h_a17}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!pre_order@{pre\_\-order}}
+\index{pre_order@{pre\_\-order}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void pre\_\-order ({\bf g\_\-tree\_\-t}, void($\ast$)())}\label{P__gtree_8h_a15}
+
+
+\index{P_gtree.h@{P\_\-gtree.h}!root@{root}}
+\index{root@{root}!P_gtree.h@{P\_\-gtree.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf g\_\-tree\_\-t} root ({\bf g\_\-tree\_\-t})}\label{P__gtree_8h_a13}
+
+
